@@ -11,14 +11,16 @@ soulee, 22, 08, 22
 
 ## Exercise 01
 ```
-id -G -n $FT_USER | tr ' ' ','
+id -G -n $FT_USER | tr ' ' ',' | tr -d '\n'
 ```
 
 With tr command, replace blank into ','
 
 -G option displays different group ids
 
--n option displays name of group id 
+-n option displays name of group id  
+
+remove new line character
 
 
 ## Excerise 02
@@ -39,7 +41,7 @@ basename extracts filename from directory
 ## Excercise 03
 
 ```
-find . | wc -l
+find . | wc -l | tr -d ' '
 ```
 
 Print number of lines returned from find . (Recursively find all of directories, files cuz, there is no type-option)
@@ -60,6 +62,8 @@ $DATA | awk '/ether/'{print $1}
 will return aaaa
 
 ## Exercise 05
+\"\\\?\$\*\'MaRViN\'\*\$\?\\\"
+
 Just contain quote, you can make file with special characters
 
 ## Excercise 06
@@ -75,7 +79,7 @@ By default, each line of input is echoed to the standard output
 
 ## Excercise 07
 ```
-cat /etc/passwd | grep -v '\#' | sed -n '1d;p' | cut -d ':' -f 1 | rev | sort -r | awk 'NR>=ENVIRON["FT_LINE1"] && NR <= ENVIRON["FT_LINE2"]' | xargs | sed 's/ /,/g' | sed 's/$/./'
+cat /etc/passwd | grep -v '\#' | awk 'NR%2==0' | cut -d ':' -f 1 | rev | sort -r | awk 'NR>=ENVIRON["FT_LINE1"] && NR <= ENVIRON["FT_LINE2"]' | xargs | sed 's/ /, /g' | sed 's/$/./' | tr -d '\n'
 ```
 
 ``` grep -v '/#' ```
@@ -100,7 +104,7 @@ cat /etc/passwd | grep -v '\#' | sed -n '1d;p' | cut -d ':' -f 1 | rev | sort -r
 ```sed 's/$/./'``` add . in end of line
 
 ```
-export FT_LINE1=7
+export FT_LINE1=7 \
 export FT_LINE2=15
 ```
 

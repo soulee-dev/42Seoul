@@ -1,2 +1,2 @@
 #!/bin/sh
-ls -l | sed -n 'n;p'
+ls -l | sed -n 'p;n'

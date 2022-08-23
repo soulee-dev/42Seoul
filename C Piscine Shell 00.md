@@ -32,9 +32,9 @@ touch -h -t
 -a change only the access time  
 -m change only the modified time
 
-## Excercise 04
+## [Edited] Excercise 04
 ```
-ls -mpU
+ls -Utmp
 ```
 
 -m fill width with a comma seperated list of entries  
@@ -68,15 +68,18 @@ patch -p < sw.diff
 ```
 patch means apply the changed into specific file
 
-## Excercise 08
+## [Edited] Excercise 08
 ```
-find . -type f \( -name "*~" -o -name "#*" \) -delete
+find . -type f \( -name "*~" -o -name "#*#" \) -delete -print
 ```
-
-**[warn] -delete**
 
 -o means or  
 -exec means excute command  
 \\; means end of exec  
 {} means output of find  
 \\( and \\) beacuase of shell treats those character as special, we need to use escaped character
+
+## Excercise 09
+```
+0 search/42 42 42 file
+```
