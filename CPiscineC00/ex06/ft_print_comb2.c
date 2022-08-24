@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 02:51:04 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 18:23:41 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/24 21:55:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_print_comb2(void)
 	}
 }
 
-int main() {
-	ft_print_comb2();
-	return 0;
-}
+// int main() {
+// 	ft_print_comb2();
+// 	return 0;
+// }

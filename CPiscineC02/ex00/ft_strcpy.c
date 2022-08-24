@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 20:45:54 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 22:26:50 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/24 22:03:13 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/24 22:20:15 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_sort_int_tab(int *tab, int size)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int		i;
-	int		j;
-	int		tmp;
+	char	*ptr;
 
-	i = 0;
-	while (i < size)
+	ptr = dest;
+	while (*src != '\0')
 	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (tab[i] > tab[j])
-			{
-				tmp = tab[i];
-				tab[i] = tab[j];
-				tab[j] = tmp;
-			}
-			j++;
-		}
-		i++;
+		*dest++ = *src++;
 	}
+	return (ptr);
 }
