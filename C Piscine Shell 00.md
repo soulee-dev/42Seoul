@@ -45,12 +45,12 @@ ls -Utmp
 ```
 git log --format='%H' -n 5
 ```
-```git log``` load log from commited data  
+```git log``` load log from commited data 
 -n number of lines  
 --format pretty print the contents of the commit  
 %# means commit hash
 
-## Excercise 06
+## Excercise 06p
 ```
 git ls-files --others --ignored --exclude-standard 
 ```
@@ -65,6 +65,7 @@ ls-files show information about files in the index and the working tree
 ## Excercise 07
 ```
 patch -p < sw.diff
+patch a sw.diff -o b
 ```
 patch means apply the changed into specific file
 

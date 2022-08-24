@@ -1,7 +1,26 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/23 23:26:39 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/24 18:24:18 by soulee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_print_numbers(void) {
-    for(int i = 0; i < 10; i++) {
-        printf("%d", i);
-    }
+#include <unistd.h>
+
+void	ft_print_numbers(void)
+{
+	char	c;
+	int		i;
+
+	while (i < 10)
+	{
+		c = (48 + i);
+		write(1, &c, 1);
+		i++;
+	}
 }

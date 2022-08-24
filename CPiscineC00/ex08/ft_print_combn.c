@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 23:26:32 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 18:24:40 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/24 15:34:02 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/24 18:47:11 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+void	ft_print_combn(int n)
 {
-	int		i;
-	char	c;
+	char	str[10];
 
-	i = 0;
-	while (i < 26)
-	{
-		c = (97 + i);
-		write(1, &c, 1);
-		i++;
-	}
+	ft_get_combn(&str, n, -1);
+}
+
+void	ft_get_combn(char str[], int depth, int before_num)
+{
+	
+}
+
+int main()
+{
+
 }

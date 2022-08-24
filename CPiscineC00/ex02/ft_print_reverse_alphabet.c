@@ -1,8 +1,26 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/23 23:26:36 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/24 02:08:32 by soulee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_print_reverse_alphabet(void) {
+#include <unistd.h>
 
-    for(int i = 0; i < 25; i++) {
-        printf("%c", 122 - i);
-    }
+void	ft_print_reverse_alphabet(void)
+{
+	char	c;
+	int		i;
+
+	while (i < 26)
+	{
+		c = (122 - i);
+		write(1, &c, 1);
+		i++;
+	}
 }

@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 23:26:32 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 18:24:40 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/24 20:45:54 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/24 21:10:50 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+void	ft_sort_int_tab(int *tab, int size)
 {
 	int		i;
-	char	c;
+	int		j;
+	int		tmp;
 
 	i = 0;
-	while (i < 26)
+	while (i < size)
 	{
-		c = (97 + i);
-		write(1, &c, 1);
+		j = i + 1;
+		while (j < size)
+		{
+			if (tab[i] > tab[j])
+			{
+				tmp = tab[i];
+				tab[i] = tab[j];
+				tab[j] = tmp;
+			}
+			j++;
+		}
 		i++;
 	}
 }

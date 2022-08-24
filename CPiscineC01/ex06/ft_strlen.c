@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 23:26:32 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 18:24:40 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/24 19:27:24 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/24 19:43:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+int	ft_strlen(char *str)
 {
-	int		i;
-	char	c;
+	int		count;
 
-	i = 0;
-	while (i < 26)
+	count = 0;
+	while (*str != '\0')
 	{
-		c = (97 + i);
-		write(1, &c, 1);
-		i++;
+		count++;
+		str++;
 	}
+	return	count;
 }

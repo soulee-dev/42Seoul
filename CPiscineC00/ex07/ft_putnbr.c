@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 23:26:32 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 18:24:40 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/23 23:43:36 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/24 18:39:13 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+void	ft_putnbr(int nb)
 {
-	int		i;
-	char	c;
+	char	str[128];
+	int		count;
+	int		tmp;
 
-	i = 0;
-	while (i < 26)
+	count = 0;
+	tmp = nb;
+	if (nb < 0)
 	{
-		c = (97 + i);
-		write(1, &c, 1);
-		i++;
+		nb = -nb;
+		str[0] = '-';
 	}
+	while (tmp != 0)
+	{
+		count++;
+		tmp /= 10;
+	}
+	tmp = count;
+	while (tmp != 0)
+	{
+		str[tmp] = nb % 10 + '0';
+		nb /= 10;
+		tmp --;
+	}
+	write(1, str, count + 1);
 }

@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 23:26:32 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 18:24:40 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/24 18:53:32 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/24 19:33:33 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+void	ft_putstr(char *str)
 {
-	int		i;
-	char	c;
-
-	i = 0;
-	while (i < 26)
+	while (*str != '\0')
 	{
-		c = (97 + i);
-		write(1, &c, 1);
-		i++;
+		write(1, str++, 1);
+		printf("%s", str);
 	}
 }
