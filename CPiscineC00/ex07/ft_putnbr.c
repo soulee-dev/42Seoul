@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 23:43:36 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 18:39:13 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/25 00:38:06 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void	ft_putnbr(int nb)
 
 	count = 0;
 	tmp = nb;
+	if (nb == 0)
+	{
+		write(1, "0", 1);
+	}
 	if (nb < 0)
 	{
 		nb = -nb;
@@ -33,9 +37,13 @@ void	ft_putnbr(int nb)
 	tmp = count;
 	while (tmp != 0)
 	{
-		str[tmp] = nb % 10 + '0';
+		str[tmp--] = nb % 10 + '0';
 		nb /= 10;
-		tmp --;
 	}
 	write(1, str, count + 1);
+}
+
+void main()
+{
+	ft_putnbr(-2147483647);
 }

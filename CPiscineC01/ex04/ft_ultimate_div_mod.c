@@ -6,12 +6,15 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 18:51:51 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 22:24:48 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/25 17:51:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_ultimate_div_mod(int *a, int *b)
 {
+	int	tmp;
+
+	tmp = *a;
 	*a = *a / *b;
-	*b = *a % *b;
+	*b = tmp % *b;
 }
