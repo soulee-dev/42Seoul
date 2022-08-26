@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 02:13:13 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/26 03:16:19 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/25 18:23:04 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/25 18:25:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+int	ft_str_is_printable(char *str)
 {
-	char	str[4];
+	int	result;
 
-	str[0] = '0';
-	while (str[0] <= '7')
+	result = 1;
+
+	while (str != 0)
 	{
-		str[1] = (char)(str[0] + 1);
-		while (str[1] <= '8')
+		if (!(*str >= 32 && *str <= 127))
 		{
-			str[2] = (char)(str[1] + 1);
-			while (str[2] <= '9')
-			{
-				write(1, &str, 4);
-				str[2]++;
-				if (str[0] != '7')
-				{
-					write(1, " ", 1);
-				}
-			}
-			str[1]++;
+			return (1);
 		}
-		str[0]++;
+
+		str++;
 	}
+
+	return (result);
 }

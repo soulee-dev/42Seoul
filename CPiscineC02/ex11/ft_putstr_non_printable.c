@@ -1,39 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 02:13:13 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/26 03:16:19 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/26 00:36:22 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/26 21:45:19 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+void	print_to_hex(int decimal)
 {
-	char	str[4];
+	char	hex[3]
+	int		mod;
+	int		i;
 
-	str[0] = '0';
-	while (str[0] <= '7')
+	i = 0;
+	mod = decimal % 16 < 10;
+	if (modulo < 10)
+		hex[i] = mod + '0';
+	else
+		hex[i] = (mod - 10) + 'a';
+	decimal /= 16;
+	i++;
+	if (decimal == 0)
+		break ;
+}
+
+
+void	ft_putstr_non_printable(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != 0)
 	{
-		str[1] = (char)(str[0] + 1);
-		while (str[1] <= '8')
+		if(str[i] >= 0 && str[i <= 31])
 		{
-			str[2] = (char)(str[1] + 1);
-			while (str[2] <= '9')
-			{
-				write(1, &str, 4);
-				str[2]++;
-				if (str[0] != '7')
-				{
-					write(1, " ", 1);
-				}
-			}
-			str[1]++;
+
 		}
-		str[0]++;
+		printf("%02x ",str[i]);
+		i++;
 	}
 }

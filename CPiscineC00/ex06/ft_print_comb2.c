@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 02:51:04 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 21:55:59 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/26 03:17:43 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	ft_print_comb2(void)
 			str[3] = str[7] / 10 + '0';
 			str[4] = str[7] % 10 + '0';
 			write(1, str, 5);
-			if (str[0] != '9' || str[1] != '8' || str[3] != '9' || str[4] != '9')
+			if (!(str[0] != '9' && str[1] != '8'
+					&& str[3] != '9' && str[4] != '9'))
 			{
 				write(1, ", ", 2);
 			}
@@ -38,8 +39,3 @@ void	ft_print_comb2(void)
 		str[6]++;
 	}
 }
-
-// int main() {
-// 	ft_print_comb2();
-// 	return 0;
-// }

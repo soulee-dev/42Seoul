@@ -6,23 +6,30 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 15:34:02 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/24 22:00:51 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/26 22:27:09 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_print_combn(int n)
-{
-	char	str[10];
+#include <stdio.h>
+#include <unistd.h>
 
-	ft_get_combn(&str, n, -1);
-}
-
-void	ft_get_combn(char str[], int depth, int before_num)
+void	dfs(int n, int depth, char[] arr)
 {
+	int i;
+
+	if (n == depth)
+	{
+		printf(" ");
+	}
 	
+	while (i < 10)
+	{
+		dfs(n, i++, )
+	}
 }
 
 int main()
 {
-
+	char	arr[10];
+	dfs()
 }

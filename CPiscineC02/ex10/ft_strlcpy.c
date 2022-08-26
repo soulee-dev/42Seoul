@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 02:13:13 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/26 03:16:19 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/25 23:55:03 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/26 00:30:44 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	char	str[4];
+	int	i;
 
-	str[0] = '0';
-	while (str[0] <= '7')
+	i = 0;
+	while (src[i] != 0)
 	{
-		str[1] = (char)(str[0] + 1);
-		while (str[1] <= '8')
+		if (size - 1 == i)
 		{
-			str[2] = (char)(str[1] + 1);
-			while (str[2] <= '9')
-			{
-				write(1, &str, 4);
-				str[2]++;
-				if (str[0] != '7')
-				{
-					write(1, " ", 1);
-				}
-			}
-			str[1]++;
+			break ;
 		}
-		str[0]++;
+		dest[i] = src[i];
+		i++;
 	}
+
+	return (i + 1);
 }

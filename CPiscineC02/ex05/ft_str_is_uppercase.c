@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 02:13:13 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/26 03:16:19 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/25 18:20:26 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/25 21:31:41 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+int	ft_str_is_uppercase(char *str)
 {
-	char	str[4];
+	int	result;
 
-	str[0] = '0';
-	while (str[0] <= '7')
+	result = 1;
+
+	while (*str != 0)
 	{
-		str[1] = (char)(str[0] + 1);
-		while (str[1] <= '8')
+		if (!(*str >= 65 && *str <= 90))
 		{
-			str[2] = (char)(str[1] + 1);
-			while (str[2] <= '9')
-			{
-				write(1, &str, 4);
-				str[2]++;
-				if (str[0] != '7')
-				{
-					write(1, " ", 1);
-				}
-			}
-			str[1]++;
+			result = 0;
 		}
-		str[0]++;
+
+		str++;
 	}
+
+	return (result);
 }

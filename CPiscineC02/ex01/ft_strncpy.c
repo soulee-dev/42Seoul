@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 00:18:30 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/25 00:45:55 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/26 03:15:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		i++;
 	}
 	i = 0;
-	while(i < n - count)
+	while (i < n - count)
 	{
 		dest[count - 1 - i] = 'z';
 		i++;
