@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 23:55:03 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/26 00:30:44 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/27 01:04:46 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		dest[i] = src[i];
 		i++;
 	}
-
 	return (i + 1);
 }

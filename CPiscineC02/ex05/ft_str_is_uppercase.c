@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 18:20:26 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/25 21:31:41 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/27 01:04:25 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,13 @@ int	ft_str_is_uppercase(char *str)
 	int	result;
 
 	result = 1;
-
 	while (*str != 0)
 	{
 		if (!(*str >= 65 && *str <= 90))
 		{
 			result = 0;
 		}
-
 		str++;
 	}
-
 	return (result);
 }

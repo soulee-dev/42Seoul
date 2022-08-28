@@ -1,42 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   rush03.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 23:43:36 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/28 20:34:01 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/27 16:57:17 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/27 17:19:50 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
-void	ft_putchr(char c)
+void	ft_putline(int x, char str[])
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (i < x)
+	{
+		if (i == 0)
+			ft_putchar(str[0]);
+		else if (i < x - 1)
+			ft_putchar(str[1]);
+		else
+			ft_putchar(str[2]);
+		i++;
+	}
+	ft_putchar('\n');
 }
 
-void	ft_putnbr(int nb)
+void	rush(int x, int y)
 {
-	if (nb == -2147483648)
+	int		i;
+
+	i = 0;
+	while (i < y)
 	{
-		ft_putchr('-');
-		ft_putchr('2');
-		nb = 147483648;
-	}
-	if (nb < 0)
-	{
-		ft_putchr('-');
-		nb = -nb;
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		nb = nb % 10;
-	}
-	if (nb < 10)
-	{
-		ft_putchr(nb + '0');
+		if (i == 0)
+			ft_putline(x, "ABC");
+		else if (i < y - 1)
+			ft_putline(x, "B B");
+		else
+			ft_putline(x, "ABC");
+		i ++;
 	}
 }

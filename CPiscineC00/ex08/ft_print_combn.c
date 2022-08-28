@@ -6,30 +6,37 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 15:34:02 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/26 22:27:09 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/28 15:45:34 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void	dfs(int n, int depth, char[] arr)
+void	dfs(int n, int depth, int s, char arr[])
 {
-	int i;
+	int	i;
 
+	i = s + 1;
 	if (n == depth)
 	{
-		printf(" ");
+		write(1, arr, n);
+		if (arr[0] == 10 - n + '0')
+			return ;
+		write(1, ", ", 2);
+		return ;
 	}
-	
 	while (i < 10)
 	{
-		dfs(n, i++, )
+		arr[depth] = i + '0';
+		dfs(n, depth + 1, i, arr);
+		i++;
 	}
 }
 
-int main()
+void	ft_print_combn(int n)
 {
 	char	arr[10];
-	dfs()
+
+	dfs(n, 0, -1, arr);
 }

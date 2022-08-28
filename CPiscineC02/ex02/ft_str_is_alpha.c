@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:54:58 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/25 18:10:45 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/27 01:04:03 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@ int	ft_str_is_alpha(char *str)
 	int	result;
 
 	result = 1;
-
 	while (*str != '\0')
 	{
 		if (!(*str >= 65 && *str <= 90))
@@ -27,6 +26,5 @@ int	ft_str_is_alpha(char *str)
 		}
 		str++;
 	}
-
 	return (result);
 }

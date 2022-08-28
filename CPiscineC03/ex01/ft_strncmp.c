@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 23:43:36 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/28 20:34:01 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/27 01:57:16 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/27 02:07:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchr(char c)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n)
+	{
+		i++;
+	}
+	printf("%d", i);
+	return (s1[i] - s2[i]);
 }
 
-void	ft_putnbr(int nb)
+int main()
 {
-	if (nb == -2147483648)
-	{
-		ft_putchr('-');
-		ft_putchr('2');
-		nb = 147483648;
-	}
-	if (nb < 0)
-	{
-		ft_putchr('-');
-		nb = -nb;
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		nb = nb % 10;
-	}
-	if (nb < 10)
-	{
-		ft_putchr(nb + '0');
-	}
+	char str1[] = "BlockDMask";
+	char str2[] = "Block";
+	printf("\n\nstrncmp(%s, %s, -1)\t = %d\n", str1, str2, ft_strncmp(str1, str2, 6));
 }

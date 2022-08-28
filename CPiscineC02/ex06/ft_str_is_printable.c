@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 18:23:04 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/25 18:25:55 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/27 00:42:51 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,13 @@ int	ft_str_is_printable(char *str)
 	int	result;
 
 	result = 1;
-
 	while (str != 0)
 	{
 		if (!(*str >= 32 && *str <= 127))
 		{
 			return (1);
 		}
-
 		str++;
 	}
-
 	return (result);
 }
