@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 00:36:22 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/27 00:37:07 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/29 03:19:35 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_putstr_non_printable(char *str)
 {
 	while (*str != 0)
 	{
-		if (*str >= 0 && *str <= 31)
+		if (*str >= 0 && *str <= 31 | str == 127)
 			ft_putstr_to_hex(*str);
 		else
 			ft_putchr(*str);

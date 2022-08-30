@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 22:03:13 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/27 00:39:08 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/29 23:43:12 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ char	*ft_strcpy(char *dest, char *src)
 	{
 		*dest++ = *src++;
 	}
-	*dest++ = '0';
+	*dest = 0;
 	return (ptr);
 }

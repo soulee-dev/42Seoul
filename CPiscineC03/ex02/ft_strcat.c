@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 00:18:30 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/30 23:32:32 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/29 20:52:27 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/30 16:20:15 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_strlen(char *str)
 {
-	unsigned int	i;
+	unsigned int	count;
+
+	count = 0;
+	while (*str++)
+		count++;
+	return (count);
+}
+
+char	*ft_strcat(char *dest, char *src)
+{
+	int	i;
+	int	length_dest;
+	int	length_src;
 
 	i = 0;
-	while (src[i] != 0 && i < n)
+	length_dest = ft_strlen(dest);
+	length_src = ft_strlen(src);
+	while (i < length_src)
 	{
-		dest[i] = src[i];
+		dest[length_dest + i] = src[i];
 		i++;
 	}
-	
-	dest[i] = '\0';
+	dest[length_dest + i] = '\0';
 	return (dest);
 }

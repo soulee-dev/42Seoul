@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 18:26:49 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/25 23:53:04 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/30 00:20:35 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ char	*ft_strupcase(char *str)
 	i = 0;
 	while (str[i] != 0)
 	{
-		str[i] -= ('a' - 'A');
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= ('a' - 'A');
 		i++;
 	}
 	return (str);

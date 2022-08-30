@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 00:18:30 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/30 23:32:32 by soulee           ###   ########.fr       */
+/*   Created: 2022/08/30 01:52:42 by soulee            #+#    #+#             */
+/*   Updated: 2022/08/31 02:19:13 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_strlen(char *str)
 {
-	unsigned int	i;
+	int	count;
 
-	i = 0;
-	while (src[i] != 0 && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	
-	dest[i] = '\0';
-	return (dest);
+	count = 0;
+	while (*str++)
+		count++;
+	return (count);
 }
