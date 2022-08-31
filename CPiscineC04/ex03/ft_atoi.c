@@ -6,20 +6,16 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 21:10:20 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/31 03:00:29 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/31 23:08:44 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 char	*remove_space(char *str)
 {
 	while (*str != '\0')
 	{
-		if (*str == ' ')
-		{
+		if ((int)(*str) == 9 || (int)(*str) == 32)
 			str++;
-		}
 		else
 			return (str);
 	}
@@ -56,16 +52,11 @@ int	ft_atoi(char *str)
 	{
 		if (*str >= '0' && *str <= '9')
 		{
-			num = num * 10 + (*str + '0');
+			num = num * 10 + (*str - '0');
 			str++;
 		}
 		else
 			return (num);
 	}
 	return (num);
-}
-
-void main()
-{
-	printf("%c", ft_atoi("1"));
 }

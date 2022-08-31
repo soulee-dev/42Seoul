@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 22:10:51 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/31 02:18:47 by soulee           ###   ########.fr       */
+/*   Updated: 2022/08/31 23:04:50 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	ft_putchr(char c)
 
 void	ft_putstr_to_n_base(int decimal, int n_base, char *base)
 {
-	char	result[100];
-	int		mod;
-	int		i;
+	char			result[100];
+	long long		mod;
+	long long		i;
 
 	i = 0;
 	while (1)
@@ -85,5 +85,17 @@ void	ft_putnbr_base(int nbr, char *base)
 	if (is_valid_base(base) == 0)
 		return ;
 	n_base = ft_strlen(base);
+	if (nbr == -2147483648)
+	{
+		ft_putchr('-');
+		ft_putstr_to_n_base(-(nbr / n_base), n_base, base);
+		ft_putchr(base[nbr % n_base]);
+		return ;
+	}
+	if (nbr < 0)
+	{
+		ft_putchr('-');
+		nbr = -nbr;
+	}
 	ft_putstr_to_n_base(nbr, n_base, base);
 }

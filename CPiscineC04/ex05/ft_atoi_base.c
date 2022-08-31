@@ -6,13 +6,15 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 01:37:10 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/31 02:18:29 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/01 01:03:44 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 int	ft_strlen(char *str)
 {
-	unsigned int	count;
+	long long	count;
 
 	count = 0;
 	while (*str++ != '\0')
@@ -22,7 +24,7 @@ int	ft_strlen(char *str)
 
 int	ft_sqaure(unsigned int n, unsigned int base)
 {
-	unsigned int	x;
+	long long	x;
 
 	x = 1;
 	while (n--)
@@ -32,9 +34,9 @@ int	ft_sqaure(unsigned int n, unsigned int base)
 
 int	is_valid_base(char *base)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	length_base;
+	long long	i;
+	long long	j;
+	long long	length_base;
 
 	length_base = ft_strlen(base);
 	if (length_base < 2)
@@ -58,7 +60,7 @@ int	is_valid_base(char *base)
 
 int	ft_find_str(char *str, char c)
 {
-	unsigned int	idx;
+	long long	idx;
 
 	idx = 0;
 	while (str[idx] != '\0')
@@ -72,22 +74,29 @@ int	ft_find_str(char *str, char c)
 
 int	ft_atoi_base(char *str, char *base)
 {
-	unsigned int	n_base;
-	unsigned int	n;
-	unsigned int	i;
-	unsigned int	length_str;
+	long long	n_base;
+	long long	n;
+	long long	i;
+	long long	length_str;
+	int			sign;
 
 	i = 0;
 	n = 0;
+	sign = 1;
 	if (is_valid_base(base) == 0)
 		return (0);
 	n_base = ft_strlen(base);
 	length_str = ft_strlen(str);
+	if (str[0] == '-')
+	{
+		sign *= -1;
+		i = 1;
+	}
 	while (i < length_str)
 	{
 		n = n + ft_find_str(base, str[i])
 			* ft_sqaure(length_str - i - 1, n_base);
 		i++;
 	}
-	return ((int)n);
+	return ((int)(n * sign));
 }
