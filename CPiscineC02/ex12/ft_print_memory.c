@@ -5,12 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 02:20:48 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/30 17:01:43 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/03 02:33:10 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/03 02:51:24 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 
 void	ft_put_str(char str[])
@@ -19,87 +18,82 @@ void	ft_put_str(char str[])
 		write(1, str++, 1);
 }
 
-void	ft_putstr_to_hex(unsigned long long decimal)
+void	ft_putstr_to_hex(unsigned long long decimal, int flag)
 {
-	char		hex[10];
-	long long	mod;
-	long long	i;
-	long long	j;
+	char	*base;
 
-	i = 0;
-	while (1)
-	{
-		mod = decimal % 16;
-		if (mod < 10)
-			hex[i++] = mod + '0';
-		else
-			hex[i++] = (mod - 10) + 'a';
-		decimal /= 16;
-		if (decimal == 0)
-			break ;
-	}
-	j = i - 1;
-	if (i == 1)
+	base = "0123456789abcdef";
+	if (decimal < 16 && flag == 1)
 		ft_put_str("0");
-	while (j >= 0)
+	if (decimal >= 16)
 	{
-		write(1, &hex[j--], 1);
+		ft_putstr_to_hex(decimal / 16, 0);
+		ft_putstr_to_hex(decimal % 16, 0);
 	}
+	else
+		write(1, &base[decimal], 1);
 }
 
-void	ft_print_data_line(char *str, int i)
+void	ft_print_memory_line(unsigned long long str)
 {
-	int	j;
-	int	count;
+	unsigned long long	tmp;
+	int					j;
 
-	count = 0;
-	ft_put_str("0000000");
-	ft_putstr_to_hex((unsigned long long)(str + i * 16));
-	j = 0;
-	ft_put_str(": ");
-	while (j < 16)
+	tmp = str;
+	j = 1;
+	while (j++ < 15)
 	{
-		if (str[i * 16 + j] == 0)
-			break ;
-		ft_putstr_to_hex(*(str + i * 16 + j));
-		count += 2;
-		if ((j + 1) % 2 == 0)
-		{
-			ft_put_str(" ");
-			count++;
-		}
-		j++;
+		if (tmp < 16)
+			ft_put_str("0");
+		tmp /= 16;
 	}
-	j = -1;
-	while (++j < 40 - count)
-		ft_put_str(" ");
+	ft_putstr_to_hex((unsigned long long)str, 0);
 }
 
-void	*ft_print_memory(void *addr, unsigned int size)
+void	ft_print_data_line(unsigned char *str, int size)
 {
-	char				*str;
-	unsigned int		i;
-	unsigned int		j;
+	int	i;
 
 	i = -1;
-	str = (char *)addr;
-	if (size % 16 > 0)
-		size = (size - size % 16) + 16;
-	while (++i < size / 16)
+	while (i++ < 16)
 	{
-		ft_print_data_line(str, i);
-		j = 0;
-		while (j < 16)
-		{
-			if (str[i * 16 + j] == 0)
-				break ;
-			if (str[i * 16 + j] >= 32 && str[i * 16 + j] != 127)
-				write(1, &str[i * 16 + j], 1);
-			else
-				ft_put_str(".");
-			j++;
-		}
+		if (i % 2 == 0)
+			ft_put_str(" ");
+		if (i < size)
+			ft_putstr_to_hex((unsigned long long)str[i], 1);
+		else if (i != 16)
+			ft_put_str("  ");
+	}
+	i = 0;
+	while (i < size - 1)
+	{
+		if (str[i] <= 31 || str[i] >= 127)
+			ft_put_str(".");
+		else
+			write(1, &str[i], 1);
+		i++;
+	}
+}
+
+void	**ft_print_memory(void *addr, unsigned int size)
+{
+	unsigned int	i;
+	unsigned char	*str;
+	unsigned int	sendsize;
+
+	i = 0;
+	str = addr;
+	while (i * 16 < size)
+	{
+		if (i < size / 16)
+			sendsize = 16;
+		else
+			sendsize = size % 16;
+		ft_print_memory_line((unsigned long long)str + (i * 16));
+		ft_put_str(":");
+		ft_print_data_line(str + (i * 16), sendsize);
 		ft_put_str("\n");
+		i++;
 	}
 	return (addr);
 }

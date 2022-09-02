@@ -6,22 +6,17 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 18:23:04 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/30 23:07:26 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/02 19:22:28 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_str_is_printable(char *str)
 {
-	int	result;
-
-	result = 1;
 	while (*str != 0)
 	{
 		if (!(*str >= 32 && *str <= 126))
-		{
-			result = 0;
-		}
+			return (0);
 		str++;
 	}
-	return (result);
+	return (1);
 }

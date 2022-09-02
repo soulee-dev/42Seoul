@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 00:18:30 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/02 19:04:09 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/01 16:58:11 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/01 16:58:49 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (src[i] != 0 && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	
 }

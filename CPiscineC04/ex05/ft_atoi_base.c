@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 01:37:10 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/01 01:03:44 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/01 01:47:24 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	is_valid_base(char *base)
 	i = 0;
 	while (i < length_base)
 	{
-		if (base[i] == '+' || base[i] == '-')
+		if (base[i] == '+' || base[i] == '-' || base[i] == ' ')
 			return (0);
 		j = i + 1;
 		while (j < length_base)

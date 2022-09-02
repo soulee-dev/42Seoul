@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 00:18:30 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/02 19:04:09 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/01 15:10:47 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/01 15:55:12 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	*ft_range(int min, int max)
 {
-	unsigned int	i;
+	int	*range;
+	int	i;
 
+	if (min >= max)
+		return (NULL);
 	i = 0;
-	while (src[i] != 0 && i < n)
+	range = (int *)malloc(sizeof(int) * (max - min));
+	if (!range)
+		return (NULL);
+	while (i < max - min)
 	{
-		dest[i] = src[i];
+		range[i] = min + i;
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (range);
 }

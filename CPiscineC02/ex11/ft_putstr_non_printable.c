@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 00:36:22 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/29 03:19:35 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/03 02:21:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_put_reverse(char str[], int size)
 	}
 }
 
-void	ft_putstr_to_hex(int decimal)
+void	ft_ft_putstr_to_hex(int decimal)
 {
 	char	hex[10];
 	int		mod;
@@ -58,8 +58,8 @@ void	ft_putstr_non_printable(char *str)
 {
 	while (*str != 0)
 	{
-		if (*str >= 0 && *str <= 31 | str == 127)
-			ft_putstr_to_hex(*str);
+		if (*str >= 0 && *str <= 31 | *str == 127)
+			ft_ft_putstr_to_hex(*str);
 		else
 			ft_putchr(*str);
 		str++;
