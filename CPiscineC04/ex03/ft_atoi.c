@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 21:10:20 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/03 03:05:38 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/06 17:38:09 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ char	*remove_space(char *str)
 {
 	while (*str != '\0')
 	{
-		if (((int)(*str) >= 9 && (int)(*str) <= 13)|| (int)(*str) == 32)
+		if (((int)(*str) >= 9 && (int)(*str) <= 13) || (int)(*str) == 32)
 			str++;
 		else
 			return (str);
@@ -58,5 +58,5 @@ int	ft_atoi(char *str)
 		else
 			return (num);
 	}
-	return (num * (*sign));
+	return (num * (sign));
 }

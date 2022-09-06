@@ -6,62 +6,44 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 00:36:22 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/03 02:21:38 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/06 17:28:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchr(char c)
+void	ft_putchr(unsigned char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_put_reverse(char str[], int size)
+void	ft_ft_putstr_to_hex(int decimal, int flag)
 {
-	int	j;
+	char	*base;
 
-	ft_putchr('\\');
-	if (size == 1)
+	base = "0123456789abcdef";
+	if (decimal < 16 && flag == 1)
 		ft_putchr('0');
-	j = size - 1;
-	while (j >= 0)
+	if (decimal >= 16)
 	{
-		ft_putchr(str[j]);
-		j--;
+		ft_ft_putstr_to_hex(decimal / 16, 0);
+		ft_ft_putstr_to_hex(decimal % 16, 0);
 	}
-}
-
-void	ft_ft_putstr_to_hex(int decimal)
-{
-	char	hex[10];
-	int		mod;
-	int		i;
-
-	i = 0;
-	while (1)
-	{
-		mod = decimal % 16;
-		if (mod < 10)
-			hex[i] = mod + '0';
-		else
-			hex[i] = (mod - 10) + 'a';
-		decimal /= 16;
-		i++;
-		if (decimal == 0)
-			break ;
-	}
-	ft_put_reverse(hex, i);
+	else
+		ft_putchr(base[decimal]);
 }
 
 void	ft_putstr_non_printable(char *str)
 {
 	while (*str != 0)
 	{
-		if (*str >= 0 && *str <= 31 | *str == 127)
-			ft_ft_putstr_to_hex(*str);
+		if (*str < 32 || *str == 127)
+		{
+			ft_putchr('\\');
+			ft_ft_putstr_to_hex((unsigned char)*str, 1);
+		}
 		else
-			ft_putchr(*str);
+			ft_putchr((unsigned char)*str);
 		str++;
 	}
 }

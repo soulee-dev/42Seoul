@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 02:33:10 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/03 02:51:24 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/06 19:14:28 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	ft_print_memory_line(unsigned long long str)
 	int					j;
 
 	tmp = str;
-	j = 1;
-	while (j++ < 15)
+	j = -1;
+	while (++j < 16)
 	{
 		if (tmp < 16)
 			ft_put_str("0");
@@ -55,7 +55,7 @@ void	ft_print_data_line(unsigned char *str, int size)
 	int	i;
 
 	i = -1;
-	while (i++ < 16)
+	while (++i < 16)
 	{
 		if (i % 2 == 0)
 			ft_put_str(" ");
@@ -65,7 +65,7 @@ void	ft_print_data_line(unsigned char *str, int size)
 			ft_put_str("  ");
 	}
 	i = 0;
-	while (i < size - 1)
+	while (i < size)
 	{
 		if (str[i] <= 31 || str[i] >= 127)
 			ft_put_str(".");

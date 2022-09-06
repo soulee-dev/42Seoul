@@ -6,15 +6,20 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:51:04 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/31 15:55:56 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/07 00:12:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
-	if (nb < 0)
-		return (0);
-	if (nb == 0)
-		return (1);
-	return (2 * ft_sqrt(nb - 1));
+	int	i;
+
+	i = 1;
+	while (i * i <= nb)
+	{
+		if (i * i == nb)
+			return (i);
+		i++;
+	}
+	return (0);
 }
