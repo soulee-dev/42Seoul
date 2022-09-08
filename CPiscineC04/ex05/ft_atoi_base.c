@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 01:37:10 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/06 20:37:37 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/09 03:23:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_find_str(char *str, char c)
 			return (idx);
 		idx++;
 	}
-	return (0);
+	return (-1);
 }
 
 char	*ft_remove_sign(char *str, int *sign)
@@ -101,11 +101,8 @@ int	ft_atoi_base(char *str, char *base)
 	str = ft_remove_sign(str, &sign);
 	while (*str)
 	{
-		if (!(*str == '+' || *str == '-' || (*str >= 9 && *str <= 13)
-				|| *str == 32))
-		{
+		if (ft_find_str(base, str[i]) >= 0)
 			n = (n * n_base) + ft_find_str(base, str[i]);
-		}
 		else
 			break ;
 		str++;

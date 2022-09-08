@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 03:11:29 by soulee            #+#    #+#             */
-/*   Updated: 2022/08/31 15:37:21 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/07 17:17:01 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_iterative_power(int nb, int power)
 
 	i = 0;
 	result = 1;
-	if (nb < 0 || power < 0)
+	if (power < 0)
 		return (0);
 	while (i++ < power)
 		result *= nb;

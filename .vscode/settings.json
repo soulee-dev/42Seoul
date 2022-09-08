@@ -17,6 +17,7 @@
 		"__bit_reference": "c",
 		"algorithm": "c",
 		"chrono": "c",
-		"ratio": "c"
+		"ratio": "c",
+		"stdio.h": "c"
 	}
 }

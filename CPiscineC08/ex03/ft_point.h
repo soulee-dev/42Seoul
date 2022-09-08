@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:37:47 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/07 17:17:40 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/08 00:03:31 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/08 00:04:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
-{
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	return (nb * ft_recursive_power(nb, power - 1));
-}
+#ifndef FT_POINT_H
+# define FT_POINT_H
+
+typedef struct _t_point{
+	int	x;
+	int	y;
+}	t_point;
+
+#endif

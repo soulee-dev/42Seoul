@@ -6,78 +6,95 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:52:40 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/01 20:53:58 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/09 03:03:40 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 
-int	ft_ft_ft_strlen(char *str)
+char	*get_string(char *str, int start, int len)
 {
-	unsigned int	count;
+	int		i;
+	char	*result_str;
 
+	result_str = malloc(sizeof(char) * (len + 1));
+	i = 0;
+	while (str[start + i] != 0 && i < len)
+	{
+		result_str[i] = str[start + i];
+		i++;
+	}
+	result_str[i] = 0;
+	return (result_str);
+}
+
+int	is_available_in_charset(char c, char *charset)
+{
+	while (*charset)
+	{
+		if (*charset == c)
+			return (1);
+		charset++;
+	}
+	return (0);
+}
+
+int	count_words(char *str, char *charset)
+{
+	int	i;
+	int	count;
+
+	i = 0;
 	count = 0;
-	while (*str++)
-		count++;
+	while (str[i] != 0)
+	{
+		while (is_available_in_charset(str[i], charset))
+			i++;
+		if (str[i])
+			count++;
+		while (str[i] && is_available_in_charset(str[i], charset) == 0)
+			i++;
+	}
 	return (count);
 }
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+void	iterate_string(char **result_str, char *str, int *i, char *charset)
 {
-	unsigned int	i;
+	int	count_idx;
+	int	prev_idx;
+	int	j;
 
-	i = 0;
-	while (s1[i] && s2[i] && i < n)
+	j = 0;
+	count_idx = 0;
+	prev_idx = 0;
+	while (str[*i] != 0)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		if (is_available_in_charset(str[*i], charset))
+		{
+			if (count_idx > 0)
+				result_str[j++] = get_string(str, prev_idx, count_idx);
+			count_idx = 0;
+			prev_idx = *i + 1;
+		}
+		else
+			count_idx++;
+		(*i)++;
 	}
-	if (i != n)
-		return (s1[i] - s2[i]);
-	return (0);
+	if (count_idx > 0)
+		result_str[j++] = get_string(str, prev_idx, count_idx);
+	result_str[j] = 0;
 }
 
 char	**ft_split(char *str, char *charset)
 {
 	int		i;
-	int		length_str;
-	int		length_charset;
-	char	temp_str[257];
-	int		j;
+	int		*ptr_i;
+	char	**result_str;
 
 	i = 0;
-	length_str = ft_ft_ft_strlen(str);
-	length_charset = ft_ft_ft_strlen(charset);
-	result_str = str;
-
-	while (i < length_str)
-	{
-		if (ft_strncmp(str, charset, length_charset) == 0)
-		{
-			printf("%d", i);
-		}
-		str++;
-		i++;
-	}
-
-	i = 0;
-	j = 0;
-	while (i < length_str)
-	{
-		if (str[i] == 0)
-		{
-			i = 
-		}
-		temp_str[j++] = 
-	}
-	
-}
-
-
-
-void	main()
-{
-	char	input[] = "aa,bb";
-	ft_split(input, ",");
+	ptr_i = &i;
+	result_str = malloc(sizeof(char *) * (count_words(str, charset) + 1));
+	iterate_string(result_str, str, ptr_i, charset);
+	return (result_str);
 }

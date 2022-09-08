@@ -6,13 +6,13 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:07:11 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/01 16:51:49 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/09 03:14:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_ft_strlen(char *str)
+int	ft_ft_ft_strlen(char *str)
 {
 	unsigned int	count;
 
@@ -29,8 +29,8 @@ char	*ft_strcat(char *dest, char *src)
 	int	length_src;
 
 	i = 0;
-	length_dest = ft_ft_strlen(dest);
-	length_src = ft_ft_strlen(src);
+	length_dest = ft_ft_ft_strlen(dest);
+	length_src = ft_ft_ft_strlen(src);
 	while (i < length_src)
 	{
 		dest[length_dest + i] = src[i];
@@ -60,9 +60,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	{
 		ft_strcat(result, strs[i]);
 		if (i != size - 1)
-		{
 			ft_strcat(result, sep);
-		}
 		i++;
 	}
 	return (result);
