@@ -6,11 +6,10 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:52:40 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/09 03:03:40 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/09 03:39:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 
 char	*get_string(char *str, int start, int len)

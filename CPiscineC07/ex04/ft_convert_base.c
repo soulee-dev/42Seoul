@@ -6,11 +6,10 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:58:11 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/09 03:27:31 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/09 03:40:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 

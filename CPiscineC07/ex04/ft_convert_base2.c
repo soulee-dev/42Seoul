@@ -6,13 +6,12 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 00:04:34 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/09 03:23:50 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/09 03:40:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_ft_strlen(char *str)
 {
