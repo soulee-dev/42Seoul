@@ -6,16 +6,15 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:07:11 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/11 22:45:13 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/13 00:53:54 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_ft_ft_strlen(char *str)
 {
-	unsigned int	count;
+	int	count;
 
 	count = 0;
 	while (*str++)

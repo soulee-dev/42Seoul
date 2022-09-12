@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 00:32:30 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/12 23:22:54 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/13 00:25:48 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ void	ft_putstr(int fd, char *str)
 		write(fd, str++, 1);
 }
 
-int	**read_dict(int x, int y, char *file_name)
+int	**create_map(int x, int y, char **splitted_file_contents)
 {
 	int		i;
+	int		j;
 	int		**map;
-	char	**splitted_file_contents;
+	int		count_first_line;
 
-	splitted_file_contents = ft_split(read_file(file_name), "\n");
-	valid_file(splitted_file_contents);
+	count_first_line = ft_strlen(splitted_file_contents[0]);
 	i = 0;
 	map = (int **)malloc(sizeof(int *) * x);
 	while (i < x)
@@ -43,12 +43,36 @@ int	**read_dict(int x, int y, char *file_name)
 		map[i] = (int *)malloc(sizeof(int) * y);
 		i++;
 	}
-	while (*splitted_file_contents != 0)
+	i = 0;
+	while (i < x)
 	{
-		printf("%s\n", *splitted_file_contents);
-		splitted_file_contents++;
+		j = 1;
+		while (j <= y)
+		{
+			map[i][j - 1] = splitted_file_contents[j][i];
+			printf("%c ", splitted_file_contents[j][i]);
+			j++;
+		}
+		i++;
 	}
-	return (0);
+	free(splitted_file_contents);
+	return (map);
+}
+
+int	**read_dict(char *file_name)
+{
+	int		lines;
+	int		**map;
+	int		count_first_line;
+	char	**splitted_file_contents;
+
+	splitted_file_contents = ft_split(read_file(file_name), "\n");
+	count_first_line = ft_strlen(splitted_file_contents[1]);
+	lines = ft_atoi(get_string(splitted_file_contents[0],
+				0, count_first_line - 3));
+	valid_file(splitted_file_contents);
+	map = create_map(count_first_line, lines, splitted_file_contents);
+	return (map);
 }
 
 int	count_tab(char **tab)

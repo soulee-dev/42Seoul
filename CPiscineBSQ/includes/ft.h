@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:03:36 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/12 23:17:54 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/12 23:47:18 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 char	*read_file(char *filename);
 void	ft_putstr(int fd, char *str);
 void	print_error(char *str);
-int		**read_dict(int x, int y, char *file_name);
+int		**read_dict(char *file_name);
 char	**ft_split(char *str, char *charset);
 int		count_tab(char **tab);
-void	valid_file(char **splited_file_contents);
+void	valid_file(char **splitted_file_contents);
 int		ft_strlen(char	*str);
 char	*get_string(char *str, int start, int len);
 int		ft_atoi(char *str);

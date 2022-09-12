@@ -6,27 +6,30 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:26:45 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/12 23:25:28 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/13 01:30:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
+// In case of no one can be done, what should we print out?
 int	main(void)
 {
-	int		i;
-	int		**map;
-	int		x;
-	int		y;
+	int	i;
+	int	j;
+	int	**map;
 
-	x = 5;
-	y = 5;
+	map = read_dict("map");
 	i = 0;
-	map = (int **)malloc(sizeof(int *) * x);
-	while (i < x)
+	while (i < 4)
 	{
-		map[i] = (int *)malloc(sizeof(int) * y);
+		j = 0;
+		while (j < 5)
+		{
+			printf("%c ", map[j][i]);
+			j++;
+		}
+		printf("\n");
 		i++;
 	}
-	read_dict(5, 5, "map");
 }
