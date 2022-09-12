@@ -6,6 +6,7 @@ soulee, 22, 08, 23
 ```
 #!/bin/sh
 ```
+It's called shebang!
 
 ## Exercise 00
 ```

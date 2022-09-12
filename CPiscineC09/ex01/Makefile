@@ -1,23 +1,23 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
-TARGET=libft.a
+NAME=libft.a
 SRCDIR=srcs
 HEADERS=includes/
 SRCS=srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
 OBJS=$(SRCS:.c=.o)
 
-all: $(TARGET)
+all: $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(HEADERS)
 
-$(TARGET): $(OBJS)
+$(NAME): $(OBJS)
 	ar rscv $@ $(OBJS)
 
-clean:
-	rm -f $(SRCDIR)/*.o
+clean: $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all

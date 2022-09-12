@@ -6,13 +6,13 @@ HEADERS=includes/
 SRCS=srcs/lib.c srcs/main.c
 OBJS=$(SRCS:.c=.o)
 
-all: $(TARGET)
+all: $(TARGET) clean
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(HEADERS)
 
 $(TARGET): $(OBJS)
-	ar rscv $@ $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
 
 clean:
 	rm -f $(SRCDIR)/*.o

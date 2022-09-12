@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:07:11 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/10 20:29:28 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/11 22:45:13 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,39 @@ char	*ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+int	get_count(int size, char **strs, char *sep)
 {
-	int		i;
-	char	*result;
-	int		j;
-	int		count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
 	while (i < size)
 		count += ft_ft_ft_strlen(strs[i++]);
-	i = 0;
-	j = 0;
 	count = count + ft_ft_ft_strlen(sep) * (size - 1) + 1;
-	result = malloc(sizeof(char) * count);
-	*result = '\0';
+	return (count);
+}
+
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	int		i;
+	char	*result;
+
+	if (size == 0)
+	{
+		result = malloc(sizeof(char));
+		*result = 0;
+		return (result);
+	}
+	result = malloc(sizeof(char) * get_count(size, strs, sep));
 	if (!result)
 		return (NULL);
+	*result = 0;
+	i = 0;
 	while (i < size)
 	{
 		ft_strcat(result, strs[i]);
-		if (i != size - 1)
+		if (i < size - 1)
 			ft_strcat(result, sep);
 		i++;
 	}

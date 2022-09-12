@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 16:52:40 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/09 03:39:52 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/09 22:43:14 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/11 20:46:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*get_string(char *str, int start, int len)
 	char	*result_str;
 
 	result_str = malloc(sizeof(char) * (len + 1));
+	if (!result_str)
+		return (NULL);
 	i = 0;
 	while (str[start + i] != 0 && i < len)
 	{
@@ -94,6 +96,8 @@ char	**ft_split(char *str, char *charset)
 	i = 0;
 	ptr_i = &i;
 	result_str = malloc(sizeof(char *) * (count_words(str, charset) + 1));
+	if (!result_str)
+		return (NULL);
 	iterate_string(result_str, str, ptr_i, charset);
 	return (result_str);
 }
