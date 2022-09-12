@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 23:30:39 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/08 04:18:48 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/09 19:51:21 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/09 21:01:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+int	ft_count_if(char **tab, int length, int (*f)(char*))
+{
+	int	i;
+	int	count;
 
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
-
-#endif
+	i = 0;
+	count = 0;
+	while (tab[i] != '\0')
+	{
+		if (f(tab[i]) != 0)
+			count++;
+		i++;
+	}
+	return (count);
+}

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 03:57:34 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/08 03:59:50 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/09 19:15:21 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/09 19:20:13 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-int	ft_strlen(char *str)
+int	*ft_map(int *tab, int length, int (*f)(int))
 {
-	int		count;
+	int	i;
+	int	*result_arr;
 
-	count = 0;
-	while (*str != '\0')
+	result_arr = malloc(sizeof(int) * length);
+	if (!result_arr)
+		return (NULL);
+	i = 0;
+	while (i < length)
 	{
-		count++;
-		str++;
+		result_arr[i] = f(tab[i]);
+		i++;
 	}
-	return (count);
+	return (result_arr);
 }

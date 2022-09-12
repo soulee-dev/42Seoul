@@ -1,9 +1,9 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
-TARGET=libft.a
+TARGET=main
 SRCDIR=srcs
 HEADERS=includes/
-SRCS=srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
+SRCS=srcs/lib.c srcs/main.c
 OBJS=$(SRCS:.c=.o)
 
 all: $(TARGET)

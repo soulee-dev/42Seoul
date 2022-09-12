@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 03:57:01 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/08 03:57:22 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/09 21:06:43 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/10 16:18:05 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
-	while (*s1 == *s2 && *s1 && *s2)
+	int	i;
+
+	i = 0;
+	while (i < length - 1)
 	{
-		s1++;
-		s2++;
+		if (f(tab[i], tab[i + 1]) > 0)
+			return (0);
+		i++;
 	}
-	return (*s1 - *s2);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:58:11 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/09 03:40:04 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/10 16:33:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	*siballoc(int decimal, int n_base)
 		if (decimal == 0)
 			break ;
 	}
-	str = malloc(sizeof(char) * size + 2);
+	str = malloc(sizeof(char) * size + 3);
 	str[0] = 2;
 	return (str);
 }
@@ -87,14 +87,15 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int		result_atoi_base;
 
 	if (!is_valid_base(base_from) || !is_valid_base(base_to))
-		return (0);
+		return (NULL);
 	result_atoi_base = ft_atoi_base(nbr, base_from);
 	if (!result_atoi_base)
-		return ("\0");
+		return (NULL);
 	str = siballoc(result_atoi_base, ft_ft_strlen(base_to));
 	if (!str || !result_atoi_base)
-		return ("\0");
+		return (NULL);
 	ft_putnbr_base(str, result_atoi_base, base_to);
+	str[(int)str[0]] = '\0';
 	str++;
 	if (!(str[0] == '-'))
 		str++;

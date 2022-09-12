@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 03:23:48 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/08 04:14:55 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/10 17:42:07 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/11 16:28:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void	ft_swap(int *a, int *b)
+char	*read_file(char *filename);
+
+int	main(void)
 {
-	int	temp;
+	char	*file_contents;
 
-	temp = *b;
-	*b = *a;
-	*a = temp;
+	file_contents = read_file("test.txt");
+	return (0);
 }

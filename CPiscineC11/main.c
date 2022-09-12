@@ -1,35 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 15:56:27 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/10 16:19:29 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/09 19:09:06 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/09 19:19:33 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
+#include "ex00/ft_foreach.c"
+#include "ex01/ft_map.c"
 
-int	ft_ultimate_range(int **range, int min, int max)
+void	ft_putnbr(int decimal)
+{
+	printf("%d\n", decimal);
+}
+
+int	ft_add_one(int decimal)
+{
+	return (decimal + 1);
+}
+
+void	print_list(int *tab, int size)
 {
 	int	i;
-	int	*arr;
 
 	i = 0;
-	if (min >= max)
+	while (i < size)
 	{
-		*range = 0;
-		return (0);
-	}
-	arr = (int *)malloc(sizeof(int) * (max - min));
-	while (min < max)
-	{
-		arr[i] = min;
+		printf("%d\n", tab[i]);
 		i++;
-		min++;
 	}
-	*range = arr;
-	return (i);
+}
+
+int	main(void)
+{
+	// ex00
+	int	tab00[5] = {1, 2, 3, 4, 5};
+	ft_foreach(tab00, 5, &ft_putnbr);
+
+	print_list(ft_map(tab00, 5, &ft_add_one), 5);
+	return (0);
 }
