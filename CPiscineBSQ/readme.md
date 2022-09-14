@@ -23,4 +23,6 @@ map[x][y]
 ## Disclaimer
 아직 라인 길이 구하는건 안 구현 해뒀어...
 
-우선 i, j 범위 구할때 arbitrable한 범위 정의 해줘
+우선 i, j 범위 구할때 arbitable한 범위 정의 해줘
+
+0 gonna be the obstacle, 1 gonna be the putable

@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 13:26:45 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/14 00:31:12 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/13 21:03:41 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/14 17:32:45 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
-
-// In case of anything can be done, what should we print out? > just print map
-int	main(void)
+void	ft_swap(char **s1, char **s2)
 {
-	int		**map;
-	char	*charset;
-	char	**splitted_file_contents;
-	int		*xy;
+	char	*temp;
 
-	map = read_dict("map");
-	splitted_file_contents = ft_split(read_file("map"), "\n");
-	xy = get_size(splitted_file_contents);
-	charset = read_charset(splitted_file_contents);
-	get_bsq(map, charset, xy);
+	temp = *s2;
+	*s2 = *s1;
+	*s1 = temp;
+}
+
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (tab[i])
+	{
+		j = 0;
+		while (tab[j])
+		{
+			if (tab[j + 1] && cmp(tab[j], tab[j + 1]) > 0)
+				ft_swap(&tab[j], &tab[j + 1]);
+			j++;
+		}
+		i++;
+	}
 }

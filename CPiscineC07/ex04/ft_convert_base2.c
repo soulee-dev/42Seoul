@@ -6,11 +6,12 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 00:04:34 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/13 01:10:36 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/13 15:59:45 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 int	ft_ft_strlen(char *str)
@@ -64,7 +65,7 @@ int	ft_find_str(char *str, char c)
 	return (-1);
 }
 
-char	*ft_remove_sign(char *str, int *sign)
+char	*ft_remove_sign(char *str, long long *sign)
 {
 	*sign = 1;
 	while (*str != '\0')

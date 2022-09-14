@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:44:42 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/12 23:47:33 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/14 01:19:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	valid_lines(char **splitted_file_contents)
 	characters = get_string(splitted_file_contents[0],
 			count_first_line - 3, 2);
 	lines = ft_atoi(get_string(splitted_file_contents[0],
-				0, count_first_line - 3));
+				0, ft_strlen(splitted_file_contents[0]) - 3));
 	i = 1;
 	count_before_line = ft_strlen(splitted_file_contents[1]);
 	while (i < lines)
@@ -69,7 +69,7 @@ void	valid_file(char **splitted_file_contents)
 	count = count_tab(splitted_file_contents);
 	count_first_line = ft_strlen(splitted_file_contents[0]);
 	lines = ft_atoi(get_string(splitted_file_contents[0],
-				0, count_first_line - 3));
+				0, ft_strlen(splitted_file_contents[0]) - 3));
 	if (count <= 0)
 		print_error("ERROR: VALIDATOR (NOT VALID LINE)\n");
 	if (count_first_line <= 3)

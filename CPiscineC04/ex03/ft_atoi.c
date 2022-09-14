@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 21:10:20 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/06 17:38:09 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/13 20:42:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_atoi(char *str)
 			str++;
 		}
 		else
-			return (num);
+			return (num * (sign));
 	}
 	return (num * (sign));
 }

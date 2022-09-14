@@ -5,43 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 19:09:06 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/09 19:19:33 by soulee           ###   ########.fr       */
+/*   Created: 2022/09/13 21:14:32 by soulee            #+#    #+#             */
+/*   Updated: 2022/09/13 21:14:33 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "ex00/ft_foreach.c"
-#include "ex01/ft_map.c"
-
-void	ft_putnbr(int decimal)
+#include <stdlib.h>
+int	main(void)
 {
-	printf("%d\n", decimal);
-}
+	char	**tab;
 
-int	ft_add_one(int decimal)
-{
-	return (decimal + 1);
-}
+	tab = malloc(sizeof(char *) * 3);
+	tab[0] = malloc(sizeof(char) * 4);
+	tab[1] = malloc(sizeof(char) * 4);
+	tab[2] = malloc(sizeof(char) * 4);
 
-void	print_list(int *tab, int size)
-{
+	tab[2] = "abc";
+	tab[1] = "def";
+	tab[0] = "hig";
+
 	int	i;
 
 	i = 0;
-	while (i < size)
+	
+	while (i < 3)
 	{
-		printf("%d\n", tab[i]);
+		printf("%s\n", tab[i]);
 		i++;
 	}
-}
 
-int	main(void)
-{
-	// ex00
-	int	tab00[5] = {1, 2, 3, 4, 5};
-	ft_foreach(tab00, 5, &ft_putnbr);
+	ft_advanced_sort_string_tab(tab, ft_strcmp);
 
-	print_list(ft_map(tab00, 5, &ft_add_one), 5);
+	i = 0;
+	while (i < 3)
+	{
+		printf("%s\n", tab[i]);
+		i++;
+	}
 	return (0);
 }

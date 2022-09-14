@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:03:36 by soulee            #+#    #+#             */
-/*   Updated: 2022/09/12 23:47:18 by soulee           ###   ########.fr       */
+/*   Updated: 2022/09/14 00:24:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,7 @@ char	*get_string(char *str, int start, int len);
 int		ft_atoi(char *str);
 int		is_printable(char *str);
 int		is_numeric(char *str);
+void  get_bsq(int **map, char *charset, int *xy);
+char	*read_charset(char **splitted_file_contents);
+int 	*get_size(char **splitted_file_contents);
 #endif
