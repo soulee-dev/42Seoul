@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:13:07 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/07 18:50:13 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/07 19:41:03 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ char	*ft_strrchr(char *s, int c)
 	{
 		if (*s == c)
 			temp = s;
+		s++;
 	}
+	if (*s == c)
+		temp = s;
 	return (temp);
 }

@@ -6,15 +6,15 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:16:24 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/07 18:45:59 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/07 19:29:18 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 char	*ft_memchr(char *s, int c, size_t n)
 {
-	while (n--)
+	while (n-- && *s)
 	{
 		if (*s == c)
 			return (s);

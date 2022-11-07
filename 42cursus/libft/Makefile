@@ -15,7 +15,7 @@ $(NAME): $(OBJS)
 	ar rscu $(NAME) $(OBJS)
 
 clean:
-	rm -f $(SRCDIR)/*.o
+	rm -f *.o
 
 fclean: clean
 	rm -f $(NAME)

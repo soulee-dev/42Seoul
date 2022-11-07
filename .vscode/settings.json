@@ -18,9 +18,8 @@
 		"algorithm": "c",
 		"chrono": "c",
 		"ratio": "c",
-		"stdio.h": "c"
-
-
+		"stdio.h": "c",
+		"libft.h": "c"
 	},
 	"[c]": {
 		"editor.defaultFormatter": "keyhr.42-c-format"

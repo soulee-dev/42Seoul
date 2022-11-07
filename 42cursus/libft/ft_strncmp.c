@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 18:03:41 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/07 19:09:48 by soulee           ###   ########.fr       */
+/*   Created: 2022/11/07 19:09:54 by soulee            #+#    #+#             */
+/*   Updated: 2022/11/07 19:24:58 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+#include "libft.h"
+
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	if ('a' <= c && c <= 'z')
-		return (c - ('a' - 'A'));
-	return (c);
+	unsigned int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && i < n)
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	if (i != n)
+		return (s1[i] - s2[i]);
+	return (0);
 }
