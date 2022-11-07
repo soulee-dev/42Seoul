@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
-TARGET=main
+TARGET=bsq
 SRCDIR=srcs
 HEADERS=includes/
 SRCS=$(wildcard $(SRCDIR)/*.c)
