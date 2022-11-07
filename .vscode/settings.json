@@ -19,5 +19,11 @@
 		"chrono": "c",
 		"ratio": "c",
 		"stdio.h": "c"
-	}
+
+
+	},
+	"[c]": {
+		"editor.defaultFormatter": "keyhr.42-c-format"
+	},
+	
 }
