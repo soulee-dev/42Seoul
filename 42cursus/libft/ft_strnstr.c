@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 19:41:47 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/07 19:42:59 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/08 15:10:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strstr(char *str, char *to_find)
 	i = 0;
 	if (!*to_find)
 		return (str);
-	while (i < n && *str != '\0')
+	while (*str != '\0')
 	{
 		if (*str == *to_find)
 		{

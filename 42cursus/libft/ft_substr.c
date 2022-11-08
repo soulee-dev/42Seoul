@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 19:09:54 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/08 18:50:13 by soulee           ###   ########.fr       */
+/*   Created: 2022/11/08 15:09:37 by soulee            #+#    #+#             */
+/*   Updated: 2022/11/08 20:43:49 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
+	size_t		i;
+	char		*result_str;
 
-	i = 0;
-	while (((unsigned char *)s1)[i] && ((unsigned char *)s2)[i] && i < n)
+	result_str = malloc(sizeof(char) * (len + 1));
+	if (!result_str)
+		return (0);
+	if ((unsigned int)(ft_strlen((char *)s)) <= start)
 	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		result_str[0] = 0;
+		return (result_str);
+	}
+	if (!result_str)
+		return (NULL);
+	i = 0;
+	while (s[start + i] != 0 && i < len)
+	{
+		result_str[i] = s[start + i];
 		i++;
 	}
-	if (i != n)
-		return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-	return (0);
+	result_str[i] = 0;
+	return (result_str);
 }

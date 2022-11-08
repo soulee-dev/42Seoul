@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:42:36 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/07 19:31:01 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/08 20:40:07 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdlib.h>
 
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
@@ -31,7 +32,14 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 char			*ft_strchr(char *s, int c);
 char			*ft_strrchr(char *s, int c);
-int				ft_strncmp(char *s1, char *s2, unsigned int n);
-char			*ft_memchr(char *s, int c, size_t n);
+int				ft_strncmp(char *s1, char *s2, size_t n);
+char			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(void *s1, void *s2, size_t n);
+char			*ft_strstr(char *str, char *to_find);
+int				ft_atoi(char *str);
+void			*ft_calloc(size_t count, size_t size);
+char			*ft_strdup(char *src);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_strjoin(char const *s1, char const *s2);
+// char 			*ft_strtrim(char const *s1, char const *set);
 #endif

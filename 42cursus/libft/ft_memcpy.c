@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:39:02 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/07 18:58:44 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/08 18:48:01 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ void	*ft_memcpy(void *dst, void *src, size_t n)
 
 	pdst = dst;
 	psrc = src;
+	if (!n || dst == src)
+		return (dst);
+	if (!dst && !src)
+		return (0);
 	while (n--)
 		*pdst++ = *psrc++;
 	return (dst);
