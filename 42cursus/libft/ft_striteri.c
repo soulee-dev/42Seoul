@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 18:13:07 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/10 01:59:14 by soulee           ###   ########.fr       */
+/*   Created: 2022/11/08 22:06:58 by soulee            #+#    #+#             */
+/*   Updated: 2022/11/08 22:36:09 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(char *s, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	*temp;
+	int	i;
 
-	temp = 0;
-	while (*s)
+	i = 0;
+	while (s[i])
 	{
-		if (*s == (unsigned char)c)
-			temp = s;
-		s++;
+		f(i, &s[i]);
+		i++;
 	}
-	if (*s == (unsigned char)c)
-		temp = s;
-	return (temp);
 }

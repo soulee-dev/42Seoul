@@ -6,13 +6,13 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:48:15 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/07 18:54:46 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/10 03:10:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	temp;

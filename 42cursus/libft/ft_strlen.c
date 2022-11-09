@@ -6,13 +6,15 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:19:10 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/07 17:21:03 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/08 22:02:25 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *s)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
-	int	count;
+	size_t	count;
 
 	count = 0;
 	while (*s++)

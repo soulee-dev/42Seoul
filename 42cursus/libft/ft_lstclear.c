@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 18:13:07 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/10 01:59:14 by soulee           ###   ########.fr       */
+/*   Created: 2022/11/09 16:30:51 by soulee            #+#    #+#             */
+/*   Updated: 2022/11/09 16:36:32 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(char *s, int c)
-{
-	char	*temp;
+#include "libft.h"
 
-	temp = 0;
-	while (*s)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*temp;
+
+	if (!lst)
+		return ;
+	while (*lst)
 	{
-		if (*s == (unsigned char)c)
-			temp = s;
-		s++;
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-	if (*s == (unsigned char)c)
-		temp = s;
-	return (temp);
+	*lst = 0;
 }

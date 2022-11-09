@@ -6,21 +6,21 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:16:24 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/08 19:53:27 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/10 01:57:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*s1;
+	unsigned char	*s1;
 
-	s1 = (char *)s;
+	s1 = (unsigned char *)s;
 	while (n--)
 	{
-		if (*s1 == c)
-			return (s1);
+		if (*s1 == (unsigned char)c)
+			return ((void *)(s1));
 		s1++;
 	}
 	return (0);

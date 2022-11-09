@@ -6,39 +6,31 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 19:41:47 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/08 15:10:29 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/10 03:00:10 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	*ptr_str;
-	char	*ptr_to_find;
-	int		i;
+	size_t	i;
+	size_t	j;
+	size_t	len_needle;
 
 	i = 0;
-	if (!*to_find)
-		return (str);
-	while (*str != '\0')
+	len_needle = ft_strlen(needle);
+	if (len_needle == 0 || haystack == needle)
+		return ((char *)haystack);
+	while (haystack[i] && i < len)
 	{
-		if (*str == *to_find)
-		{
-			ptr_str = str + 1;
-			ptr_to_find = to_find + 1;
-			while (*ptr_str != '\0' && *ptr_to_find != '\0'
-				&& *ptr_str == *ptr_to_find)
-			{
-				ptr_str++;
-				ptr_to_find++;
-			}
-			if (*ptr_to_find == '\0')
-				return (str);
-			if (*str == '\0')
-				break ;
-		}
-		str++;
+		j = 0;
+		while (haystack[i + j] && needle[j]
+			&& haystack[i + j] == needle[j] && i + j < len)
+			j++;
+		if (j == len_needle)
+			return (((char *)haystack) + i);
+		i++;
 	}
-	return ("\0");
+	return (0);
 }

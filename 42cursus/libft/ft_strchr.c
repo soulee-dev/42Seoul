@@ -6,19 +6,22 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:07:37 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/07 19:05:13 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/10 03:08:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
+	char	chr;
+
+	chr = (char)c;
 	while (*s)
 	{
-		if (*s == c)
-			return (s);
+		if (*s == chr)
+			return ((char *)s);
 		s++;
 	}
-	if (*s == c)
-		return (s);
+	if (*s == chr)
+		return ((char *)s);
 	return (0);
 }

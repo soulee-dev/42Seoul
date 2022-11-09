@@ -19,7 +19,8 @@
 		"chrono": "c",
 		"ratio": "c",
 		"stdio.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"sstream": "c"
 	},
 	"[c]": {
 		"editor.defaultFormatter": "keyhr.42-c-format"
