@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 18:13:07 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/10 01:59:14 by soulee           ###   ########.fr       */
+/*   Created: 2022/11/10 03:22:38 by soulee            #+#    #+#             */
+/*   Updated: 2022/11/10 03:24:10 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
-{
-	char	*temp;
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-	temp = 0;
-	while (*s)
-	{
-		if (*s == (unsigned char)c)
-			temp = (char *)s;
-		s++;
-	}
-	if (*s == (unsigned char)c)
-		temp = (char *)s;
-	return (temp);
-}
+# include <unistd.h>
+# include <stdlib.h>
+
+#endif
