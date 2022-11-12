@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/08 20:55:57 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/12 18:16:47 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,13 @@ char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		*ptr_i;
+	int		count_len;
 	char	**result_str;
 
 	i = 0;
 	ptr_i = &i;
-	result_str = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	count_len = count_words(s, c);
+	result_str = malloc(sizeof(char *) * (count_len + 1));
 	if (!result_str)
 		return (NULL);
 	iterate_string(result_str, s, ptr_i, c);

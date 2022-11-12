@@ -33,6 +33,7 @@ $(NAME): $(object_goals)
 	@ar rscu $(NAME) $(object_goals)
 
 bonus: $(NAME)
+	sleep 1
 
 clean:
 	@rm -f *.o
