@@ -76,6 +76,20 @@ void	iterate_string(char **result_str, const char *str, int *i, char c)
 	result_str[j] = 0;
 }
 
+char	**freeall(char **strs, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		i;
@@ -90,5 +104,11 @@ char	**ft_split(char const *s, char c)
 	if (!result_str)
 		return (NULL);
 	iterate_string(result_str, s, ptr_i, c);
+	i = -1;
+	while (++i < count_len)
+	{
+		if (result_str[i] == 0)
+			return (freeall(result_str, count_len));
+	}
 	return (result_str);
 }
