@@ -14,12 +14,14 @@
 
 char	*get_next_line(int fd)
 {
-    static char *text_buffer[OPEN_MAX];
-    ssize_t read_size;
-    char    buffer[BUFFER_SIZE];
+    static char		*text_buffer[OPEN_MAX];
+    ssize_t			read_size;
+    char			buffer[BUFFER_SIZE];
 
-    while ((read_size = read(fd, buffer, BUFFER_SIZE)) > 0)
+	read_size = read(fd, buffer, BUFFER_SIZE)
+    while (read_size > 0)
     {
         text_buffer[fd] = ft_strjoin(text_buffer[fd], buffer);
+		
     }
 }
