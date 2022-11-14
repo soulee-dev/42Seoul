@@ -18,10 +18,17 @@ char	*get_next_line(int fd)
     ssize_t			read_size;
     char			buffer[BUFFER_SIZE];
 
-	read_size = read(fd, buffer, BUFFER_SIZE)
-    while (read_size > 0)
+	read_size = read(fd, buffer, BUFFER_SIZE);
+    while (read_size > 0 && !ft_strchr(text_buffer, '\n'))
     {
         text_buffer[fd] = ft_strjoin(text_buffer[fd], buffer);
-		
+        read_size = read(fd, buffer, BUFFER_SIZE);
     }
+
+    printf("%s", text_buffer);
+}
+
+int main()
+{
+    
 }

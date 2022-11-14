@@ -52,3 +52,19 @@ char    *ft_strjoin(char const *s1, char const *s2)
     free((void *)s1);
 	return (result_str);
 }
+
+char	*ft_strchr(const char *s, int c)
+{
+	char	chr;
+
+	chr = (char)c;
+	while (*s)
+	{
+		if (*s == chr)
+			return ((char *)s);
+		s++;
+	}
+	if (*s == chr)
+		return ((char *)s);
+	return (0);
+}
