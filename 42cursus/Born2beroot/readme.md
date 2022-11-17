@@ -206,3 +206,18 @@ When excuting sudo, it will excuted on other shell.
 2. usermod -G [group] [username] (Secondary group)
 3. chage -l [username]
 4. passwd
+
+
+hostname [hostname]
+ufw status numbered
+
+sudo sytemctl disable cron
+
+apache2??
+LVM 장점
+새로운 블럭 장치가 추가된 경우 기존 파일시스템
+변경 없이 볼륨을 키울수 있다
+
+여러 물리적 디스크를 묶을수 있다
+
+스냅샷을 생성할수 있다

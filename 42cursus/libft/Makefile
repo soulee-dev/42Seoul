@@ -27,7 +27,7 @@ all: $(NAME)
 .PHONY: bonus clean fclean all re
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $?
+	@$(CC) $(CFLAGS) -c $?
 
 $(NAME): $(object_goals)
 	@ar rscu $(NAME) $(object_goals)
