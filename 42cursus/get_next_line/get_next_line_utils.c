@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:22:33 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/19 21:54:00 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/19 22:14:47 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s2_len = ft_strlen(s2);
 	result_str = malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!result_str)
-		return (NULL);
+		return (0);
 	i = 0;
 	while (i < ft_strlen(s1))
 	{
@@ -72,7 +72,7 @@ char	*ft_strchr(char *s, int c)
 	}
 	if (*s == chr)
 		return ((char *)s);
-	return (NULL);
+	return (0);
 }
 
 char	*ft_strndup(const char *s1, size_t n)
@@ -91,26 +91,6 @@ char	*ft_strndup(const char *s1, size_t n)
 	return (result_str);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t		new_len;
-	char		*result_str;
-
-	if (!s)
-		return (NULL);
-	if ((unsigned int)ft_strlen(s) < start)
-		return (ft_strdup(""));
-	new_len = ft_strlen(s + start);
-	if (new_len < len)
-		len = new_len;
-	result_str = malloc(sizeof(char) * (len + 1));
-	if (!result_str)
-		return (NULL);
-	ft_strlcpy(result_str, s + start, len + 1);
-	return (result_str);
-}
-
-
 char	*ft_extract_line(char *s)
 {
 	int		i;
@@ -120,14 +100,6 @@ char	*ft_extract_line(char *s)
 	while (s[i] != '\n' && !s)
 		i++;
 	if (!s[i])
-		return (NULL);
-	result = ft_substr(s + i + 1, ft_strlen(s) - i);
-	if (!result)
-		return (NULL);
-	if (!result[0])
-	{
-		free(result);
-		result = NULL;
-		return (NULL);
-	}
+		return (0);
+	result = ft_substr(s + i + 1, ft_strlen(s) - i)
 }
