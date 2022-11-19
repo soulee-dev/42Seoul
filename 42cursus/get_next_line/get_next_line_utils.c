@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:22:33 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/19 21:52:10 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/19 21:54:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s2_len = ft_strlen(s2);
 	result_str = malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!result_str)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (i < ft_strlen(s1))
 	{
@@ -72,7 +72,7 @@ char	*ft_strchr(char *s, int c)
 	}
 	if (*s == chr)
 		return ((char *)s);
-	return (0);
+	return (NULL);
 }
 
 char	*ft_strndup(const char *s1, size_t n)
@@ -120,6 +120,14 @@ char	*ft_extract_line(char *s)
 	while (s[i] != '\n' && !s)
 		i++;
 	if (!s[i])
-		return (0);
+		return (NULL);
 	result = ft_substr(s + i + 1, ft_strlen(s) - i);
+	if (!result)
+		return (NULL);
+	if (!result[0])
+	{
+		free(result);
+		result = NULL;
+		return (NULL);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:22:35 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/19 21:49:08 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/19 21:53:09 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ char	*get_next_line(int fd)
 
 	read_size = read(fd, buffer, BUFFER_SIZE);
 	if (read_size < 0 || BUFFER_SIZE < 1)
-		return (0);
+		return (NULL);
 
 	while (read_size > 0)
 	{
-		buffer[read_size] = 0;
+		buffer[read_size] = NULL;
 		text_buffer[fd] = ft_strjoin(text_buffer[fd], buffer);
 		if (ft_strchr(text_buffer[fd], '\n'))
 			return (ft_extract_line(text_buffer[fd]));
 		read_size = read(fd, buffer, BUFFER_SIZE);
 	}
 	// return (ft_extract_line(text_buffer[fd]));
-	return (0);
+	return (NULL);
 }
 
 int	main()
