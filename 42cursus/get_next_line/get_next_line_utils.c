@@ -6,44 +6,42 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:22:33 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/19 18:07:48 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/19 21:52:10 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-    size_t  count;
+	size_t	count;
 
-    count = 0;
-    while (*s++)
-        count++;
-    return (count);
+	count = 0;
+	while (*s++)
+		count++;
+	return (count);
 }
 
-char    *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    size_t i;
-    size_t tmp;
-    size_t s1_len;
-    size_t s2_len;
-    char    *result_str;
-
+	size_t	i;
+	size_t	tmp;
+	size_t	s1_len;
+	size_t	s2_len;
+	char	*result_str;
 
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s1)
-		return(ft_strndup(s2, ft_strlen(s2)));
+		return (ft_strndup(s2, ft_strlen(s2)));
 	if (!s2)
-		return(ft_strndup(s1, ft_strlen(s1)));
-	
-    s1_len = ft_strlen(s1);
-    s2_len = ft_strlen(s2);
-    result_str = malloc(sizeof(char) * (s1_len + s2_len + 1));
+		return (ft_strndup(s1, ft_strlen(s1)));
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	result_str = malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!result_str)
 		return (0);
-    i = 0;
+	i = 0;
 	while (i < ft_strlen(s1))
 	{
 		result_str[i] = s1[i];
@@ -57,7 +55,7 @@ char    *ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	result_str[tmp + i] = 0;
-    free((void *)s1);
+	free((void *)s1);
 	return (result_str);
 }
 
@@ -93,7 +91,35 @@ char	*ft_strndup(const char *s1, size_t n)
 	return (result_str);
 }
 
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t		new_len;
+	char		*result_str;
+
+	if (!s)
+		return (NULL);
+	if ((unsigned int)ft_strlen(s) < start)
+		return (ft_strdup(""));
+	new_len = ft_strlen(s + start);
+	if (new_len < len)
+		len = new_len;
+	result_str = malloc(sizeof(char) * (len + 1));
+	if (!result_str)
+		return (NULL);
+	ft_strlcpy(result_str, s + start, len + 1);
+	return (result_str);
+}
+
+
 char	*ft_extract_line(char *s)
 {
-	return(ft_strndup(s, ft_strchr(s, '\n') - s));
+	int		i;
+	char	*result;
+
+	i = 0;
+	while (s[i] != '\n' && !s)
+		i++;
+	if (!s[i])
+		return (0);
+	result = ft_substr(s + i + 1, ft_strlen(s) - i);
 }

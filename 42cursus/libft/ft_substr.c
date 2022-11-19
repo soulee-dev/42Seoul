@@ -6,12 +6,11 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:09:37 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/12 17:50:51 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/19 21:52:07 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
