@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:22:33 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/18 09:15:59 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/19 18:07:48 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,9 @@ char	*ft_strndup(const char *s1, size_t n)
 	}
 	result_str[i] = 0;
 	return (result_str);
+}
+
+char	*ft_extract_line(char *s)
+{
+	return(ft_strndup(s, ft_strchr(s, '\n') - s));
 }

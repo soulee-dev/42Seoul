@@ -21,7 +21,9 @@
 		"stdio.h": "c",
 		"libft.h": "c",
 		"sstream": "c",
-		"stddef.h": "c"
+		"stddef.h": "c",
+		"fcntl.h": "c",
+		"get_next_line.h": "c"
 	},
 	"[c]": {
 		"editor.defaultFormatter": "keyhr.42-c-format"
