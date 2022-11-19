@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:22:33 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/10 03:22:33 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/18 09:15:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ char    *ft_strjoin(char const *s1, char const *s2)
     size_t s2_len;
     char    *result_str;
 
+
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return(ft_strndup(s2, ft_strlen(s2)));
+	if (!s2)
+		return(ft_strndup(s1, ft_strlen(s1)));
+	
     s1_len = ft_strlen(s1);
     s2_len = ft_strlen(s2);
     result_str = malloc(sizeof(char) * (s1_len + s2_len + 1));
@@ -53,7 +61,7 @@ char    *ft_strjoin(char const *s1, char const *s2)
 	return (result_str);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	char	chr;
 
@@ -67,4 +75,20 @@ char	*ft_strchr(const char *s, int c)
 	if (*s == chr)
 		return ((char *)s);
 	return (0);
+}
+
+char	*ft_strndup(const char *s1, size_t n)
+{
+	size_t	i;
+	char	*result_str;
+
+	i = 0;
+	result_str = malloc(sizeof(char) * (n + 1));
+	while (i < n)
+	{
+		result_str[i] = s1[i];
+		i++;
+	}
+	result_str[i] = 0;
+	return (result_str);
 }

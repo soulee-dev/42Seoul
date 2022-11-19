@@ -210,7 +210,7 @@ When excuting sudo, it will excuted on other shell.
 
 hostname [hostname]
 ufw status numbered
-
+ufw delete allow 8080
 sudo sytemctl disable cron
 
 apache2??
@@ -221,3 +221,11 @@ LVM 장점
 여러 물리적 디스크를 묶을수 있다
 
 스냅샷을 생성할수 있다
+
+vProc number of cores
+pProc Number of sockets
+
+LVM 쓰는 이유?
+user 만들고 group
+hostname 변경하기
+hostctl set-hostname --static [hostname]
