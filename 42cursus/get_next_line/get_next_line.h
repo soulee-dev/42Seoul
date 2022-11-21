@@ -27,4 +27,5 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(char *s, int c);
 char	*ft_strndup(const char *s1, size_t n);
 char	*ft_extract_line(char *s);
+char	*ft_remove_line(char *s);
 #endif

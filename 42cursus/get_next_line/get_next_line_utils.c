@@ -63,6 +63,8 @@ char	*ft_strchr(char *s, int c)
 {
 	char	chr;
 
+	if (!s)
+		return (0);
 	chr = (char)c;
 	while (*s)
 	{
@@ -93,13 +95,24 @@ char	*ft_strndup(const char *s1, size_t n)
 
 char	*ft_extract_line(char *s)
 {
-	int		i;
-	char	*result;
+	char	*strchr;
 
-	i = 0;
-	while (s[i] != '\n' && !s)
-		i++;
-	if (!s[i])
+	if (!s)
+		return (ft_strndup("", 0));
+	strchr = ft_strchr(s, '\n');
+	if (!strchr)
+		return (s);
+	return (ft_strndup(s, strchr - s));
+}
+
+char	*ft_remove_line(char *s)
+{
+	char	*strchr;
+
+	if (!s)
+		return (ft_strndup("", 0));
+	strchr = ft_strchr(s, '\n');
+	if (!strchr)
 		return (0);
-	result = ft_substr(s + i + 1, ft_strlen(s) - i)
+	return(ft_strndup(strchr + 1, ft_strlen(strchr + 1)));
 }
