@@ -93,12 +93,12 @@ char	*ft_strndup(const char *s1, size_t n)
 	return (result_str);
 }
 
-char	*ft_extract_line(char *s)
+char	*ft_extract_line(char *s)		
 {
 	char	*strchr;
 
 	if (!s)
-		return (ft_strndup("", 0));
+		return (NULL);
 	strchr = ft_strchr(s, '\n');
 	if (!strchr)
 		return (s);
@@ -110,7 +110,7 @@ char	*ft_remove_line(char *s)
 	char	*strchr;
 
 	if (!s)
-		return (ft_strndup("", 0));
+		return (NULL);
 	strchr = ft_strchr(s, '\n');
 	if (!strchr)
 		return (0);
