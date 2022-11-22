@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:22:38 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/19 18:05:18 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/21 22:38:09 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ char	*ft_strchr(char *s, int c);
 char	*ft_strndup(const char *s1, size_t n);
 char	*ft_extract_line(char *s);
 char	*ft_remove_line(char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 #endif
