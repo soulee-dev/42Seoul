@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:22:33 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/22 00:24:54 by soulee           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:03:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,27 +101,16 @@ char	*ft_strndup(const char *s1, size_t n)
 char	*ft_extract_line(char *s)		
 {
 	int	i;
-	char	*line;
-	
+
 	i = 0;
-	if (s[i])
+	if (!s)
 		return (NULL);
 	while (s[i] && s[i] != '\n')
 		i++;
-	// diff
-	line = (char *) malloc(sizeof(char) * (i + 2));
-	if (!line)
-		return (NULL);
-	i = -1;
-	while (s[++i] && s[i] != '\n')
-		line[i] = s[i];
 	if (s[i] == '\n')
-	{
-		line[i] = s[i];
 		i++;
-	}
-	line[i] = 0;
-	return (line);
+	i++;
+	return (ft_strndup(s, i));
 	// char	*strchr;
 
 	// if (!s)
@@ -143,6 +132,8 @@ char	*ft_remove_line(char *s)
 	char	*result_str;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	while (s[i] && s[i] != '\n')
 		i++;
 	if (!s[i])
@@ -150,7 +141,7 @@ char	*ft_remove_line(char *s)
 		free(s);
 		return (NULL);
 	}
-	result_str = (char *)malloc(sizeof(*result_str) * ft_strlen(s) - i + 1);
+	result_str = (char *)malloc(sizeof(*result_str) * ft_strlen(s) - i);
 	if (!result_str)
 		return (NULL);
 	i++;

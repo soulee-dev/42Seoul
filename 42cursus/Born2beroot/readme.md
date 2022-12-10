@@ -82,9 +82,6 @@ pdisk=$(df -Bm | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} {ft+= $2} EN
 visudoser..
 password policy pwquality
 
-
-
-
 # re-start
 
 https://www.youtube.com/watch?v=_mgFFt9xTG0
