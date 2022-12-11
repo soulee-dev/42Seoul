@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:20:00 by soulee            #+#    #+#             */
-/*   Updated: 2022/12/11 16:13:31 by soulee           ###   ########.fr       */
+/*   Updated: 2022/12/11 23:40:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s2_len = ft_strlen(s2);
 	result_str = malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!result_str)
+	{
+		free((void *)s1);
 		return (NULL);
+	}
 	result_str[s1_len] = 0;
 	ft_strlcpy(result_str, s1, s1_len + 1);
 	free((void *)s1);
@@ -87,6 +90,8 @@ char	*ft_remain_text(char *s)
 	char	*result_str;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	while (s[i] && s[i] != '\n')
 		i++;
 	if (!s[i])
