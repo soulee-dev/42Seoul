@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 03:22:33 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/22 17:03:30 by soulee           ###   ########.fr       */
+/*   Created: 2022/12/10 15:20:00 by soulee            #+#    #+#             */
+/*   Updated: 2022/12/11 16:13:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,47 +39,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (temp);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	size_t	s1_len;
-	size_t	s2_len;
-	char	*result_str;
-
-	if (!s1 && !s2)
-		return (NULL);
-	if (!s1)
-		return (ft_strndup(s2, ft_strlen(s2)));
-	if (!s2)
-		return (ft_strndup(s1, ft_strlen(s1)));
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	result_str = malloc(sizeof(char) * (s1_len + s2_len + 1));
-	if (!result_str)
-		return (NULL);
-	ft_strlcpy(result_str, s1, s1_len + 1);
-	free((void *)s1);
-	ft_strlcpy(result_str + s1_len, (char *)s2, s2_len + 1);
-	return (result_str);
-}
-
-char	*ft_strchr(char *s, int c)
-{
-	char	chr;
-
-	if (!s)
-		return (0);
-	chr = (char)c;
-	while (*s)
-	{
-		if (*s == chr)
-			return ((char *)s);
-		s++;
-	}
-	if (*s == chr)
-		return ((char *)s);
-	return (0);
-}
-
 char	*ft_strndup(const char *s1, size_t n)
 {
 	size_t	i;
@@ -98,42 +57,48 @@ char	*ft_strndup(const char *s1, size_t n)
 	return (result_str);
 }
 
-char	*ft_extract_line(char *s)		
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	s1_len;
+	size_t	s2_len;
+	char	*result_str;
+
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return (ft_strndup(s2, ft_strlen(s2)));
+	if (!s2)
+		return (ft_strndup(s1, ft_strlen(s1)));
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	result_str = malloc(sizeof(char) * (s1_len + s2_len + 1));
+	if (!result_str)
+		return (NULL);
+	result_str[s1_len] = 0;
+	ft_strlcpy(result_str, s1, s1_len + 1);
+	free((void *)s1);
+	ft_strlcpy(result_str + s1_len, (char *)s2, s2_len + 1);
+	return (result_str);
+}
+
+char	*ft_extract_line(char *s)
 {
 	int	i;
 
 	i = 0;
-	if (!s)
+	if (!s || !s[0])
 		return (NULL);
 	while (s[i] && s[i] != '\n')
 		i++;
-	if (s[i] == '\n')
-		i++;
-	i++;
-	return (ft_strndup(s, i));
-	// char	*strchr;
-
-	// if (!s)
-	// 	return (NULL);
-	// strchr = ft_strchr(s, '\n');
-	// if (!strchr)
-	// 	return (strchr);
-	// return (ft_strndup(s, strchr - s + 1));
-
-	// while 문을 \n 나 \0이 닿을때까지 돌려
-	// \\ 이거를 strlcpy 해주는거야
-	// i'm fuking genius
+	return (ft_strndup(s, i + 1));
 }
 
-char	*ft_remove_line(char *s)
+char	*ft_remain_text(char *s)
 {
-	int	i;
-	int	j;
+	int		i;
 	char	*result_str;
 
 	i = 0;
-	if (!s)
-		return (NULL);
 	while (s[i] && s[i] != '\n')
 		i++;
 	if (!s[i])
@@ -141,14 +106,8 @@ char	*ft_remove_line(char *s)
 		free(s);
 		return (NULL);
 	}
-	result_str = (char *)malloc(sizeof(*result_str) * ft_strlen(s) - i);
-	if (!result_str)
-		return (NULL);
 	i++;
-	j = 0;
-	while (s[i])
-		result_str[j++] = s[i++];
-	result_str[j] = 0;
+	result_str = ft_strndup(s + i, ft_strlen(s + i));
 	free(s);
-	return (result_str); 
+	return (result_str);
 }
