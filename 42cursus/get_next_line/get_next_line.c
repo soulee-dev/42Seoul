@@ -6,14 +6,11 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:10:12 by soulee            #+#    #+#             */
-/*   Updated: 2022/12/11 16:19:40 by soulee           ###   ########.fr       */
+/*   Updated: 2022/12/11 23:19:28 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1024
-#endif
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -45,10 +42,10 @@ char	*ft_extract_line(char *s)
 	return (ft_strndup(s, i + 1));
 }
 
-char	*ft_mem_clear(void *mem)
+void	ft_mem_clear(char **mem)
 {
-	free(mem);
-	return (0);
+	free(*mem);
+	*mem = 0; 
 }
 
 char	*get_next_line(int fd)
@@ -61,17 +58,16 @@ char	*get_next_line(int fd)
 	read_size = read(fd, buffer, BUFFER_SIZE);
 	if (read_size < 0)
 	{
-		text_buffer[fd] = ft_mem_clear(text_buffer[fd]);
+		ft_mem_clear(&text_buffer[fd]);
 		return (NULL);
 	}
-	buffer[read_size] = 0;
 	while (read_size > 0)
 	{
+		buffer[read_size] = 0;
 		text_buffer[fd] = ft_strjoin(text_buffer[fd], buffer);
 		if (ft_strchr(text_buffer[fd], '\n'))
 			break ;
 		read_size = read(fd, buffer, BUFFER_SIZE);
-		buffer[read_size] = 0;
 	}
 	if (!text_buffer[fd])
 		return (NULL);

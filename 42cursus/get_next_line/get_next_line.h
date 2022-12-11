@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:22:38 by soulee            #+#    #+#             */
-/*   Updated: 2022/12/11 16:13:48 by soulee           ###   ########.fr       */
+/*   Updated: 2022/12/11 21:58:21 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,8 @@ char	*ft_remain_text(char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*get_next_line(int fd);
+#endif
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 1024
 #endif
