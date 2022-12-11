@@ -81,18 +81,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (result_str);
 }
 
-char	*ft_extract_line(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (!s || !s[0])
-		return (NULL);
-	while (s[i] && s[i] != '\n')
-		i++;
-	return (ft_strndup(s, i + 1));
-}
-
 char	*ft_remain_text(char *s)
 {
 	int		i;
