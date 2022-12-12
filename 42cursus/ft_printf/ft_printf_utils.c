@@ -6,38 +6,68 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 20:32:21 by soulee            #+#    #+#             */
-/*   Updated: 2022/12/11 20:59:42 by soulee           ###   ########.fr       */
+/*   Updated: 2022/12/12 20:02:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_char(va_list args)
+int	ft_putchr(char c)
 {
-	int	c;
-
-	c = va_arg(args, int);
 	write(1, &c, 1);
 	return (1);
 }
 
-int	ft_print_string(va_list args)
+int	ft_putstr(char *str)
 {
-	int		i;
-	char	*s;
+	int	count;
 
-	i = 0;
-	s = va_arg(args, char *);
-	while (s[i])
-		write(1, &s[i++], 1);
-	return (i);
+	count = 0;
+	while (*str)
+	{
+		write(1, str++, 1);
+		count++;
+	}
+	return (count);
 }
 
-int	ft_print_pointer(va_list args)
+int	ft_print_percent(void)
 {
-	void	*ptr;
-
-	ptr = va_arg(args, void *);
-	printf("%p", ptr);
+	ft_putchr('%');
 	return (1);
+}
+
+void	ft_putnbr_base(int base, long long nbr, int *count, char *base_text)
+{
+	if (nbr < 0)
+	{
+		(*count)++;
+		ft_putchr('-');
+		nbr = -nbr;
+	}
+	if (nbr >= (long long)base)
+	{
+		ft_putnbr_base(base, nbr / base, count, base_text);
+		ft_putnbr_base(base, nbr % base, count, base_text);
+	}
+	else
+	{
+		(*count)++;
+		ft_putchr(base_text[nbr]);
+	}
+}
+
+void	ft_putnbr_base_unsigned(int base, size_t nbr,
+			int *count, char *base_text)
+{
+	if (nbr >= (size_t)base)
+	{
+		ft_putnbr_base(base, nbr / base, count, base_text);
+		ft_putnbr_base(base, nbr % base, count, base_text);
+	}
+	else
+	{
+		(*count)++;
+		ft_putchr(base_text[nbr]);
+	}
 }

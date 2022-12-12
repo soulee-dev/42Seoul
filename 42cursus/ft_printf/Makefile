@@ -1,7 +1,12 @@
 CC=cc
 CFLAGS=-Wall -Wextra -Werror
 NAME=libftprintf.a
-SRCS :=
+SRCS := 
+SRCS += ft_printf.c
+SRCS += ft_printf_utils.c
+SRCS += ft_printf_utils_char.c
+SRCS += ft_printf_utils_hex.c
+SRCS += ft_printf_utils_integer.c
 BONUS_SRCS :=
 
 OBJS=$(SRCS:.c=.o)
