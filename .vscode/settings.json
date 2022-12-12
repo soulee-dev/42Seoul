@@ -23,7 +23,8 @@
 		"sstream": "c",
 		"stddef.h": "c",
 		"fcntl.h": "c",
-		"get_next_line.h": "c"
+		"get_next_line.h": "c",
+		"stdarg.h": "c"
 	},
 	"[c]": {
 		"editor.defaultFormatter": "keyhr.42-c-format"
