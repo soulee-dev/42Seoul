@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_client.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 18:37:20 by soulee            #+#    #+#             */
-/*   Updated: 2022/12/17 23:09:25 by soulee           ###   ########.fr       */
+/*   Updated: 2022/12/18 17:56:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ void	send_signal(pid_t pid, char *str)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-
 			usleep(300);
 		}
+		kill(pid, SIGUSR2);
+		usleep(300);
 		str++;
 	}
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -66,7 +66,6 @@ int	main(int argc, char **argv)
 		ft_printf("INVALID ARGUMENT");
 		exit(1);
 	}
-
 	server_pid = ft_atoi(argv[1]);
 	if (server_pid <= 100 || server_pid >= 99999)
 	{
@@ -74,9 +73,7 @@ int	main(int argc, char **argv)
 		exit(1);
 	}
 	send_signal(server_pid, argv[2]);
-
 	ft_printf("server pid: %d\n", server_pid);
 	client_pid = getpid();
-
 	ft_printf("client pid: %d\n", client_pid);
 }
