@@ -6,14 +6,14 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 18:37:20 by soulee            #+#    #+#             */
-/*   Updated: 2022/12/18 17:56:29 by soulee           ###   ########.fr       */
+/*   Updated: 2022/12/19 18:19:46 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <signal.h>
-#include "ft_printf.h"
+#include "libft/libft.h"
 
 int	ft_atoi(char *str)
 {
@@ -35,7 +35,6 @@ int	ft_atoi(char *str)
 void	send_signal(pid_t pid, char *str)
 {
 	int		i;
-	int		bit;
 	char	c;
 
 	while (*str)
@@ -61,17 +60,21 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		ft_printf("INVALID ARGUMENT");
+		ft_putstr_fd("INVALID ARGUMENT", 1);
 		exit(1);
 	}
 	server_pid = ft_atoi(argv[1]);
 	if (server_pid <= 100 || server_pid >= 99999)
 	{
-		ft_printf("INVALID PID");
+		ft_putstr_fd("INVALID PID", 1);
 		exit(1);
 	}
 	send_signal(server_pid, argv[2]);
-	ft_printf("server pid: %d\n", server_pid);
+	ft_putstr_fd("server pid: ", 1);
+	ft_putnbr_fd(server_pid, 1);
+	ft_putchar_fd('\n', 1);
 	client_pid = getpid();
-	ft_printf("client pid: %d\n", client_pid);
+	ft_putstr_fd("client pid: ", 1);
+	ft_putnbr_fd(client_pid, 1);
+	ft_putchar_fd('\n', 1);
 }
