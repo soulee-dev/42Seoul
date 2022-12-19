@@ -17,18 +17,26 @@
 
 void	receive_signal(int sig)
 {
-	static int	bit_count = 8;
-	static char c = 0;
+	static int	bit_count;
+	static char c;
 
 	if (sig == SIGUSR1)
-		c += 1 << --bit_count;
-	else if (sig == SIGUSR2)
-		bit_count--;
-	
-	if (bit_count == 0)
 	{
-		ft_printf("%c\n", c);
-		bit_count = 8;
+		c |= 0;
+		if (bit_count < 7)
+			c <<= 1;
+	}
+	else if (sig == SIGUSR2)
+	{
+		c |= 1;
+		if (bit_count < 7)
+			c <<= 1;
+	}
+	bit_count++;
+	if (bit_count == 8)
+	{
+		ft_printf("%c", c);
+		bit_count = 0;
 		c = 0;
 	}
 }

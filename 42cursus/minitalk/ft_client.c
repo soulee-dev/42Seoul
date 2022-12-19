@@ -45,13 +45,11 @@ void	send_signal(pid_t pid, char *str)
 		while (--i >= 0)
 		{
 			if (c & (1 << i))
-				kill(pid, SIGUSR1);
-			else
 				kill(pid, SIGUSR2);
+			else
+				kill(pid, SIGUSR1);
 			usleep(300);
 		}
-		kill(pid, SIGUSR2);
-		usleep(300);
 		str++;
 	}
 }
