@@ -1,12 +1,12 @@
 SOURCES = so_long.c
 OBJECTS = $(SOURCES:.c=.o)
-
+NAME = so_long
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 
-all: so_long
+all: $(NAME)
 
-so_long: so_long.o libft
+$(NAME): so_long.o libft
 	$(CC) -o $@ $< -Llibft -lft
 
 %.o: %.c
