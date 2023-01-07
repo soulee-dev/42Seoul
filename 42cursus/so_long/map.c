@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 04:27:02 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/04 20:12:11 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/07 17:27:34 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	load_map(char *file_name)
 
 	while (line)
 	{
-		ft_strjoin(map, line);
+		map = ft_strjoin(map, line);
 		line = get_next_line(fd);
 	}
 	printf("%s", map);
