@@ -1,0 +1,10 @@
+{
+	"files.associations": {
+		"get_next_line.h": "c",
+		"so_long.h": "c",
+		"stdlib.h": "c",
+		"libft.h": "c",
+		"mlx.h": "c"
+	},
+	"C_Cpp.dimInactiveRegions": false
+}

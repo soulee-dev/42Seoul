@@ -5,79 +5,59 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 18:47:29 by soulee            #+#    #+#             */
-/*   Updated: 2022/12/22 22:12:05 by soulee           ###   ########.fr       */
+/*   Created: 2022/12/29 20:22:41 by soulee            #+#    #+#             */
+/*   Updated: 2022/12/31 03:12:01 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include "libft/libft.h"
-#include "get_next       _line.h"
+#include "so_long.h"
 
-int	count_char(char *str, char chr)
+void	exit_game(t_game *game)
 {
-	int	count;
-
-	count = 0;
-	while (*str)
-	{
-		if (*str == chr)
-			count++;
-		str++;
-	}
-	return (count);
+	mlx_destroy_window(game->mlx, game->win);
+	exit(0);
 }
 
-char	**ft_linejoin(char **lines, char *line)
+int	key_hook(int key_code, t_game *game)
 {
-	int	i;
-	int	count_lines;
-	char **new_lines;
-
-	i = 0;
-	count_lines = 0;
-	while (*lines)
-		count_lines++;
-	
-	new_lines = malloc(sizeof(char *) * count_lines + 1);
-	while (lines[i])
-		new_lines[i] = lines[i];
-	
-	return (new_lines);
+	if (key_code == KEY_ESC)
+		exit_game(game);
+	if (key_code == KEY_W)
+		game->y++;
+	if (key_code == KEY_S)
+		game->y--;
+	if (key_code == KEY_A)
+		game->x--;
+	if (key_code == KEY_D)
+		game->x++;
+	return (0);
 }
 
-int	valid_map(char *file_name)
+void	init_game(t_game *game)
 {
-	// check is ending with .ber
-	// check whether is open,
-	// is map include E, C, P
-	int		fd;
-	char	*line;
-
-	if (!ft_strnstr(file_name, ".ber", ft_strlen(file_name)))
-		return (0);
-	fd = open(file_name, O_RDONLY);
-	line = get_next_line(fd);
-	if (!line)
-		return (0);
-	
-	char	**lines;
-	
-	return (1);
+	game->x = 0;
+	game->y = 0;
+	game->width = 20;
+	game->height = 20;
 }
 
 int	main(int argc, char *argv[])
 {
+	t_game	game;
+
 	if (argc != 2)
 	{
-		printf("INVALID ARGUMENT");
+		ft_putstr_fd("INVALID ARGUMENT", 1);
 		exit(1);
 	}
-	if(!valid_map(argv[1]))
-	{
-		printf("INVALD MAP");
-		exit(1);
-	}
+	load_map(argv[1]);
+	init_game(&game);
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, game.width * TILE_SIZE,
+			game.height * TILE_SIZE, "Hello world!");
+	load_sprites(&game);
+	draw_map(&game);
+	mlx_key_hook(game.win, key_hook, &game);
+	mlx_loop(game.mlx);
+	return (0);
 }

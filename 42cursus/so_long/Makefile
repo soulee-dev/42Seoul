@@ -1,27 +1,29 @@
-SOURCES = so_long.c
-OBJECTS = $(SOURCES:.c=.o)
 NAME = so_long
+LIBFT = ./libft/libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 
-all: $(NAME)
+SRCS :=
+SRCS += so_long.c
+SRCS += map.c
+SRCS += get_next_line.c
+SRCS += get_next_line_utils.c
 
-$(NAME): so_long.o libft
-	$(CC) -o $@ $< -Llibft -lft
+all: $(LIBFT) $(NAME)
 
-%.o: %.c
-	$(CC) -c $(CFLAGS) $?
+$(NAME):
+	$(CC) $(SRCS) $(LIBFT) $(CFLAGS) -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-libft:
-	make -C libft
+$(LIBFT):
+	make -C ./libft
 
 clean:
-	rm -f $(OBJECTS)
-	make -C libft clean
-	
-fclean: clean
-	rm -f so_long libft/libft.a
+	make clean -C ./libft
 
-re: fclean all
+fclean:
+	make fclean -C ./libft
+	rm -f $(NAME)
 
-.PHONY: all bonus libft clean fclean re
+re:
+	make fclean
+	make all
