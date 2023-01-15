@@ -6,6 +6,9 @@ CFLAGS = -Wall -Wextra -Werror -g
 SRCS :=
 SRCS += so_long.c
 SRCS += map.c
+SRCS += move.c
+SRCS += check_valid.c
+SRCS += so_long_utils.c
 SRCS += get_next_line.c
 SRCS += get_next_line_utils.c
 

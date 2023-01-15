@@ -6,58 +6,52 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 20:22:41 by soulee            #+#    #+#             */
-/*   Updated: 2022/12/31 03:12:01 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 03:44:56 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	exit_game(t_game *game)
-{
-	mlx_destroy_window(game->mlx, game->win);
-	exit(0);
-}
-
 int	key_hook(int key_code, t_game *game)
 {
 	if (key_code == KEY_ESC)
-		exit_game(game);
+		exit_game(game, "Exited");
 	if (key_code == KEY_W)
-		game->y++;
+		render_move(game, 0, -1);
 	if (key_code == KEY_S)
-		game->y--;
+		render_move(game, 0, 1);
 	if (key_code == KEY_A)
-		game->x--;
+		render_move(game, -1, 0);
 	if (key_code == KEY_D)
-		game->x++;
+		render_move(game, 1, 0);
 	return (0);
 }
 
-void	init_game(t_game *game)
+void	init_params(t_game *game, t_check *check)
 {
-	game->x = 0;
-	game->y = 0;
-	game->width = 20;
-	game->height = 20;
+	game->count_current_collectible = 0;
+	game->count_steps = 0;
+	check->is_valid_exit = 0;
+	find_player_coordinate(game);
 }
 
 int	main(int argc, char *argv[])
 {
 	t_game	game;
+	t_check	check;
 
 	if (argc != 2)
-	{
-		ft_putstr_fd("INVALID ARGUMENT", 1);
-		exit(1);
-	}
-	load_map(argv[1]);
-	init_game(&game);
+		exit_error("INVALID ARGUMENT");
+	load_map(argv[1], &game);
+	init_params(&game, &check);
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.width * TILE_SIZE,
-			game.height * TILE_SIZE, "Hello world!");
+			game.height * TILE_SIZE, WINDOW_TITLE);
 	load_sprites(&game);
+	check_valid_map(&game, &check);
 	draw_map(&game);
-	mlx_key_hook(game.win, key_hook, &game);
+	mlx_hook(game.win, X_EVENT_KEY_RELEASE, 0, &key_hook, &game);
+	mlx_hook(game.win, X_EVENT_KEY_EXIT, 0, &exit_game, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }

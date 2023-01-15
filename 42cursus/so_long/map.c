@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 04:27:02 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/07 17:27:34 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 03:44:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,14 @@ size_t	_ft_strlen(const char *s)
 	return (count);
 }
 
-void	exit_error(char *error_message)
+void	load_map(char *file_name, t_game *game)
 {
-	ft_putstr_fd(error_message, 1);
-	exit(1);
-}
-
-void	load_map(char *file_name)
-{
+	int	height;
 	int	fd;
 	char	*line;
 	static	char	*map;
 
+	height = 0;
 	map = 0;
 	if (_ft_strlen(ft_strnstr(file_name, ".ber", ft_strlen(file_name))) != 4)
 		exit_error("INVALID MAP (EXTENSION)");
@@ -48,10 +44,11 @@ void	load_map(char *file_name)
 	{
 		map = ft_strjoin(map, line);
 		line = get_next_line(fd);
+		height++;
 	}
-	printf("%s", map);
-	printf("\n");
-
+	game->map = ft_split(map, '\n');
+	game->height = height;
+	game->width = ft_strlen(game->map[0]);
 }
 
 void	load_sprites(t_game *game)
@@ -61,6 +58,14 @@ void	load_sprites(t_game *game)
 
 	game->sprites.tile = mlx_xpm_file_to_image(
 			game->mlx, "./sprites/tile.xpm", &width, &height);
+	game->sprites.wall = mlx_xpm_file_to_image(
+			game->mlx, "./sprites/wall.xpm", &width, &height);
+	game->sprites.barrel = mlx_xpm_file_to_image(
+			game->mlx, "./sprites/barrel.xpm", &width, &height);
+	game->sprites.player = mlx_xpm_file_to_image(
+			game->mlx, "./sprites/player.xpm", &width, &height);
+	game->sprites.exit = mlx_xpm_file_to_image(
+			game->mlx, "./sprites/exit.xpm", &width, &height);
 }
 
 void	draw_map(t_game *game)
@@ -74,37 +79,29 @@ void	draw_map(t_game *game)
 		width = 0;
 		while (width < game->width)
 		{
-			mlx_put_image_to_window(
-				game->mlx, game->win, game->sprites.tile,
-				width * TILE_SIZE, height * TILE_SIZE);
+			if (game->map[height][width] == '0')
+				mlx_put_image_to_window(
+					game->mlx, game->win, game->sprites.tile,
+					width * TILE_SIZE, height * TILE_SIZE);
+			if (game->map[height][width] == '1')
+				mlx_put_image_to_window(
+					game->mlx, game->win, game->sprites.wall,
+					width * TILE_SIZE, height * TILE_SIZE);
+			if (game->map[height][width] == 'C')
+				mlx_put_image_to_window(
+					game->mlx, game->win, game->sprites.barrel,
+					width * TILE_SIZE, height * TILE_SIZE);
+			if (game->map[height][width] == 'P')
+				mlx_put_image_to_window(
+					game->mlx, game->win, game->sprites.player,
+					width * TILE_SIZE, height * TILE_SIZE);
+			if (game->map[height][width] == 'E')
+				mlx_put_image_to_window(
+					game->mlx, game->win, game->sprites.exit,
+					width * TILE_SIZE, height * TILE_SIZE);
 			width++;
 		}
 		height++;
 	}
+	mlx_string_put(game->mlx, game->win, 5, 5, 0, ft_itoa(game->count_steps));
 }
-
-// void	dfs(t_game *game, t_check *check, int x, int y)
-// {
-// 	const int	dx[4] = {0, 0, -1, 1};
-// 	const int	dy[4] = {-1, 1, 0, 0};
-// 	int			nx;
-// 	int			ny;
-// 	int			i;
-
-// 	check->visited[y][x] = 1;
-// 	i = -1;
-// 	if (game->map[y][x] == 'C')
-// 		check->item_cnt -= 1;
-// 	if (game->map[y][x] == 'E')
-// 	{
-// 		game->valid_path = 1;
-// 		return ;
-// 	}
-// 	while (++i < 4)
-// 	{
-// 		nx = x + dx[i];
-// 		ny = y + dy[i];
-// 		if (game->map[ny][nx] != '1' && !check->visited[ny][nx])
-// 			dfs(game, check, nx, ny);
-// 	}
-// }
