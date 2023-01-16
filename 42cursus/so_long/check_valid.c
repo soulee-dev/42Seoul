@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 02:52:29 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/16 03:47:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 05:26:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,31 @@ int	**create_check_map(t_game *game)
 	height = 0;
 	while (height < game->height)
 	{
-		map[height] = (int *)malloc(sizeof(int) * (width +1));
+		map[height] = (int *)malloc(sizeof(int) * (game->width + 1));
 		if (!map[height])
-			free(map);
+		{
+			free_all_map((void **)map);
+			return (0);
+		}
 		width = 0;
 		while (width < game->width)
 		{
 			map[height][width] = 0;
 			width++;
 		}
-		height++;	
+		height++;
 	}
 	return (map);
 }
 
 void	dfs(t_game *game, t_check *check, int x, int y)
 {
-	int	i;
-	int	nx;
-	int	ny;
-	const int dx[4] = {0, 0, 1, -1};
-	const int dy[4] = {1, -1, 0, 0};
-	
+	int			i;
+	int			nx;
+	int			ny;
+	const int	dx[4] = {0, 0, 1, -1};
+	const int	dy[4] = {1, -1, 0, 0};
+
 	check->map[y][x] = 1;
 	if (game->map[y][x] == 'C')
 		check->count_map_collectible -= 1;
@@ -97,7 +100,8 @@ int	check_surrouned(t_game *game)
 			}
 			else
 			{
-				if (game->map[height][0] != '1' || game->map[height][game->width - 1] != '1')
+				if (game->map[height][0] != '1'
+					|| game->map[height][game->width - 1] != '1')
 					return (0);
 			}
 			width++;

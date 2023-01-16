@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 04:27:02 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/16 03:44:38 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 05:24:08 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ size_t	_ft_strlen(const char *s)
 
 void	load_map(char *file_name, t_game *game)
 {
-	int	height;
-	int	fd;
+	int		height;
+	int		fd;
 	char	*line;
-	static	char	*map;
+	char	*map;
 
 	height = 0;
 	map = 0;
@@ -39,16 +39,18 @@ void	load_map(char *file_name, t_game *game)
 	if (fd < 0)
 		exit_error("INVALID MAP (FILE)");
 	line = get_next_line(fd);
-
 	while (line)
 	{
 		map = ft_strjoin(map, line);
+		free(line);
 		line = get_next_line(fd);
 		height++;
 	}
 	game->map = ft_split(map, '\n');
 	game->height = height;
 	game->width = ft_strlen(game->map[0]);
+	free(line);
+	free(map);
 }
 
 void	load_sprites(t_game *game)
@@ -68,10 +70,35 @@ void	load_sprites(t_game *game)
 			game->mlx, "./sprites/exit.xpm", &width, &height);
 }
 
+void	put_image(t_game *game, int height, int width)
+{
+	if (game->map[height][width] == '0')
+		mlx_put_image_to_window(
+			game->mlx, game->win, game->sprites.tile,
+			width * TILE_SIZE, height * TILE_SIZE);
+	if (game->map[height][width] == '1')
+		mlx_put_image_to_window(
+			game->mlx, game->win, game->sprites.wall,
+			width * TILE_SIZE, height * TILE_SIZE);
+	if (game->map[height][width] == 'C')
+		mlx_put_image_to_window(
+			game->mlx, game->win, game->sprites.barrel,
+			width * TILE_SIZE, height * TILE_SIZE);
+	if (game->map[height][width] == 'P')
+		mlx_put_image_to_window(
+			game->mlx, game->win, game->sprites.player,
+			width * TILE_SIZE, height * TILE_SIZE);
+	if (game->map[height][width] == 'E')
+		mlx_put_image_to_window(
+			game->mlx, game->win, game->sprites.exit,
+			width * TILE_SIZE, height * TILE_SIZE);
+}
+
 void	draw_map(t_game *game)
 {
-	int	width;
-	int	height;
+	char	*ret;
+	int		width;
+	int		height;
 
 	height = 0;
 	while (height < game->height)
@@ -79,29 +106,13 @@ void	draw_map(t_game *game)
 		width = 0;
 		while (width < game->width)
 		{
-			if (game->map[height][width] == '0')
-				mlx_put_image_to_window(
-					game->mlx, game->win, game->sprites.tile,
-					width * TILE_SIZE, height * TILE_SIZE);
-			if (game->map[height][width] == '1')
-				mlx_put_image_to_window(
-					game->mlx, game->win, game->sprites.wall,
-					width * TILE_SIZE, height * TILE_SIZE);
-			if (game->map[height][width] == 'C')
-				mlx_put_image_to_window(
-					game->mlx, game->win, game->sprites.barrel,
-					width * TILE_SIZE, height * TILE_SIZE);
-			if (game->map[height][width] == 'P')
-				mlx_put_image_to_window(
-					game->mlx, game->win, game->sprites.player,
-					width * TILE_SIZE, height * TILE_SIZE);
-			if (game->map[height][width] == 'E')
-				mlx_put_image_to_window(
-					game->mlx, game->win, game->sprites.exit,
-					width * TILE_SIZE, height * TILE_SIZE);
+			put_image(game, height, width);
 			width++;
 		}
 		height++;
 	}
-	mlx_string_put(game->mlx, game->win, 5, 5, 0, ft_itoa(game->count_steps));
+	ret = ft_itoa(game->count_steps);
+	mlx_string_put(game->mlx, game->win,
+		5, 5, 0, ret);
+	free(ret);
 }

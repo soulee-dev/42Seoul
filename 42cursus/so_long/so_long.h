@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:58:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/16 03:45:45 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 10:44:44 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,5 @@ void	exit_error(char *error_message);
 int		count_elements(t_game *game, char element);
 void	check_valid_map(t_game *game, t_check *check);
 int		find_player_coordinate(t_game *game);
+void	free_all_map(void **map);
 #endif

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:56:24 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/16 02:41:08 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 04:45:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	render_move(t_game *game, int dx, int dy)
 
 	nx = game->player_x + dx;
 	ny = game->player_y + dy;
-	if (game->map[ny][nx] == 'E' && game->count_current_collectible == game->count_map_collectible)
+	if (game->map[ny][nx] == 'E' && game->count_current_collectible
+		== game->count_map_collectible)
 		exit_game(game, "Completed!");
 	if (game->map[ny][nx] == 'C')
 		game->count_current_collectible++;

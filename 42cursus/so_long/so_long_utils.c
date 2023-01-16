@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 22:10:06 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/16 02:40:45 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 05:28:43 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	exit_error(char *error_message)
 
 int	exit_game(t_game *game, char *message)
 {
+	mlx_destroy_image(game->mlx, game->sprites.tile);
+	mlx_destroy_image(game->mlx, game->sprites.wall);
+	mlx_destroy_image(game->mlx, game->sprites.barrel);
+	mlx_destroy_image(game->mlx, game->sprites.player);
+	mlx_destroy_image(game->mlx, game->sprites.exit);
 	mlx_destroy_window(game->mlx, game->win);
 	ft_putstr_fd(message, 1);
 	exit(0);
@@ -69,4 +74,19 @@ int	find_player_coordinate(t_game *game)
 		height++;
 	}
 	return (0);
+}
+
+void	free_all_map(void **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		map[i] = 0;
+		i++;
+	}
+	free(map);
+	map = 0;
 }

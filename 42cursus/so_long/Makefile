@@ -15,7 +15,7 @@ SRCS += get_next_line_utils.c
 all: $(LIBFT) $(NAME)
 
 $(NAME):
-	$(CC) $(SRCS) $(LIBFT) $(CFLAGS) -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(SRCS) $(LIBFT) $(CFLAGS) -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -g3
 
 $(LIBFT):
 	make -C ./libft
@@ -30,3 +30,5 @@ fclean:
 re:
 	make fclean
 	make all
+
+.PHONY: all bonus libft clean fclean re
