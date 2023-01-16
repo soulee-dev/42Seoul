@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 02:52:29 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/16 05:26:00 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 20:16:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,11 +115,11 @@ void	check_valid_map(t_game *game, t_check *check)
 {
 	game->count_map_collectible = count_elements(game, 'C');
 	if (game->count_map_collectible <= 0)
-		exit_game(game, "INVALID MAP (NO COLLECTIBLE)");
+		exit_game(game, "INVALID MAP (INVALID COLLECTIBLE)");
 	if (count_elements(game, 'P') != 1)
-		exit_game(game, "INVALID MAP (NO PLAYER)");
+		exit_game(game, "INVALID MAP (INVALID PLAYER)");
 	if (count_elements(game, 'E') != 1)
-		exit_game(game, "INVALID MAP (NO EXIT)");
+		exit_game(game, "INVALID MAP (INVALID EXIT)");
 	if (!check_rectangular(game))
 		exit_game(game, "INVALID MAP (NOT RECTENGULAR)");
 	if (!check_surrouned(game))
@@ -128,5 +128,5 @@ void	check_valid_map(t_game *game, t_check *check)
 	check->map = create_check_map(game);
 	dfs(game, check, game->player_x, game->player_y);
 	if (!check->is_valid_exit || check->count_map_collectible != 0)
-		exit_game(game, "INVALID MAP (NO PATH)");
+		exit_game(game, "INVALID MAP (INVALID PATH)");
 }
