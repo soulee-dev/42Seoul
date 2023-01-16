@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 22:10:06 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/16 05:28:43 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 20:38:51 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exit_error(char *error_message)
 {
-	ft_putstr_fd(error_message, 1);
+	ft_putendl_fd(error_message, 2);
 	exit(1);
 }
 
@@ -26,7 +26,7 @@ int	exit_game(t_game *game, char *message)
 	mlx_destroy_image(game->mlx, game->sprites.player);
 	mlx_destroy_image(game->mlx, game->sprites.exit);
 	mlx_destroy_window(game->mlx, game->win);
-	ft_putstr_fd(message, 1);
+	ft_putendl_fd(message, 2);
 	exit(0);
 }
 

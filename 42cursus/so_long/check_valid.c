@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 02:52:29 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/16 20:16:00 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 20:39:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,10 +122,14 @@ void	check_valid_map(t_game *game, t_check *check)
 		exit_game(game, "INVALID MAP (INVALID EXIT)");
 	if (!check_rectangular(game))
 		exit_game(game, "INVALID MAP (NOT RECTENGULAR)");
+	if (!check_characters(game))
+		exit_game(game, "INVALID MAP (INVALID CHARACTER)");
 	if (!check_surrouned(game))
 		exit_game(game, "INVALID MAP (NOT SURROUNDED)");
 	check->count_map_collectible = game->count_map_collectible;
 	check->map = create_check_map(game);
+	if (!check->map)
+		exit_game(game, "INVALID MALLOC");
 	dfs(game, check, game->player_x, game->player_y);
 	if (!check->is_valid_exit || check->count_map_collectible != 0)
 		exit_game(game, "INVALID MAP (INVALID PATH)");

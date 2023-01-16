@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:58:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/16 10:44:44 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 20:39:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "./libft/libft.h"
 # include <fcntl.h>
 # include <stdlib.h>
-# include <stdio.h>
 # define TILE_SIZE 32
 # define WINDOW_TITLE "Radioactive Cat"
 
@@ -69,4 +68,5 @@ int		count_elements(t_game *game, char element);
 void	check_valid_map(t_game *game, t_check *check);
 int		find_player_coordinate(t_game *game);
 void	free_all_map(void **map);
+int		check_characters(t_game *game);
 #endif

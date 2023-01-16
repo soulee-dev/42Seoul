@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 04:27:02 by soulee            #+#    #+#             */
-/*   Updated: 2023/01/16 05:24:08 by soulee           ###   ########.fr       */
+/*   Updated: 2023/01/16 20:37:44 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,28 @@ size_t	_ft_strlen(const char *s)
 
 void	load_map(char *file_name, t_game *game)
 {
-	int		height;
 	int		fd;
 	char	*line;
 	char	*map;
 
-	height = 0;
+	game->height = 0;
 	map = 0;
 	if (_ft_strlen(ft_strnstr(file_name, ".ber", ft_strlen(file_name))) != 4)
-		exit_error("INVALID MAP (EXTENSION)");
+		exit_error("INVALID MAP (INVALID EXTENSION)");
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
-		exit_error("INVALID MAP (FILE)");
+		exit_error("INVALID MAP (INVALID FD)");
 	line = get_next_line(fd);
+	if (!line)
+		exit_error("INVALID MAP (EMPTY FILE)");
 	while (line)
 	{
 		map = ft_strjoin(map, line);
 		free(line);
 		line = get_next_line(fd);
-		height++;
+		game->height++;
 	}
 	game->map = ft_split(map, '\n');
-	game->height = height;
 	game->width = ft_strlen(game->map[0]);
 	free(line);
 	free(map);
