@@ -1,7 +1,7 @@
 NAME = so_long
-LIBFT = ./libft/libft.a
+
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS :=
 SRCS += so_long.c
@@ -12,18 +12,27 @@ SRCS += so_long_utils.c
 SRCS += get_next_line.c
 SRCS += get_next_line_utils.c
 
+LIBFT = ./libft/libft.a
+
+OBJS = $(SRCS:.c=.o)
+
 all: $(LIBFT) $(NAME)
 
-$(NAME):
-	$(CC) $(SRCS) $(LIBFT) $(CFLAGS) -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) -o $@ $^ -Llibft -lft -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit
+	@echo Compile Complete! 🥳
+	
+%.o: %.c
+	$(CC) -c $(CFLAGS) $?
 
 $(LIBFT):
 	make -C ./libft
 
 clean:
+	rm -f $(OBJS)
 	make clean -C ./libft
 
-fclean:
+fclean: clean
 	make fclean -C ./libft
 	rm -f $(NAME)
 
@@ -31,4 +40,4 @@ re:
 	make fclean
 	make all
 
-.PHONY: all bonus libft clean fclean re
+.PHONY: all bonus clean fclean re
