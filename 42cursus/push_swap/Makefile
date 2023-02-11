@@ -1,9 +1,13 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 
 SRCS :=
-SRCS += main.c
+SRCS += push_swap.c
+SRCS += error.c
+SRCS += push_swap_utils.c
+SRCS += stack.c
+SRCS += list.c
 
 LIBFT = ./libft/libft.a
 
@@ -16,10 +20,10 @@ $(NAME): $(OBJS) $(LIBFT)
 	@echo Compile Complete! 🥳
 	
 %.o: %.c
-	$(CC) -c $(CFLAGS) $?
+	$(CC) -c $(CFLAGS) $? -g3
 
 $(LIBFT):
-	make -C ./libft
+	make -C ./libft bonus
 
 clean:
 	rm -f $(OBJS)
