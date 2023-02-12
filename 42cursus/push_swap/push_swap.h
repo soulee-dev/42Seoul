@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:43:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/11 21:46:27 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/12 17:19:53 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void	sa(t_stack *stack);
 void	sb(t_stack *stack);
 void	pa(t_stack *stack);
 void	pb(t_stack *stack);
-
-
+void	ra(t_stack *stack);
+void	rb(t_stack *stack);
 void	rr(t_stack *stack);
 
 
-void	rrr(t_stack *stack);
+// void	rrr(t_stack *stack);
 #endif

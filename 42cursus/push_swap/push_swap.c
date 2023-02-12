@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/11 21:44:17 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/12 17:24:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,16 @@ int	main(int argc, char *argv[])
 	printf("a: \n");
 	iter_node(stack->a_top, print_int);
 	
-	printf("\n\n");
 	pb(stack);
+	pb(stack);
+	pb(stack);
+	pb(stack);
+	printf("pb: \n");
 	iter_node(stack->b_top, print_int);
-	printf("\n\n");
-	sb(stack);
+
+	// Segfault 발생
+	printf("rb: \n");
+	rb(stack);
 	iter_node(stack->b_top, print_int);
 	return (0);
 }
