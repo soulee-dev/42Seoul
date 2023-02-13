@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 19:42:23 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/11 20:19:55 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/13 16:47:32 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_node	*create_new_node(int content)
 {
 	t_node	*new_node;
-	
+
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
 		return (NULL);
@@ -62,7 +62,7 @@ void	add_node_back(t_node **node, t_node *new)
 	t_node	*last;
 
 	if (!*node)
-	{ 
+	{
 		*node = new;
 		return ;
 	}
@@ -79,11 +79,4 @@ void	iter_node(t_node *node, void (*f)(int))
 		f(node->content);
 		node = node->next;
 	}
-}
-
-void	delete_one_node(t_node *node)
-{
-	if (!node)
-		return ;
-	free(node);
 }

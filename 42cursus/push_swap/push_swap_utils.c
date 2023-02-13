@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:37:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/11 18:50:41 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/13 16:46:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ void	wrap_atoi(t_node **node, const char *str)
 			wrap_exit(EXIT_ERROR, "INVALID ARGUMENT (NON INTEGER)");
 	}
 	if (sign * num > 2147483647 || sign * num < -2147483648)
-	{
 		wrap_exit(EXIT_ERROR, "INVALID ARGUMENT (EXCEED INTEGER)");
-	}
 	add_node_back(node, create_new_node(sign * num));
 }

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:43:49 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/12 17:21:35 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/13 16:45:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,12 @@ t_stack	*init_stack(t_node *list_a)
 	t_stack	*stack;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
-	
 	stack->a_top = list_a;
 	stack->a_bot = get_last_node(list_a);
 	stack->a_size = get_list_size(list_a);
-
 	stack->b_top = 0;
 	stack->b_bot = 0;
 	stack->b_size = 0;
-	
 	return (stack);
 }
 
@@ -65,8 +62,9 @@ void	pa(t_stack *stack)
 	stack->a_top->next = temp;
 	stack->b_size--;
 	stack->a_size++;
+	if (!stack->a_bot)
+		stack->a_bot = stack->a_top;
 }
-
 
 void	pb(t_stack *stack)
 {
@@ -80,10 +78,14 @@ void	pb(t_stack *stack)
 	stack->b_top->next = temp;
 	stack->a_size--;
 	stack->b_size++;
+	if (!stack->b_bot)
+		stack->b_bot = stack->b_top;
 }
 
 void	ra(t_stack *stack)
 {
+	if (stack->a_size < 3)
+		return ;
 	stack->a_bot->next = stack->a_top;
 	stack->a_bot = stack->a_top;
 	stack->a_top = stack->a_top->next;
@@ -92,6 +94,8 @@ void	ra(t_stack *stack)
 
 void	rb(t_stack *stack)
 {
+	if (stack->b_size < 3)
+		return ;
 	stack->b_bot->next = stack->b_top;
 	stack->b_bot = stack->b_top;
 	stack->b_top = stack->b_top->next;
@@ -104,18 +108,21 @@ void	rr(t_stack *stack)
 	rb(stack);
 }
 
-// void	rra(t_stack *stack)
-// {
-	
-// }
+void	rra(t_stack *stack)
+{
+	if (stack->a_size < 3)
+		return ;
+}
 
-// void	rrb(t_stack *stack)
-// {
-	
-// }
+void	rrb(t_stack *stack)
+{
+	if (stack->b_size < 3)
+		return ;
+	;
+}
 
-// void	rrr(t_stack *stack)
-// {
-// 	rra(stack);
-// 	rrb(stack);
-// }
+void	rrr(t_stack *stack)
+{
+	rra(stack);
+	rrb(stack);
+}

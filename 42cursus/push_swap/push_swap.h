@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:43:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/12 17:19:53 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/13 16:49:48 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@
 # define EXIT_ERROR 1
 
 typedef struct s_node {
-    int content;
-    struct s_node   *next;
-}   t_node;
+	int				content;
+	struct s_node	*next;
+}	t_node;
 
-typedef struct  s_stack {
-    t_node	*a_top;
-    t_node	*a_bot;
+typedef struct s_stack {
+	t_node	*a_top;
+	t_node	*a_bot;
 	int		a_size;
-    t_node	*b_top;
-    t_node	*b_bot;
+	t_node	*b_top;
+	t_node	*b_bot;
 	int		b_size;
-}   t_stack;
+}	t_stack;
 
 void	wrap_exit(int exit_code, char *error_message);
 void	wrap_atoi(t_node **node, const char *str);
@@ -43,7 +43,6 @@ void	iter_node(t_node *node, void (*f)(int));
 t_stack	*init_stack(t_node *list_a);
 t_node	*get_last_node(t_node *node);
 int		get_list_size(t_node *node);
-void	delete_one_node(t_node *node);
 
 void	sa(t_stack *stack);
 void	sb(t_stack *stack);
@@ -52,7 +51,7 @@ void	pb(t_stack *stack);
 void	ra(t_stack *stack);
 void	rb(t_stack *stack);
 void	rr(t_stack *stack);
-
-
-// void	rrr(t_stack *stack);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
+void	rrr(t_stack *stack);
 #endif
