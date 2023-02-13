@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:43:49 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/13 16:45:42 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/13 21:47:47 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	sa(t_stack *stack)
 	stack->a_top = stack->a_top->next;
 	temp->next = stack->a_top->next;
 	stack->a_top->next = temp;
+	ft_putendl_fd("sa", 1);
 }
 
 void	sb(t_stack *stack)
@@ -48,6 +49,7 @@ void	sb(t_stack *stack)
 	stack->b_top = stack->b_top->next;
 	temp->next = stack->b_top->next;
 	stack->b_top->next = temp;
+	ft_putendl_fd("sb", 1);
 }
 
 void	pa(t_stack *stack)
@@ -64,6 +66,7 @@ void	pa(t_stack *stack)
 	stack->a_size++;
 	if (!stack->a_bot)
 		stack->a_bot = stack->a_top;
+	ft_putendl_fd("pa", 1);
 }
 
 void	pb(t_stack *stack)
@@ -80,49 +83,65 @@ void	pb(t_stack *stack)
 	stack->b_size++;
 	if (!stack->b_bot)
 		stack->b_bot = stack->b_top;
+	ft_putendl_fd("pb", 1);
 }
 
 void	ra(t_stack *stack)
 {
-	if (stack->a_size < 3)
+	if (stack->a_size < 2)
 		return ;
 	stack->a_bot->next = stack->a_top;
 	stack->a_bot = stack->a_top;
 	stack->a_top = stack->a_top->next;
 	stack->a_bot->next = 0;
+	ft_putendl_fd("ra", 1);
 }
 
 void	rb(t_stack *stack)
 {
-	if (stack->b_size < 3)
+	if (stack->b_size < 2)
 		return ;
 	stack->b_bot->next = stack->b_top;
 	stack->b_bot = stack->b_top;
 	stack->b_top = stack->b_top->next;
 	stack->b_bot->next = 0;
+	ft_putendl_fd("rb", 1);
 }
 
 void	rr(t_stack *stack)
 {
 	ra(stack);
 	rb(stack);
+	ft_putendl_fd("rr", 1);
 }
 
-void	rra(t_stack *stack)
-{
-	if (stack->a_size < 3)
-		return ;
-}
+// void	rra(t_stack *stack)
+// {
+// 	t_node	i;
+// 	t_node	*temp;
 
-void	rrb(t_stack *stack)
-{
-	if (stack->b_size < 3)
-		return ;
-	;
-}
+// 	if (stack->a_size < 2)
+// 		return ;
+	 
+// 	while (i)
+// 	{
+// 		if (!i->next)
+// 			break ;
+// 		i = i->next;
+// 	}
+// 	ft_putendl_fd("rra", 1);
+// }
 
-void	rrr(t_stack *stack)
-{
-	rra(stack);
-	rrb(stack);
-}
+// void	rrb(t_stack *stack)
+// {
+// 	if (stack->b_size < 2)
+// 		return ;
+// 	ft_putendl_fd("rrb", 1);
+// }
+
+// void	rrr(t_stack *stack)
+// {
+// 	rra(stack);
+// 	rrb(stack);
+// 	ft_putendl_fd("rrr", 1);
+// }

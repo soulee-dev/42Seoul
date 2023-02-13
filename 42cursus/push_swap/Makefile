@@ -16,7 +16,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) -o $@ $^ -Llibft -lft
+	$(CC) -o $@ $^ -Llibft -lft -g3
 	@echo Compile Complete! 🥳
 	
 %.o: %.c
