@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:43:49 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/14 16:00:03 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/14 16:06:28 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ void	rra(t_stack *stack)
 	ft_putendl_fd("rra", 1);
 }
 
-void	rra(t_stack *stack)
+void	rrb(t_stack *stack)
 {
 	t_node	*i;
 	t_node	*temp;
