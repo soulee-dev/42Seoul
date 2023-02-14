@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/14 16:25:50 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/14 16:47:12 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	get_pivots(int	*array, int size, int *max_pivot, int *min_pivot)
 		}
 		i++;
 	}
-	*max_pivot = array[size * 2/3];
-	*min_pivot = array[size * 1/3];
+	*max_pivot = array[size * 2 / 3];
+	*min_pivot = array[size * 1 / 3];
 	free(array);
 }
 
@@ -53,7 +53,8 @@ void	parition_stack(t_stack *stack)
 	{
 		if (max_pivot < stack->a_top->content)
 			ra(stack);
-		else if (max_pivot >= stack->a_top->content && min_pivot <= stack->a_top->content)
+		else if (max_pivot >= stack->a_top->content
+			&& min_pivot <= stack->a_top->content)
 			pb(stack);
 		else if (min_pivot > stack->a_top->content)
 		{
@@ -69,7 +70,6 @@ void	parition_stack(t_stack *stack)
 	printf("stack b: ");
 	iter_node(stack->b_top);
 }
-
 // the rest elements of stack b will be processed in the way greed, and other 5 elements in stack a will be hardcoded.
 
 int	main(int argc, char *argv[])
@@ -79,7 +79,6 @@ int	main(int argc, char *argv[])
 
 	if (argc < 2)
 		wrap_exit(EXIT_SUCCESS, 0);
-
 	stack = parse_arguments(argv);
 	parition_stack(stack);
 	return (0);

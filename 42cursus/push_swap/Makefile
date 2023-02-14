@@ -6,7 +6,8 @@ SRCS :=
 SRCS += push_swap.c
 SRCS += error.c
 SRCS += push_swap_utils.c
-SRCS += stack.c
+SRCS += instructions1.c
+SRCS += instructions2.c
 SRCS += list.c
 
 LIBFT = ./libft/libft.a

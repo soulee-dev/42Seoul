@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:37:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/13 20:34:18 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/14 16:45:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,18 @@ t_stack	*parse_arguments(char **argv)
 		i++;
 	}
 	return (init_stack(list_a));
+}
+
+t_stack	*init_stack(t_node *list_a)
+{
+	t_stack	*stack;
+
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	stack->a_top = list_a;
+	stack->a_bot = get_last_node(list_a);
+	stack->a_size = get_list_size(list_a);
+	stack->b_top = 0;
+	stack->b_bot = 0;
+	stack->b_size = 0;
+	return (stack);
 }
