@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/14 16:47:12 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/14 21:04:36 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void	parition_stack(t_stack *stack)
 		}
 		i++;
 	}
-	while (stack->a_size > 5)
+	// while (stack->a_size > 3)
+	// 	pb(stack);
+	while (stack->a_size)
 		pb(stack);
 	printf("stack a: ");
 	iter_node(stack->a_top);
@@ -81,5 +83,6 @@ int	main(int argc, char *argv[])
 		wrap_exit(EXIT_SUCCESS, 0);
 	stack = parse_arguments(argv);
 	parition_stack(stack);
+	greedy(stack);
 	return (0);
 }

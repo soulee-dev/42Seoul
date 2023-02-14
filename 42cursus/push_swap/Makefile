@@ -9,6 +9,7 @@ SRCS += push_swap_utils.c
 SRCS += instructions1.c
 SRCS += instructions2.c
 SRCS += list.c
+SRCS += greedy.c
 
 LIBFT = ./libft/libft.a
 
@@ -17,7 +18,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) -o $@ $^ -Llibft -lft -g3
+	$(CC) -o $@ $^ -Llibft -lft
 	@echo Compile Complete! 🥳
 	
 %.o: %.c
