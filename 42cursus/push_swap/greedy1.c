@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   greedy1.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 20:59:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/16 19:12:33 by soulee           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 int	count_instructions_b(t_stack *stack, int val, int *flag)
 {
@@ -100,16 +88,8 @@ void	greedy(t_stack *stack)
 	int		sum;
 	int		optimal;
 	t_node	*node;
-	int flag;
+	int		flag;
 
-	pa(stack);
-	pa(stack);
-	pa(stack);
-	printf("\n\n\n");
-	printf("stack a: ");
-	iter_node(stack->a_top);
-	printf("stack b: ");
-	iter_node(stack->b_top);
 	sum = 2147483647;
 	node = stack->b_top;
 
@@ -123,21 +103,12 @@ void	greedy(t_stack *stack)
 			sum = a + b;
 			optimal = node->content;
 		}
-
-		printf("curr: %d, %d, %d, %d\n", node->content, a, b, a + b);
-
 		node = node->next;
 	}
-	flag = 0;
+	flag = 1;
 	a = count_instructions_a(stack, optimal);
 	b = count_instructions_b(stack, optimal, &flag);
 	apply_rotate_a(stack, a);
 	apply_rotate_b(stack, b, flag);
 	pa(stack);
-	printf("Optimal :%d\n", optimal);
-	printf("stack b: ");
-	iter_node(stack->b_top);
-	// 최적 해를 구했으니 이제 적용해야 하는데?
-	
-
 }

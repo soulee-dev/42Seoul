@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/16 18:25:37 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/16 21:24:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,7 @@ void	parition_stack(t_stack *stack)
 	// 	pb(stack);
 	while (stack->a_size)
 		pb(stack);
-	printf("stack a: ");
-	iter_node(stack->a_top);
-	printf("stack b: ");
-	iter_node(stack->b_top);
 }
-// the rest elements of stack b will be processed in the way greed, and other 5 elements in stack a will be hardcoded.
 
 int	main(int argc, char *argv[])
 {
@@ -84,10 +79,7 @@ int	main(int argc, char *argv[])
 	stack = parse_arguments(argv);
 	parition_stack(stack);
 	while (stack->b_size)
-	{
 		greedy(stack);
-	}
-	printf("a stack: ");
-	iter_node(stack->a_top);
+	apply_rotate_last(stack);
 	return (0);
 }

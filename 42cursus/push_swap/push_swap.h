@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:43:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/16 19:09:56 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/16 21:22:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ void	rrr(t_stack *stack);
 void	greedy(t_stack *stack);
 void	apply_rotate_a(t_stack *stack, int a);
 void	apply_rotate_b(t_stack *stack, int b, int flag);
+void	apply_rotate_last(t_stack *stack);
 #endif
