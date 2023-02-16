@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:29:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/16 21:24:45 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/16 22:06:22 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	apply_rotate_last(t_stack *stack)
 
 	i = 0;
 	node = stack->a_top;
-	temp = 0;
+	temp = -2147483648;
 
 	while (node)
 	{
