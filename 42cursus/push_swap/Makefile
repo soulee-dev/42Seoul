@@ -9,7 +9,8 @@ SRCS += push_swap_utils.c
 SRCS += instructions1.c
 SRCS += instructions2.c
 SRCS += list.c
-SRCS += greedy.c
+SRCS += greedy1.c
+SRCS += greedy2.c
 
 LIBFT = ./libft/libft.a
 

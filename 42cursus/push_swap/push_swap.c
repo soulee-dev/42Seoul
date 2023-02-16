@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/14 21:04:36 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/16 18:25:37 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@ int	main(int argc, char *argv[])
 		wrap_exit(EXIT_SUCCESS, 0);
 	stack = parse_arguments(argv);
 	parition_stack(stack);
-	greedy(stack);
+	while (stack->b_size)
+	{
+		greedy(stack);
+	}
+	printf("a stack: ");
+	iter_node(stack->a_top);
 	return (0);
 }
