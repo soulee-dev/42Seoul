@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:42:06 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/20 19:00:39 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/20 22:32:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	count_instructions_b(t_stack *stack, int val, int *flag)
 {
-	int	i;
+	int		i;
 	t_node	*node;
 
 	i = 0;

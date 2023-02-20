@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/20 21:17:56 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/20 22:38:05 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	get_pivots(int	*array, int size, int *max_pivot, int *min_pivot)
 	int		temp;
 
 	i = 0;
-	while (array[i])
+	while (i < size)
 	{
-		j = 0;
-		while (array[j])
+		j = i + 1;
+		while (j < size)
 		{
 			if (array[i] > array[j])
 			{
@@ -43,12 +43,12 @@ void	parition_stack(t_stack *stack)
 {
 	int		i;
 	int		*array;
-	int		min_pivot;
 	int		max_pivot;
+	int		min_pivot;
 
 	i = stack->a_size;
 	array = list_to_array(stack);
-	get_pivots(array, stack->a_size, &min_pivot, &max_pivot);
+	get_pivots(array, stack->a_size, &max_pivot, &min_pivot);
 	while (i--)
 	{
 		if (max_pivot < stack->a_top->content)
@@ -77,12 +77,11 @@ int	main(int argc, char *argv[])
 	while (stack->b_size)
 		greedy(stack);
 	apply_rotate_last(stack);
+	iter_node(stack->a_top);
 	return (0);
 }
 
-// 100개 11
-// 500개 5500
-// 5개 12개
-// 최적화 필요 ra하는걸 rra랑 나눠서 하기
-// 보너스 구현하기
-// 하드코딩하기
+// TODO 가끔씩 튀는 값이 있는데 이거는 명령어 합치는걸로 해결해보기
+// TODO sort된 경우 아무것도 출력하지 않고 나가기
+// TODO leak 확인하기
+// TODO norm 확인하기
