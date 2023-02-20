@@ -20,11 +20,11 @@ OBJS = $(SRCS:.c=.o)
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) -o $@ $^ -Llibft -lft
+	$(CC) -o $@ $^ -Llibft -lft -fsanitize=address
 	@echo Compile Complete! 🥳
 	
 %.o: %.c
-	$(CC) -c $(CFLAGS) $? -g3
+	$(CC) -c $(CFLAGS) $? -g3 -fsanitize=address
 
 $(LIBFT):
 	make -C ./libft bonus

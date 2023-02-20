@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:36:47 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/20 22:34:18 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/20 22:52:35 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,20 @@ void	hard_sort(t_stack *stack)
 		{
 			if (node->content < node->next->next->content)
 				sa(stack);
-			if (node->content > node->next->next->content)
+			else if (node->content > node->next->next->content)
 				ra(stack);
 		}
-		if (node->content < node->next->content && node->next->content > node->next->next->content)
+		else if (node->content < node->next->content && node->next->content > node->next->next->content)
 		{
 			if (node->content < node->next->next->content)
 			{
 				sa(stack);
 				ra(stack);
 			}
-			if (node->content > node->next->next->content)
+			else if (node->content > node->next->next->content)
 				rra(stack);
 		}
-		if (node->content > node->next->content && node->next->content > node->next->next->content)
+		else if (node->content > node->next->content && node->next->content > node->next->next->content)
 		{
 			sa(stack);
 			rra(stack);

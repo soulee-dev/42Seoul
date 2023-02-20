@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/20 22:38:05 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/20 22:57:10 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int	main(int argc, char *argv[])
 	while (stack->b_size)
 		greedy(stack);
 	apply_rotate_last(stack);
-	iter_node(stack->a_top);
 	return (0);
 }
 

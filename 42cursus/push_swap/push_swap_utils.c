@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:37:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/14 16:45:55 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/20 22:42:10 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,12 @@ void	wrap_atoi(t_node **node, const char *str)
 int	*list_to_array(t_stack *stack)
 {
 	t_node	*i;
-	t_node	*j;
 	int		k;
 	int		*array;
 
 	i = stack->a_top;
-	j = stack->a_top;
 	k = 0;
-	array = malloc(stack->a_size);
+	array = malloc(sizeof(int) * stack->a_size);
 	while (i)
 	{
 		array[k] = i->content;
