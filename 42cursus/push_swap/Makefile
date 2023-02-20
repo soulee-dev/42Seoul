@@ -11,6 +11,7 @@ SRCS += instructions2.c
 SRCS += list.c
 SRCS += greedy1.c
 SRCS += greedy2.c
+SRCS += hard_sort.c
 
 LIBFT = ./libft/libft.a
 

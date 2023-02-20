@@ -6,16 +6,17 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:29:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/20 17:42:23 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/20 19:23:41 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	apply_rotate_a(t_stack *stack, int a)
+void	apply_rotate_a(t_stack *stack, int a, int flag)
 {
 	while (a)
 	{
+		//ra(stack);
 		if (flag)
 			rra(stack);
 		else
@@ -38,11 +39,12 @@ void	apply_rotate_b(t_stack *stack, int b, int flag)
 
 void	apply_rotate_last(t_stack *stack)
 {
-	int	i;
+	int	ra_cnt;
+	int	rra_cnt;
 	int	temp;
 	t_node	*node;
 
-	i = 0;
+	ra_cnt = 0;
 	node = stack->a_top;
 	temp = -2147483648;
 
@@ -50,15 +52,26 @@ void	apply_rotate_last(t_stack *stack)
 	{
 		if (temp < node->content)
 		{
-			i++;
+			ra_cnt++;
 			temp = node->content;
 		}
 		node = node->next;
 	}
-	i = stack->a_size - i;
-	while (i)
+	rra_cnt = stack->a_size - ra_cnt;
+	if (ra_cnt > rra_cnt)
 	{
-		rra(stack);
-		i--;
+		while (rra_cnt)
+		{
+			rra(stack);
+			rra_cnt--;
+		}
+	}
+	else
+	{
+		while (ra_cnt)
+		{
+			ra(stack);
+			ra_cnt--;
+		}
 	}
 }
