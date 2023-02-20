@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:29:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/16 22:06:22 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/20 17:42:23 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void	apply_rotate_a(t_stack *stack, int a)
 {
 	while (a)
 	{
-		ra(stack);
+		if (flag)
+			rra(stack);
+		else
+			ra(stack);
 		a--;
 	}
 }
