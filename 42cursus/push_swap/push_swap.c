@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 16:38:38 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 16:43:43 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,17 @@ void	get_pivots(int	*array, int size, int *max_pivot, int *min_pivot)
 void	parition_stack(t_stack *stack)
 {
 	int		i;
-	int		ra_cnt;
 	int		*array;
 	int		max_pivot;
 	int		min_pivot;
 
-	ra_cnt = 0;
 	i = stack->a_size;
 	array = list_to_array(stack);
 	get_pivots(array, stack->a_size, &max_pivot, &min_pivot);
 	while (i-- && stack->a_size > 3)
 	{
 		if (max_pivot < stack->a_top->content)
-		{
 			ra(stack);
-			ra_cnt++;
-		}
 		else
 		{
 			pb(stack);
@@ -70,7 +65,7 @@ void	parition_stack(t_stack *stack)
 				rb(stack);
 		}
 	}
-	while (--ra_cnt >= 0 && stack->a_size > 3)
+	while (stack->a_size > 3)
 		pb(stack);
 }	
 
