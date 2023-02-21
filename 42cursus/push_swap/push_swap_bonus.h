@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:29:46 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 21:53:56 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 22:53:13 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,24 @@ typedef struct s_stack {
 	int		b_size;
 }	t_stack;
 
-void	wrap_exit(int exit_code, char *error_message);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack);
+void	pa(t_stack *stack);
+void	pb(t_stack *stack);
+void	ra(t_stack *stack);
+void	rb(t_stack *stack);
+void	rr(t_stack *stack);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
+void	rrr(t_stack *stack);
 
+t_stack	*init_stack(t_node *list_a);
+void	wrap_atoi(t_node **node, const char *str);
+void	wrap_exit(int exit_code, char *error_message);
+void	free_split(char **strs, int size);
+void	add_node_back(t_node **node, t_node *new);
+t_node	*get_last_node(t_node *node);
+int		get_list_size(t_node *node);
+t_node	*create_new_node(int content);
 #endif

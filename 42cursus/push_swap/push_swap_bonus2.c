@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 21:50:32 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 21:51:14 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:00:53 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,44 +46,28 @@ t_node	*get_last_node(t_node *node)
 	return (node);
 }
 
-void	wrap_atoi(t_node **node, const char *str)
+int	check_duplicated(t_node *node, int val)
 {
-	long long	num;
-	long long	sign;
-
-	num = 0;
-	sign = 1;
-	while (((int)(*str) >= 9 && (int)(*str) <= 13) || (int)(*str) == 32)
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str)
+	while (node)
 	{
-		if (*str >= '0' && *str <= '9')
-		{
-			num = num * 10 + (*str - '0');
-			str++;
-		}
-		else
-			wrap_exit(EXIT_ERROR, "INVALID ARGUMENT (NON INTEGER)");
+		if (node->content == val)
+			return (1);
+		node = node->next;
 	}
-	if (sign * num > 2147483647 || sign * num < -2147483648)
-		wrap_exit(EXIT_ERROR, "INVALID ARGUMENT (EXCEED INTEGER)");
-	add_node_back(node, create_new_node(sign * num));
+	return (0);
 }
 
-t_stack	*init_stack(t_node *list_a)
+void	add_node_back(t_node **node, t_node *new)
 {
-	t_stack	*stack;
+	t_node	*last;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	stack->a_top = list_a;
-	stack->a_bot = get_last_node(list_a);
-	stack->a_size = get_list_size(list_a);
-	stack->b_top = 0;
-	stack->b_bot = 0;
-	stack->b_size = 0;
-	return (stack);
+	if (!*node)
+	{
+		*node = new;
+		return ;
+	}
+	if (check_duplicated(*node, new->content))
+		wrap_exit(EXIT_ERROR, "Error");
+	last = get_last_node(*node);
+	last->next = new;
 }

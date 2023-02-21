@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 20:13:30 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:06:46 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	parition_stack(t_stack *stack)
 
 int	main(int argc, char *argv[])
 {
-	int		i;
 	t_stack	*stack;
 
 	if (argc < 2)
@@ -89,3 +88,5 @@ int	main(int argc, char *argv[])
 	free_all(stack);
 	return (0);
 }
+
+// "" 들어 오면 에러처리

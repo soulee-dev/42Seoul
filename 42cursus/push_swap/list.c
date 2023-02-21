@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 19:42:23 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 16:11:03 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:05:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	add_node_back(t_node **node, t_node *new)
 		return ;
 	}
 	if (check_duplicated(*node, new->content))
-		wrap_exit(EXIT_ERROR, "INVALID ARGUMENT (DUPLICATED INTEGER)");
+		wrap_exit(EXIT_ERROR, "Error");
 	last = get_last_node(*node);
 	last->next = new;
 }

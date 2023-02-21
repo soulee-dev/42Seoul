@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:28:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 22:03:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:08:03 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,27 @@ int	check_sorted(t_stack *stack)
 
 void	excute_operator(t_stack *stack, char *line)
 {
-	if (ft_strncmp("sa\n", line, 3))
+	if (!ft_strncmp("sa\n", line, 3))
 		sa(stack);
-	if (ft_strncmp("sb\n", line, 3))
+	if (!ft_strncmp("sb\n", line, 3))
 		sb(stack);
-	if (ft_strncmp("ss\n", line, 3))
+	if (!ft_strncmp("ss\n", line, 3))
 		ss(stack);
-	if (ft_strncmp("pa\n", line, 3))
+	if (!ft_strncmp("pa\n", line, 3))
 		pa(stack);
-	if (ft_strncmp("pb\n", line, 3))
+	if (!ft_strncmp("pb\n", line, 3))
 		pb(stack);
-	if (ft_strncmp("ra\n", line, 3))
+	if (!ft_strncmp("ra\n", line, 3))
 		ra(stack);
-	if (ft_strncmp("rb\n", line, 3))
+	if (!ft_strncmp("rb\n", line, 3))
 		rb(stack);
-	if (ft_strncmp("rr\n", line, 3))
+	if (!ft_strncmp("rr\n", line, 3))
 		rr(stack);
-	if (ft_strncmp("rra\n", line, 3))
+	if (!ft_strncmp("rra\n", line, 3))
 		rra(stack);
-	if (ft_strncmp("rrb\n", line, 3))
+	if (!ft_strncmp("rrb\n", line, 3))
 		rrb(stack);
-	if (ft_strncmp("rrr\n", line, 3))
+	if (!ft_strncmp("rrr\n", line, 3))
 		rrr(stack);
 }
 
@@ -71,9 +71,6 @@ int	main(int argc, char *argv[])
 	t_node	*list_a;
 	char	**splitted_data;
 	t_stack	*stack;
-
-	if (argc < 2)
-		wrap_exit(EXIT_ERROR, "Error");
 
 	i = 1;
 	list_a = 0;
