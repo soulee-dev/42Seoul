@@ -2,6 +2,8 @@
 	"files.associations": {
 		"__config": "c",
 		"libft.h": "c",
-		"initializer_list": "c"
+		"initializer_list": "c",
+		"__node_handle": "c",
+		"push_swap_bonus.h": "c"
 	}
 }

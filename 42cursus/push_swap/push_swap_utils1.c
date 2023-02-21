@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   push_swap_utils1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:37:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 16:13:58 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 20:19:26 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	*list_to_array(t_stack *stack)
 t_stack	*parse_arguments(char **argv)
 {
 	int		i;
-	int		*array;
+	int		j;
 	t_node	*list_a;
 	char	**splitted_data;
 
@@ -69,12 +69,15 @@ t_stack	*parse_arguments(char **argv)
 	list_a = 0;
 	while (argv[i])
 	{
+		j = 0;
 		splitted_data = ft_split(argv[i], ' ');
-		while (*splitted_data)
+		while (splitted_data[j])
 		{
 			wrap_atoi(&list_a, *splitted_data);
-			splitted_data++;
+			j++;
 		}
+		free_split(splitted_data, j);
+		splitted_data = 0;
 		i++;
 	}
 	return (init_stack(list_a));

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 17:13:26 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 20:13:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	parition_stack(t_stack *stack)
 	}
 	while (stack->a_size > 3)
 		pb(stack);
-}	
+}
 
 int	main(int argc, char *argv[])
 {
@@ -86,9 +86,6 @@ int	main(int argc, char *argv[])
 	while (stack->b_size)
 		greedy(stack);
 	apply_rotate_last(stack, stack->a_top);
+	free_all(stack);
 	return (0);
 }
-
-// TODO leak 확인하기
-// TODO norm 확인하기
-// TODO bonus 구현

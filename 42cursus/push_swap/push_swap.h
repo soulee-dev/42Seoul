@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:43:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 17:19:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 21:46:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		get_list_size(t_node *node);
 
 void	sa(t_stack *stack);
 void	sb(t_stack *stack);
+void	ss(t_stack *stack);
 void	pa(t_stack *stack);
 void	pb(t_stack *stack);
 void	ra(t_stack *stack);
@@ -64,4 +65,7 @@ int		count_instructions_a(t_stack *stack, int val);
 int		count_instructions_b(t_stack *stack, int val, int *flag);
 
 void	hard_sort(t_stack *stack, t_node *node);
+
+void	free_all(t_stack *stack);
+void	free_split(char **strs, int size);
 #endif

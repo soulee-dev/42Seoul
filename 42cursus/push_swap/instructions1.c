@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:43:49 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/14 16:45:44 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 21:47:44 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ void	sb(t_stack *stack)
 	temp->next = stack->b_top->next;
 	stack->b_top->next = temp;
 	ft_putendl_fd("sb", 1);
+}
+
+void	ss(t_stack *stack)
+{
+	sa(stack);
+	sb(stack);
 }
 
 void	pa(t_stack *stack)
