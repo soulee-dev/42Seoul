@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:43:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 16:38:22 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 17:19:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ void	greedy(t_stack *stack);
 void	apply_rotate_a(t_stack *stack, int a, int flag);
 void	apply_rotate_b(t_stack *stack, int b, int flag);
 void	apply_rotate_last(t_stack *stack, t_node *node);
+int		get_optimal_instructions(t_stack *stack, t_node *node);
+int		count_instructions_a(t_stack *stack, int val);
+int		count_instructions_b(t_stack *stack, int val, int *flag);
 
 void	hard_sort(t_stack *stack, t_node *node);
 #endif

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:42:06 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 16:31:22 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 17:20:40 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,29 +107,12 @@ void	greedy(t_stack *stack)
 {
 	int		a;
 	int		b;
-	int		sum;
-	int		optimal;
-	t_node	*node;
-	int		flag;
+	int		flag_b;
 	int		flag_a;
+	int		optimal;
 
-	sum = 2147483647;
-	node = stack->b_top;
-	optimal = 0;
-	while (node)
-	{
-		a = count_instructions_a(stack, node->content);
-		if (a >= stack->a_size / 2)
-			a = stack->a_size - a;
-		b = count_instructions_b(stack, node->content, &flag);
-		if (sum > a + b)
-		{
-			sum = a + b;
-			optimal = node->content;
-		}
-		node = node->next;
-	}
-	flag = 1;
+	optimal = get_optimal_instructions(stack, stack->b_top);
+	flag_b = 1;
 	flag_a = 0;
 	a = count_instructions_a(stack, optimal);
 	if (a >= stack->a_size / 2)
@@ -137,8 +120,8 @@ void	greedy(t_stack *stack)
 		flag_a = 1;
 		a = stack->a_size - a;
 	}
-	b = count_instructions_b(stack, optimal, &flag);
+	b = count_instructions_b(stack, optimal, &flag_b);
 	apply_rotate_a(stack, a, flag_a);
-	apply_rotate_b(stack, b, flag);
+	apply_rotate_b(stack, b, flag_b);
 	pa(stack);
 }

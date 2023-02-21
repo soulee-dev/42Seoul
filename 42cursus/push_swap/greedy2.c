@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:29:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 16:40:29 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 17:20:16 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,30 @@ void	apply_rotate_last(t_stack *stack, t_node *node)
 	}
 	rra_cnt = stack->a_size - ra_cnt;
 	rotate_last(stack, ra_cnt, rra_cnt);
+}
+
+int	get_optimal_instructions(t_stack *stack, t_node *node)
+{
+	int		a;
+	int		b;
+	int		sum;
+	int		flag;
+	int		optimal;
+
+	optimal = 0;
+	sum = 2147483647;
+	while (node)
+	{
+		a = count_instructions_a(stack, node->content);
+		if (a >= stack->a_size / 2)
+			a = stack->a_size - a;
+		b = count_instructions_b(stack, node->content, &flag);
+		if (sum > a + b)
+		{
+			sum = a + b;
+			optimal = node->content;
+		}
+		node = node->next;
+	}
+	return (optimal);
 }
