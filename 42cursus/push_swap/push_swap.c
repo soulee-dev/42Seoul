@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 16:25:29 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 16:38:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,13 @@ int	main(int argc, char *argv[])
 		wrap_exit(EXIT_SUCCESS, 0);
 	stack = parse_arguments(argv);
 	parition_stack(stack);
-	hard_sort(stack);
+	hard_sort(stack, stack->a_top);
 	while (stack->b_size)
 		greedy(stack);
-	apply_rotate_last(stack);
+	apply_rotate_last(stack, stack->a_top);
 	return (0);
 }
 
-// TODO 가끔씩 튀는 값이 있는데 이거는 명령어 합치는걸로 해결해보기
 // TODO leak 확인하기
 // TODO norm 확인하기
-// 5개 최적화 하기
+// TODO bonus 구현

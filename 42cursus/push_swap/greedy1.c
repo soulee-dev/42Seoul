@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:42:06 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 16:12:06 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 16:31:22 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,21 +100,6 @@ int	count_instructions_a(t_stack *stack, int val)
 		count = (get_mid_index(stack->a_top, val));
 	if (count == stack->a_size)
 		return (0);
-	return (count);
-}
-
-int	find_val_node(t_node *node, int val)
-{
-	int	count;
-
-	count = 0;
-	while (node)
-	{
-		count++;
-		if (node->content == val)
-			break ;
-		node = node->next;
-	}
 	return (count);
 }
 

@@ -6,15 +6,12 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:43:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/20 20:55:03 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 16:38:22 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-// ---- REMOVE BEFORE FLIGHT ----
-# include <stdio.h>
-// ---- REMOVE BEFORE FLIGHT ----
 # include "../libft/libft.h"
 # include <stdlib.h>
 # define EXIT_SUCCESS 0
@@ -61,7 +58,7 @@ void	rrr(t_stack *stack);
 void	greedy(t_stack *stack);
 void	apply_rotate_a(t_stack *stack, int a, int flag);
 void	apply_rotate_b(t_stack *stack, int b, int flag);
-void	apply_rotate_last(t_stack *stack);
+void	apply_rotate_last(t_stack *stack, t_node *node);
 
-void	hard_sort(t_stack *stack);
+void	hard_sort(t_stack *stack, t_node *node);
 #endif
