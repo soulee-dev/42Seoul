@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 23:06:46 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:16:27 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,3 +90,11 @@ int	main(int argc, char *argv[])
 }
 
 // "" 들어 오면 에러처리
+// - 하나만 들어오면 에러처리
+// soulee@c2r1s3 push_swap % ./push_swap "1 3 2"  
+// Error
+// soulee@c2r1s3 push_swap % ./push_swap "1 3 2" 4
+// Error
+// soulee@c2r1s3 push_swap % ./push_swap "1 3 2" 4 5
+// Error
+// soulee@c2r1s3 push_swap % ./push_swap 0 "1 3 2" 4 5
