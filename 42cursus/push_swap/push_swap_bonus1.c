@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:28:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 23:08:03 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:13:25 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	check_sorted(t_stack *stack)
 	count = 0;
 	temp = -2147483648;
 	node = stack->a_top;
-
 	while (node)
 	{
 		if (temp < node->content)
@@ -34,7 +33,7 @@ int	check_sorted(t_stack *stack)
 	}
 	if (count == stack->a_size)
 		return (1);
-	return (0);	
+	return (0);
 }
 
 void	excute_operator(t_stack *stack, char *line)
@@ -65,30 +64,12 @@ void	excute_operator(t_stack *stack, char *line)
 
 int	main(int argc, char *argv[])
 {
-	int		i;
-	int		j;
 	char	*line;
-	t_node	*list_a;
-	char	**splitted_data;
 	t_stack	*stack;
 
-	i = 1;
-	list_a = 0;
-	while (argv[i])
-	{
-		j = 0;
-		splitted_data = ft_split(argv[i], ' ');
-		while (splitted_data[j])
-		{
-			wrap_atoi(&list_a, *splitted_data);
-			j++;
-		}
-		free_split(splitted_data, j);
-		splitted_data = 0;
-		i++;
-	}
-	stack = init_stack(list_a);
-
+	if (argc < 2)
+		wrap_exit(EXIT_SUCCESS, 0);
+	stack = parse_arguments(argv);
 	line = get_next_line(0);
 	while (line)
 	{

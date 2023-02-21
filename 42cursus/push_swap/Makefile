@@ -21,6 +21,7 @@ SRCS_BONUS += push_swap_bonus3.c
 SRCS_BONUS += push_swap_bonus4.c
 SRCS_BONUS += push_swap_bonus5.c
 SRCS_BONUS += push_swap_bonus6.c
+SRCS_BONUS += push_swap_bonus7.c
 SRCS_BONUS += get_next_line_bonus.c
 SRCS_BONUS += get_next_line_utils_bonus.c
 

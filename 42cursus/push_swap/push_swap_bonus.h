@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:29:46 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 22:53:13 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:11:32 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ void	add_node_back(t_node **node, t_node *new);
 t_node	*get_last_node(t_node *node);
 int		get_list_size(t_node *node);
 t_node	*create_new_node(int content);
+t_stack	*parse_arguments(char **argv);
 #endif
