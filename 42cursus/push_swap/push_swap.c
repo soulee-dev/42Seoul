@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/20 22:57:10 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 16:25:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void	get_pivots(int	*array, int size, int *max_pivot, int *min_pivot)
 	int		i;
 	int		j;
 	int		temp;
+	int		count;
 
 	i = 0;
+	count = 0;
 	while (i < size)
 	{
 		j = i + 1;
@@ -29,6 +31,7 @@ void	get_pivots(int	*array, int size, int *max_pivot, int *min_pivot)
 				temp = array[j];
 				array[j] = array[i];
 				array[i] = temp;
+				count++;
 			}
 			j++;
 		}
@@ -37,22 +40,29 @@ void	get_pivots(int	*array, int size, int *max_pivot, int *min_pivot)
 	*max_pivot = array[size * 2 / 3];
 	*min_pivot = array[size * 1 / 3];
 	free(array);
+	if (!count)
+		wrap_exit(EXIT_SUCCESS, 0);
 }
 
 void	parition_stack(t_stack *stack)
 {
 	int		i;
+	int		ra_cnt;
 	int		*array;
 	int		max_pivot;
 	int		min_pivot;
 
+	ra_cnt = 0;
 	i = stack->a_size;
 	array = list_to_array(stack);
 	get_pivots(array, stack->a_size, &max_pivot, &min_pivot);
-	while (i--)
+	while (i-- && stack->a_size > 3)
 	{
 		if (max_pivot < stack->a_top->content)
+		{
 			ra(stack);
+			ra_cnt++;
+		}
 		else
 		{
 			pb(stack);
@@ -60,7 +70,7 @@ void	parition_stack(t_stack *stack)
 				rb(stack);
 		}
 	}
-	while (stack->a_size > 3)
+	while (--ra_cnt >= 0 && stack->a_size > 3)
 		pb(stack);
 }	
 
@@ -81,6 +91,6 @@ int	main(int argc, char *argv[])
 }
 
 // TODO 가끔씩 튀는 값이 있는데 이거는 명령어 합치는걸로 해결해보기
-// TODO sort된 경우 아무것도 출력하지 않고 나가기
 // TODO leak 확인하기
 // TODO norm 확인하기
+// 5개 최적화 하기

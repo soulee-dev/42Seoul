@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:42:06 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/20 22:32:52 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 16:12:06 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,6 @@ void	greedy(t_stack *stack)
 
 	sum = 2147483647;
 	node = stack->b_top;
-
 	optimal = 0;
 	while (node)
 	{
