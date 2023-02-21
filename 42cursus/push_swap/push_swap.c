@@ -6,11 +6,17 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 16:43:43 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/21 17:13:26 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	exit_sorted(int count)
+{
+	if (!count)
+		wrap_exit(EXIT_SUCCESS, 0);
+}
 
 void	get_pivots(int	*array, int size, int *max_pivot, int *min_pivot)
 {
@@ -19,9 +25,9 @@ void	get_pivots(int	*array, int size, int *max_pivot, int *min_pivot)
 	int		temp;
 	int		count;
 
-	i = 0;
+	i = -1;
 	count = 0;
-	while (i < size)
+	while (++i < size)
 	{
 		j = i + 1;
 		while (j < size)
@@ -35,13 +41,10 @@ void	get_pivots(int	*array, int size, int *max_pivot, int *min_pivot)
 			}
 			j++;
 		}
-		i++;
 	}
 	*max_pivot = array[size * 2 / 3];
 	*min_pivot = array[size * 1 / 3];
-	free(array);
-	if (!count)
-		wrap_exit(EXIT_SUCCESS, 0);
+	exit_sorted(count);
 }
 
 void	parition_stack(t_stack *stack)
@@ -54,6 +57,7 @@ void	parition_stack(t_stack *stack)
 	i = stack->a_size;
 	array = list_to_array(stack);
 	get_pivots(array, stack->a_size, &max_pivot, &min_pivot);
+	free(array);
 	while (i-- && stack->a_size > 3)
 	{
 		if (max_pivot < stack->a_top->content)
