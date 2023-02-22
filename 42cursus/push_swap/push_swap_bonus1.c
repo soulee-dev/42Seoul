@@ -6,12 +6,11 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:28:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 23:13:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/22 17:12:53 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
-#include <stdio.h>
 
 int	check_sorted(t_stack *stack)
 {
@@ -81,5 +80,6 @@ int	main(int argc, char *argv[])
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+	free_all(stack);
 	return (0);
 }
