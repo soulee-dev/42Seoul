@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 22:50:52 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/22 16:25:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/22 16:48:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	wrap_atoi(t_node **node, const char *str)
 		else
 			wrap_exit(EXIT_ERROR, "Error");
 	}
-	if (sign * num > 2147483647 || sign * num < -2147483648)
+	if (sign * num > INT32_MAX || sign * num < INT32_MIN
+		|| (sign == -1 && num == 0))
 		wrap_exit(EXIT_ERROR, "Error");
 	add_node_back(node, create_new_node(sign * num));
 }
