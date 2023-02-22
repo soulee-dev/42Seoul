@@ -6,13 +6,13 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:43:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/22 16:24:02 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/22 17:06:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include <stdlib.h>
 # define EXIT_SUCCESS 0
 # define EXIT_ERROR 1

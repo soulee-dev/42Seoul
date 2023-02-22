@@ -6,14 +6,14 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:29:46 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 23:11:32 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/22 17:06:34 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 # include <stdlib.h>
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include "get_next_line_bonus.h"
 # define EXIT_SUCCESS 0
 # define EXIT_ERROR 1
