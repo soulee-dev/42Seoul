@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 22:50:52 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/22 16:48:59 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/22 16:55:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ t_stack	*parse_arguments(char **argv)
 			wrap_atoi(&list_a, splitted_data[j]);
 			j++;
 		}
+		if (j == 0)
+			wrap_exit(EXIT_ERROR, "Error");
 		free_split(splitted_data, j);
 		splitted_data = 0;
 		i++;
