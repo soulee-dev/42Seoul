@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:49:18 by soulee            #+#    #+#             */
-/*   Updated: 2023/02/21 23:16:27 by soulee           ###   ########.fr       */
+/*   Updated: 2023/02/22 16:24:21 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,3 +98,5 @@ int	main(int argc, char *argv[])
 // soulee@c2r1s3 push_swap % ./push_swap "1 3 2" 4 5
 // Error
 // soulee@c2r1s3 push_swap % ./push_swap 0 "1 3 2" 4 5
+
+// ㄷㅏ ㄱㅗ치고 보너스에도 반반영영하하기 
