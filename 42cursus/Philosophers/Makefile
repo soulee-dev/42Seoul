@@ -4,6 +4,7 @@ NAME=philo
 
 SRCS:=
 SRCS+=philo.c
+SRCS+=initializer.c
 SRCS+=philo_utils.c
 
 FT_PRINTF=./ft_printf/libftprintf.a

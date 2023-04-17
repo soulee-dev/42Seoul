@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 17:49:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/15 17:50:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/17 15:57:20 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,21 @@ int	ft_atoi(const char *str)
 			return (sign * num);
 	}
 	return (sign * num);
+}
+
+void	exit_error(char *s)
+{
+	while (*s)
+		write(2, s++, 1);
+	write(2, "\n", 1);
+	exit(1);
+}
+
+int	get_usec_now(void)
+{
+	struct timeval	time;
+
+	if (gettimeofday(&time, NULL))
+		return (0);
+	return (time.tv_usec);
 }
