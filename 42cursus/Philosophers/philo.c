@@ -6,18 +6,35 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:34:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/17 16:31:06 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/18 17:49:56 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*ft_thread(void *philos)
+int	put_endl_mutex(t_philo_env *philo_env, int id, char *s)
 {
+	
+}
+
+void	*ft_thread(void *args)
+{
+	t_philos	*philos;
 	t_philo_env	*philo_env;
 
+	philos = args;
 	philo_env = philos->philo_env;
-	printf("%d\n", philo_env->num_philos);
+	if (philos->id & 2)
+		usleep(1000);
+	while (!philo_env->finish)
+	{
+		int	now;
+
+		now = get_usec_now();
+		if (!now)
+			return (1);
+		pthread_mutex_lock(&(philo_env->));
+	}
 	return (0);
 }
 
@@ -36,8 +53,7 @@ void	start_philo(t_philo_env *philo_env, t_philos *philos)
 	i = 0;
 	while (i < philo_env->num_philos)
 	{
-		pthread_join(philos[i].thread, NULL);
-		i++;
+		printf("%d\n", pthread_join(philos[i].thread, NULL));
 	}
 }
 

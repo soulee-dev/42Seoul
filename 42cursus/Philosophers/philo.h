@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:34:46 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/17 16:30:52 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/18 17:47:21 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_philo_env
 	int				time_eat;
 	int				time_sleep;
 	int				time_must_eat;
+	int				finish;
 	pthread_mutex_t	*forks;
 }			t_philo_env;
 
@@ -38,7 +39,7 @@ typedef struct s_philos
 	int			time_last_eat;
 	int			count_eat;
 	pthread_t	thread;
-	t_philo_env	philo_env;
+	t_philo_env	*philo_env;
 }			t_philos;
 
 // initializer.c
