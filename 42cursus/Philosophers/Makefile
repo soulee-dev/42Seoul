@@ -7,28 +7,21 @@ SRCS+=philo.c
 SRCS+=initializer.c
 SRCS+=philo_utils.c
 
-FT_PRINTF=./ft_printf/libftprintf.a
-
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $? ${CPPFLAGS} -g3
+	$(CC) -c $(CFLAGS) $? ${CPPFLAGS} -g3 #-fsanitize=thread
 
-all: $(FT_PRINTF) $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS) $(FT_PRINTF)
-	${CC} -o $@ $^ -Lft_printf -lftprintf -g3
+$(NAME): $(OBJS)
+	${CC} -o $@ $^ -g3 #-fsanitize=thread
 	@echo Compile Complete! 🥳
-
-$(FT_PRINTF):
-	make -C ./ft_printf
 
 clean:
 	rm -f ${OBJS}
-	make clean -C ./ft_printf
 
 fclean: clean
-	make fclean -C ./ft_printf
 	rm -f ${NAME}
 
 re:

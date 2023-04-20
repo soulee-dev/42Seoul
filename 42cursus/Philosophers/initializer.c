@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:46:21 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/20 13:05:47 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/20 18:49:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_philo_env(t_philo_env *philo_env, int argc, char *argv[])
 {
 	philo_env->num_philos = ft_atoi(argv[1]);
-	philo_env->time_start = get_usec_now();
+	philo_env->time_start = get_msec_now();
 	philo_env->time_die = ft_atoi(argv[2]);
 	philo_env->time_eat = ft_atoi(argv[3]);
 	philo_env->time_sleep = ft_atoi(argv[4]);
@@ -46,7 +46,7 @@ void	init_philos(t_philos **philos, t_philo_env *philo_env)
 		(*philos)[i].id = i;
 		(*philos)[i].left = i;
 		(*philos)[i].right = (i + 1) % philo_env->num_philos;
-		(*philos)[i].time_last_eat = get_usec_now();
+		(*philos)[i].time_last_eat = get_msec_now();
 		(*philos)[i].count_eat = 0;
 		if (!((*philos)[i].time_last_eat))
 			exit_error("[init_philos] time error");
@@ -61,12 +61,15 @@ void	init_mutex(t_philo_env *philo_env)
 	i = 0;
 	if (pthread_mutex_init(&(philo_env->print), NULL))
 		exit_error("[init_mutex] mutex init error");
-	philo_env->forks = malloc(sizeof(pthread_mutex_t) * philo_env->num_philos);
-	if (!philo_env->forks)
+	if (pthread_mutex_init(&(philo_env->status), NULL))
+		exit_error("[init_mutex] mutex init error");
+	philo_env->mutex_forks = malloc(
+			sizeof(pthread_mutex_t) * philo_env->num_philos);
+	if (!philo_env->mutex_forks)
 		exit_error("[init_mutex] malloc error");
 	while (i < philo_env->num_philos)
 	{
-		if (pthread_mutex_init(&(philo_env->forks[i]), NULL))
+		if (pthread_mutex_init(&(philo_env->mutex_forks[i]), NULL))
 			exit_error("[init_mutex] mutex init error");
 		i++;
 	}

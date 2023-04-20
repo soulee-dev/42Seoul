@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 17:49:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/17 15:57:20 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/20 18:30:09 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	exit_error(char *s)
 	exit(1);
 }
 
-int	get_usec_now(void)
+int	get_msec_now(void)
 {
 	struct timeval	time;
 
-	if (gettimeofday(&time, NULL))
+	if (gettimeofday(&time, NULL) == -1)
 		return (0);
-	return (time.tv_usec);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }

@@ -50,7 +50,8 @@
 		"type_traits": "c",
 		"typeinfo": "c",
 		"ft_printf.h": "c",
-		"micropaint": "c"
+		"micropaint": "c",
+		"pthread.h": "c"
 	},
 	"[c]": {
 		"editor.defaultFormatter": "keyhr.42-c-format"
