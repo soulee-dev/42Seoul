@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:34:46 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/18 17:47:21 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/20 13:26:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@
 typedef struct s_philo_env
 {
 	int				num_philos;
+	int				time_start;
 	int				time_die;
 	int				time_eat;
 	int				time_sleep;
 	int				time_must_eat;
 	int				finish;
+	pthread_mutex_t	print;
 	pthread_mutex_t	*forks;
 }			t_philo_env;
 
