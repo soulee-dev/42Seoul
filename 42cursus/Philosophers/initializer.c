@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:46:21 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/21 15:08:14 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/23 15:59:56 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void	init_philo_env(t_philo_env *philo_env, int argc, char *argv[])
 {
 	philo_env->num_philos = ft_atoi(argv[1]);
-	philo_env->time_start = get_msec_now();
 	philo_env->time_die = ft_atoi(argv[2]);
 	philo_env->time_eat = ft_atoi(argv[3]);
 	philo_env->time_sleep = ft_atoi(argv[4]);
+	philo_env->time_start = get_msec_now();
 	if (!philo_env->time_start)
 		exit_error("[init_philo_env] time error");
-	if (philo_env->num_philos <= 0 || philo_env->time_die <= 0
-		|| philo_env->time_eat <= 0 || philo_env->time_sleep <= 0)
+	if (philo_env->num_philos <= 0 || philo_env->time_die < 0
+		|| philo_env->time_eat < 0 || philo_env->time_sleep < 0)
 		exit_error("[init_philo_env] arguments error");
 	if (argc == 6)
 	{
@@ -37,19 +37,17 @@ void	init_philos(t_philos **philos, t_philo_env *philo_env)
 	int	i;
 
 	i = 0;
-	*philos = malloc(sizeof(t_philos) * philo_env->num_philos);
+	*philos = malloc(sizeof(t_philos) * (philo_env->num_philos + 1));
 	if (!philos)
 		exit_error("[init_philos] malloc error");
+	memset(*philos, 0, sizeof(t_philos) * (philo_env->num_philos + 1));
 	while (i < philo_env->num_philos)
 	{
 		(*philos)[i].philo_env = philo_env;
 		(*philos)[i].id = i;
 		(*philos)[i].left = i;
 		(*philos)[i].right = (i + 1) % philo_env->num_philos;
-		(*philos)[i].time_last_eat = get_msec_now();
 		(*philos)[i].count_eat = 0;
-		if (!((*philos)[i].time_last_eat))
-			exit_error("[init_philos] time error");
 		i++;
 	}
 }

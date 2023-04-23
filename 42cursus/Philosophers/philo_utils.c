@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 17:49:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/21 15:17:54 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/23 15:41:24 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ void	wait_time(int time, t_philo_env *philo_env)
 			exit_error("[wait_time] time error");
 		if (now - start >= time)
 			break ;
-		usleep(300);
+		usleep(100);
 	}
 }

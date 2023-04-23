@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:35:09 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/21 17:36:43 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/23 15:40:49 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	act_philo(t_philo_env *philo_env, t_philos *philos)
 		pthread_mutex_unlock(&(philo_env->mutex_forks[philos->right]));
 	}
 	pthread_mutex_unlock(&(philo_env->mutex_forks[philos->left]));
-	print_mutex(philo_env, philos, "is finished eating");
 	return (0);
 }
 
@@ -53,7 +52,7 @@ void	*ft_thread(void *args)
 	philos = args;
 	philo_env = philos->philo_env;
 	if (philos->id % 2)
-		usleep(1000);
+		usleep(500);
 	while (!is_finished(philo_env))
 	{
 		act_philo(philo_env, philos);
