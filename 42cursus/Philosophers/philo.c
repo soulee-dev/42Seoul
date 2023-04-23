@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:34:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/23 16:14:22 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/23 16:19:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	start_philo(t_philo_env *philo_env, t_philos *philos)
 		philos[i].time_last_eat = get_msec_now();
 		if (!philos[i].time_last_eat)
 			exit_error("[init_philos] time error");
-		if (pthread_create(&(philos[i].thread), NULL, ft_thread, &(philos[i])) \
-			&& pthread_detach(philos[i].thread))
+		if (pthread_create(&(philos[i].thread), NULL, ft_thread, &(philos[i]))
+			|| pthread_detach(philos[i].thread))
 			exit_error("[start_philo] thread create error");
 		i++;
 	}

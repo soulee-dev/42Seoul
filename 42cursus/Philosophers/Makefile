@@ -11,12 +11,12 @@ SRCS+=thread.c
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $? ${CPPFLAGS} #-g3 -fsanitize=thread
+	$(CC) -c $(CFLAGS) $? ${CPPFLAGS}
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	${CC} -o $@ $^ #-g3 -fsanitize=thread
+	${CC} -o $@ $^
 	@echo Compile Complete! 🥳
 
 clean:
