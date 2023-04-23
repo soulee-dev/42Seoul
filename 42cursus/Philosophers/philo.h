@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:34:46 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/20 18:49:56 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/21 17:35:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ void	init_mutex(t_philo_env *philo_env);
 int		get_msec_now(void);
 void	exit_error(char *s);
 int		ft_atoi(const char *str);
+void	print_mutex(t_philo_env *philo_env, t_philos *philos, char *s);
+void	wait_time(int time, t_philo_env *philo_env);
 
+// thread.c
 int		is_finished(t_philo_env *philo_env);
+int		act_philo(t_philo_env *philo_env, t_philos *philos);
+void	*ft_thread(void *args);
 #endif

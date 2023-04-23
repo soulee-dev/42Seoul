@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:46:21 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/20 18:49:31 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/21 15:08:14 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	init_mutex(t_philo_env *philo_env)
 {
 	int	i;
 
-	i = 0;
 	if (pthread_mutex_init(&(philo_env->print), NULL))
 		exit_error("[init_mutex] mutex init error");
 	if (pthread_mutex_init(&(philo_env->status), NULL))
@@ -67,6 +66,7 @@ void	init_mutex(t_philo_env *philo_env)
 			sizeof(pthread_mutex_t) * philo_env->num_philos);
 	if (!philo_env->mutex_forks)
 		exit_error("[init_mutex] malloc error");
+	i = 0;
 	while (i < philo_env->num_philos)
 	{
 		if (pthread_mutex_init(&(philo_env->mutex_forks[i]), NULL))

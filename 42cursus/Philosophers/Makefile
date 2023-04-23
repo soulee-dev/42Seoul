@@ -1,21 +1,22 @@
 CC=cc
 NAME=philo
-# CFLAGS=-Wall -Wextra -Werror
+CFLAGS=-Wall -Wextra -Werror
 
 SRCS:=
 SRCS+=philo.c
 SRCS+=initializer.c
 SRCS+=philo_utils.c
+SRCS+=thread.c
 
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $? ${CPPFLAGS} -g3 #-fsanitize=thread
+	$(CC) -c $(CFLAGS) $? ${CPPFLAGS} -g3 -fsanitize=thread
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	${CC} -o $@ $^ -g3 #-fsanitize=thread
+	${CC} -o $@ $^ -g3 -fsanitize=thread
 	@echo Compile Complete! 🥳
 
 clean:
