@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/24 20:17:56 by soulee            #+#    #+#             */
+/*   Updated: 2023/04/24 20:56:54 by soulee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+
+# include <iostream>
+# include <string.h>
+
+class Zombie
+{
+	private:
+		std::string	name;
+	public:
+		Zombie(void);
+		Zombie(std::string name);
+		void	announce(void);
+		void	setName(std::string name);
+};
+
+Zombie*	zombieHorde(int N, std::string name);
+#endif
