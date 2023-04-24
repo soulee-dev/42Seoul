@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 15:40:19 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/24 21:03:09 by soulee           ###   ########.fr       */
+/*   Created: 2023/04/24 21:01:52 by soulee            #+#    #+#             */
+/*   Updated: 2023/04/24 21:04:27 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#include <string>
+#include <iostream>
 
-# include <string>
-# include <iostream>
-
-class Contact
+int	main()
 {
-	public:
-		void		AddContact();
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_number;
-		std::string	secret;
-};
+	std::string	hello;
+	hello = "HI THIS IS BRAIN";
 
-#endif
+	std::string	&stringPTR;
+	std::string	&stringREF;
+	
+	cout << &hello;
+	return (1);
+}

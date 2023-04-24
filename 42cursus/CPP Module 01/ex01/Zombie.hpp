@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:17:56 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/24 20:56:54 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/24 21:02:51 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ZOMBIE_HPP
 
 # include <iostream>
-# include <string.h>
+# include <string>
 
 class Zombie
 {
