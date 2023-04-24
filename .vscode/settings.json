@@ -51,7 +51,26 @@
 		"typeinfo": "c",
 		"ft_printf.h": "c",
 		"micropaint": "c",
-		"pthread.h": "c"
+		"pthread.h": "c",
+		"__config": "cpp",
+		"__errc": "cpp",
+		"__mutex_base": "cpp",
+		"__node_handle": "cpp",
+		"__nullptr": "cpp",
+		"__threading_support": "cpp",
+		"bit": "cpp",
+		"cctype": "cpp",
+		"cmath": "cpp",
+		"complex": "cpp",
+		"cstdarg": "cpp",
+		"cstdint": "cpp",
+		"cwctype": "cpp",
+		"exception": "cpp",
+		"iosfwd": "cpp",
+		"iostream": "cpp",
+		"limits": "cpp",
+		"stdexcept": "cpp",
+		"streambuf": "cpp"
 	},
 	"[c]": {
 		"editor.defaultFormatter": "keyhr.42-c-format"
