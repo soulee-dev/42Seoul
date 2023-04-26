@@ -11,7 +11,7 @@ SRCS+=thread.c
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $? ${CPPFLAGS}
+	$(CC) -c $(CFLAGS) $?
 
 all: $(NAME)
 
