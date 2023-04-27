@@ -1,10 +1,9 @@
 CC=c++
-NAME=violence
+NAME=loosersed
 CPPFLAGS=-Wall -Wextra -Werror -std=c++98
                                                                                                                   
 SRCS:=
 SRCS+=main.cpp
-SRCS+=Weapon.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

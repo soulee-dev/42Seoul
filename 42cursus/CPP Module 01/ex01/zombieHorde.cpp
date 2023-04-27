@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 20:36:50 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/24 20:57:02 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/27 15:04:01 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ Zombie*	zombieHorde(int N, std::string name)
 	{
 		zombie[i].setName(name);
 	}
-
 	return (zombie);
 }

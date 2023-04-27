@@ -70,7 +70,11 @@
 		"iostream": "cpp",
 		"limits": "cpp",
 		"stdexcept": "cpp",
-		"streambuf": "cpp"
+		"streambuf": "cpp",
+		"fstream": "cpp",
+		"deque": "cpp",
+		"iomanip": "cpp",
+		"stack": "cpp"
 	},
 	"[c]": {
 		"editor.defaultFormatter": "keyhr.42-c-format"
