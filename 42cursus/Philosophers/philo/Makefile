@@ -7,7 +7,6 @@ SRCS+=philo.c
 SRCS+=initializer.c
 SRCS+=philo_utils.c
 SRCS+=thread.c
-SRCS+=philo_utils2.c
 
 OBJS = $(SRCS:.c=.o)
 
