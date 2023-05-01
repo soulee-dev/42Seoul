@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:35:09 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/24 16:32:44 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 12:09:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	act_philo(t_philo_env *philo_env, t_philos *philos)
 		philos->time_last_eat = get_msec_now();
 		philos->count_eat++;
 		pthread_mutex_unlock(&(philo_env->status));
-		wait_time(philo_env->time_eat, philo_env);
+		wait_time(philo_env->time_eat * 1000);
 		pthread_mutex_unlock(&(philo_env->mutex_forks[philos->right]));
 	}
 	pthread_mutex_unlock(&(philo_env->mutex_forks[philos->left]));
@@ -64,7 +64,7 @@ void	*ft_thread(void *args)
 			break ;
 		}
 		print_mutex(philo_env, philos, "is sleeping");
-		wait_time(philo_env->time_sleep, philo_env);
+		wait_time(philo_env->time_sleep * 1000);
 		print_mutex(philo_env, philos, "is thinking");
 	}
 	return (0);
