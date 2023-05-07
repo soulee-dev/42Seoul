@@ -7,16 +7,17 @@ SRCS+=philo.c
 SRCS+=initializer.c
 SRCS+=philo_utils.c
 SRCS+=thread.c
+SRCS+=philo_utils2.c
 
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $?
+	$(CC) -c $(CFLAGS) $? -g3
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	${CC} -o $@ $^
+	${CC} -o $@ $^ -g3
 	@echo Compile Complete! 🥳
 
 clean:

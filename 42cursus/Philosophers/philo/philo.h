@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:34:46 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 12:19:59 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/07 16:11:21 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,19 @@ typedef struct s_philos
 }			t_philos;
 
 // initializer.c
-void	init_philo_env(t_philo_env *philo_env, int argc, char *argv[]);
-void	init_philos(t_philos **philos, t_philo_env *philo_env);
-void	init_mutex(t_philo_env *philo_env);
+int		init_philo_env(t_philo_env *philo_env, int argc, char *argv[]);
+int		init_philos(t_philos **philos, t_philo_env *philo_env);
+int		init_mutex(t_philo_env *philo_env);
 
 // philo_utils.c
 int		get_msec_now(void);
-void	exit_error(char *s);
 int		ft_atoi(const char *str);
 void	print_mutex(t_philo_env *philo_env, t_philos *philos, char *s);
 void	wait_time(int time, t_philo_env *philo_env);
+
+// philo_utils2.c
+int		ret_error(t_philo_env *philo_env, t_philos *philos, char *s);
+void	clear_all(t_philo_env *philo_env, t_philos *philos);
 
 // thread.c
 int		is_finished(t_philo_env *philo_env);
