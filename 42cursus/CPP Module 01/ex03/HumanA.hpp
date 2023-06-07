@@ -14,15 +14,4 @@ public:
 	HumanA(std::string name, Weapon &weapon);
 	void	attack();
 };
-
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon)
-{
-
-}
-
-void	HumanA::attack()
-{
-	std::cout << this->name << " attacks with thier " << this->weapon.getType() << std::endl; 
-}
-
 #endif
