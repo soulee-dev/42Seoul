@@ -1,9 +1,10 @@
 CC=c++
-NAME=loosersed
+NAME=harl
 CPPFLAGS=-Wall -Wextra -Werror -std=c++98
                                                                                                                   
 SRCS:=
 SRCS+=main.cpp
+SRCS+=Harl.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

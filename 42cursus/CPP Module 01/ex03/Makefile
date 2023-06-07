@@ -5,6 +5,8 @@ CPPFLAGS=-Wall -Wextra -Werror -std=c++98
 SRCS:=
 SRCS+=main.cpp
 SRCS+=Weapon.cpp
+SRCS+=HumanA.cpp
+SRCS+=HumanB.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
