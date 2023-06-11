@@ -77,7 +77,7 @@
 		"stack": "cpp"
 	},
 	"[c]": {
-		"editor.defaultFormatter": "keyhr.42-c-format"
+		"editor.defaultFormatter": "ms-vscode.cpptools"
 	},
 	"editor.insertSpaces": false,
 	
