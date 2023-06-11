@@ -9,7 +9,7 @@ SRCS+=Fixed.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 %.o: %.cpp
-	$(CC) -c $(CPPFLAGS) $< -o $@
+	$(CC) -c $(CXXFLAGS) $< -o $@
 
 all: $(NAME)
 
