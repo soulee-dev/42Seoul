@@ -6,13 +6,18 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 13:31:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/12 17:05:59 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/12 17:08:15 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
+
+void	check_leaks()
+{
+	system("leaks polymorphism");
+}
 
 int	main()
 {
@@ -21,6 +26,8 @@ int	main()
 	const Animal*	i = new Cat("j: Domestic Korean Short Hair");
 	const WrongAnimal*	wrong = new WrongCat("peww");
 
+
+	atexit(check_leaks);
 	std::cout << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
