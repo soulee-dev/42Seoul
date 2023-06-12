@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 11:56:50 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/12 13:02:40 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/12 13:18:07 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ClapTrap::attack(const std::string& target)
 		this->energy_point--;
 	}
 	else
-		std::cout << "[ClapTrap] " << this->name << " has no energy or no hp" << std::endl; 
+		std::cout << "[ClapTrap] " << this->name << " has no energy or hp" << std::endl; 
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -86,5 +86,5 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		this->energy_point--;
 	}
 	else
-		std::cout << "[ClapTrap] " << this->name << " has no hp" << std::endl;
+		std::cout << "[ClapTrap] " << this->name << " has no energy or hp" << std::endl;
 }
