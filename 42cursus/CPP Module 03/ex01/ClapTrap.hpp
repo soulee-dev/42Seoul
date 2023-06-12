@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 11:56:47 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/12 12:52:05 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/12 12:52:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string	name;
 		unsigned int	hit_point;
 		unsigned int	energy_point;

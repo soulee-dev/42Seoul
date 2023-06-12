@@ -6,21 +6,22 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:43:52 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/12 12:39:29 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/12 13:06:43 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main()
 {
-	ClapTrap	a("a");
-	ClapTrap	b("b");
-	ClapTrap	c;
+	ScavTrap	a("a");
+	ScavTrap	b("b");
+	ScavTrap	c;
 
 	c = b;
 
 	a.attack("b");
+	a.guardGate();
 	b.takeDamage(10);
 	b.beRepaired(10);
 	b.attack("a");

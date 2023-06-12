@@ -1,10 +1,13 @@
 CC=c++
-NAME=fixed
+NAME=scavtrap
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98
-                                                                                                                  
+
+RM=rm -f
+
 SRCS:=
 SRCS+=main.cpp
-SRCS+=Fixed.cpp
+SRCS+=ClapTrap.cpp
+SRCS+=ScavTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -17,10 +20,10 @@ $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 
 clean:
-	rm -f ${OBJS}
+	$(RM) ${OBJS}
 
 fclean: clean
-	rm -f ${NAME}
+	$(RM) ${NAME}
 
 re:
 	make fclean

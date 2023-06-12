@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 14:43:52 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/12 12:39:29 by soulee           ###   ########.fr       */
+/*   Created: 2023/06/12 12:50:40 by soulee            #+#    #+#             */
+/*   Updated: 2023/06/12 13:04:07 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int	main()
+# include <iostream>
+# include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-	ClapTrap	a("a");
-	ClapTrap	b("b");
-	ClapTrap	c;
+	public:
+		ScavTrap(void);
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap& ref);
+		~ScavTrap(void);
 
-	c = b;
+		ScavTrap&	operator=(const ScavTrap& ref);
 
-	a.attack("b");
-	b.takeDamage(10);
-	b.beRepaired(10);
-	b.attack("a");
-	c.attack("b");
-}
+		void	attack(const std::string& target);
+		void	guardGate(void);
+};
+
+#endif
