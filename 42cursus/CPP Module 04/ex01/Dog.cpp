@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 13:32:50 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/12 19:26:38 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/12 22:01:27 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ Dog::Dog(void)
 Dog::Dog(std::string type)
 {
 	this->type = type;
+	this->brain = new Brain();
+	for (size_t i = 0; i < 100; i++)
+		this->brain->setIdea("Bark! Bark!", i);
 	std::cout << "[Dog] " << this->type << " : constructor" << std::endl;
 }
 

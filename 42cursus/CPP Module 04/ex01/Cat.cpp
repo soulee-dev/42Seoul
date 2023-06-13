@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 13:32:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/12 19:39:46 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/12 22:01:20 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ Cat::Cat(void)
 Cat::Cat(std::string type)
 {
 	this->type = type;
+	this->brain = new Brain();
+	for (size_t i = 0; i < 100; i++)
+		this->brain->setIdea("Meow.. Meow..", i);
 	std::cout << "[Cat] " << this->type << " : constructor" << std::endl;
 }
 
