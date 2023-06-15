@@ -74,7 +74,9 @@
 		"fstream": "cpp",
 		"deque": "cpp",
 		"iomanip": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"__functional_03": "cpp",
+		"filesystem": "cpp"
 	},
 	"[c]": {
 		"editor.defaultFormatter": "ms-vscode.cpptools"
