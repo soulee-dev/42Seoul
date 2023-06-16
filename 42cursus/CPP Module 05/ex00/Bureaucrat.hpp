@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 20:51:29 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/15 15:34:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/15 16:45:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Bureaucrat
 		Bureaucrat(void);
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat& ref);
-		~Bureaucrat(void);
+		~Bureaucrat();
 
 		Bureaucrat&	operator=(const Bureaucrat& ref);
 
