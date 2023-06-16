@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 20:51:06 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/16 16:04:48 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/16 16:27:46 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main()
 {
 	// ShrubberyCreationForm
 	Bureaucrat				a("Soul Lee", 146);
+	Bureaucrat				b("Mastermind", 1);
 	ShrubberyCreationForm	contract("Real Estate constracts", false);
 
 	try
@@ -35,11 +36,12 @@ int	main()
 		a.increaseGrade();
 		contract.beSigned(a);
 		a.signForm(contract);
+		a.executeForm(contract);
 	}
 	catch (std::exception& e)
 	{
 		std::cout << "error occured: " << e.what() << std::endl;
-		return (1);
 	}
+	b.executeForm(contract);
 	return (0);
 }

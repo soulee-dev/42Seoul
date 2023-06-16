@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 14:22:51 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/16 15:28:13 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/16 16:19:11 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
+# include <fstream>
+# include <string>
 
 class ShrubberyCreationForm : public AForm
 {
