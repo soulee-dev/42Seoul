@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:56:04 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/16 15:32:42 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/16 16:09:08 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Bureaucrat;
 
 class AForm
 {
-	protected:
+	private:
 		const std::string	name;
 		bool				isSigned;
 		const int			gradeToSign;
