@@ -10,6 +10,7 @@ SRCS+=Bureaucrat.cpp
 SRCS+=AForm.cpp
 SRCS+=ShrubberyCreationForm.cpp
 SRCS+=RobotomyRequestForm.cpp
+SRCS+=PresidentialPardonForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
