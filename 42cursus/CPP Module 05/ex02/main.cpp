@@ -6,11 +6,12 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 20:51:06 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/16 14:54:41 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/16 15:32:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
 int	main()

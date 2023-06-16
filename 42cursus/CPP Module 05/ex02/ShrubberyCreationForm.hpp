@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 14:22:51 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/16 14:54:50 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/16 15:28:13 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm&	operator=(const ShrubberyCreationForm& ref);
 
-		void					beSigned(const Bureaucrat& signer);
-		void					execute(Bureaucrat const& executor);
+		void					execute(Bureaucrat const& executor) const;
 };
 
 #endif

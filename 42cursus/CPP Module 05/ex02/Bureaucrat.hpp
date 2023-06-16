@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 20:51:29 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/16 14:53:05 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/16 15:31:11 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Bureaucrat
 		void				increaseGrade(void);
 		void				decreaseGrade(void);
 		void				signForm(AForm& form);
-		void				executeForm(Form const& form);
+		void				executeForm(AForm const& form);
 
 		class GradeTooHighException : public std::exception
 		{

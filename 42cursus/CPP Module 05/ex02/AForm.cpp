@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:56:07 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/16 14:38:55 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/16 15:32:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,19 @@ int					AForm::getGradeToSign(void) const
 int					AForm::getGradeToExecute(void) const
 {
 	return (this->gradeToExecute);
+}
+
+void				AForm::beSigned(const Bureaucrat& signer)
+{
+	if (signer.getGrade() > this->getGradeToSign())
+		throw AForm::GradeTooLowException();
+	if (!this->getIsSigned())
+	{
+		this->isSigned = true;
+		std::cout << signer.getName() << " signed " << this->getName() << std::endl;
+	}
+	else
+		std::cout << signer.getName() << " couldn't sign " << this->getName() << " because form is already signed" << std::endl;
 }
 
 const char*	AForm::GradeTooHighException::what(void) const throw()

@@ -1,5 +1,5 @@
 CC=c++
-NAME=form
+NAME=forms
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
 RM=rm -f
@@ -7,6 +7,7 @@ RM=rm -f
 SRCS:=
 SRCS+=main.cpp
 SRCS+=Bureaucrat.cpp
+SRCS+=AForm.cpp
 SRCS+=ShrubberyCreationForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)

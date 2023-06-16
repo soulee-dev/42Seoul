@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 20:51:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/16 14:53:24 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/16 15:31:21 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,12 @@ void	Bureaucrat::setGrade(int grade)
 	this->grade = grade;
 }
 
-void		Bureaucrat::signForm(Form& form)
+void		Bureaucrat::signForm(AForm& form)
 {
 	form.beSigned(*this);
 }
 
-void		Bureaucrat::executeForm(Form const& form)
+void		Bureaucrat::executeForm(AForm const& form)
 {
 	form.execute(*this);
 }
