@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 14:22:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/16 16:25:17 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/16 16:52:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void					ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 	if (this->getIsSigned())
 	{
 		std::ofstream	outfile((this->getName() + "_shrubbery").c_str());
-		std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 		outfile << "       _-_" << std::endl;
 		outfile << "    /~~   ~~\\" << std::endl;
 		outfile << " /~~         ~~\\" << std::endl;
@@ -61,7 +60,8 @@ void					ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 		outfile << "  _ -  | |   -_" << std::endl;
 		outfile << "      // \\\\" << std::endl;
 		outfile.close();
+		std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 	}
 	else
-		std::cout << executor.getName() << " couldn't sign " << this->getName() << " because form isn't signed" << std::endl;
+		std::cout << executor.getName() << " couldn't execute " << this->getName() << " because form isn't signed" << std::endl;
 }

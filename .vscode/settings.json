@@ -76,7 +76,9 @@
 		"iomanip": "cpp",
 		"stack": "cpp",
 		"__functional_03": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"numeric": "cpp",
+		"random": "cpp"
 	},
 	"[c]": {
 		"editor.defaultFormatter": "ms-vscode.cpptools"
