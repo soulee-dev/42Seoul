@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 15:28:39 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/18 16:28:36 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/18 16:37:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ ScalarConverter::~ScalarConverter()
 	std::cout << "[ScalarConverter] Destructor" << std::endl;
 }
 
-ScalarConverter&	ScalarConverter::operator=(const ScalarConverter &ref)
+ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& ref)
 {
 	if (this != &ref)
 		return (*this);
