@@ -1,5 +1,5 @@
 CC=c++
-NAME=template
+NAME=iter
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
 RM=rm -f

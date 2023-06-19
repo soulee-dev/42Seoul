@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/18 21:08:24 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/19 13:02:42 by soulee           ###   ########.fr       */
+/*   Created: 2023/06/18 21:19:14 by soulee            #+#    #+#             */
+/*   Updated: 2023/06/19 13:13:26 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "iter.hpp"
+#include <iostream>
 
-template<typename T>
-
-void	swap(T& a, T& b)
+int	main(void)
 {
-	T	tmp = a;
-	a = b;
-	b = tmp;
+	int	a[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+	iter(a, sizeof(a) / sizeof(*a), print);
+	std::cout << std::endl;
+
+	char	b[6] = "Hello";
+	iter(b, sizeof(b) / sizeof(*b), print);
+	std::cout << std::endl;
+
+	return (0);
 }
-
-
-template<typename U>
-
-const U&	min(const U& a, const U& b)
-{
-	return (a <= b ? a : b);
-}
-
-
-template<typename V>
-
-const V&	max(const V& a, const V& b)
-{
-	return (a >= b ? a : b);
-}
-
-

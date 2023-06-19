@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/18 21:08:24 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/19 13:02:42 by soulee           ###   ########.fr       */
+/*   Created: 2023/06/18 21:19:11 by soulee            #+#    #+#             */
+/*   Updated: 2023/06/19 13:12:21 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ITER_HPP
+# define ITER_HPP
+
+#include <iostream>
 
 template<typename T>
 
-void	swap(T& a, T& b)
+void	iter(T *arr, size_t length, void(*fn)(T&))
 {
-	T	tmp = a;
-	a = b;
-	b = tmp;
+	for (size_t i = 0; i < length; i++)
+		fn(arr[i]);
 }
 
 
-template<typename U>
+template<typename T>
 
-const U&	min(const U& a, const U& b)
+void	print(T& s)
 {
-	return (a <= b ? a : b);
+	std::cout << s << " ";
 }
 
-
-template<typename V>
-
-const V&	max(const V& a, const V& b)
-{
-	return (a >= b ? a : b);
-}
-
-
+#endif
