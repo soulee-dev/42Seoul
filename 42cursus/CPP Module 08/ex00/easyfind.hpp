@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:31:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/26 14:43:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/27 01:41:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typename	T::iterator	easyfind(T& container, int val)
 	iter = std::find(container.begin(), container.end(), val);
 	if (iter == container.end())
 		throw std::runtime_error("Value is not in Container");
-	return iter;
+	return (iter);
 }
 
 #endif
