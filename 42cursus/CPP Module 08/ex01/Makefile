@@ -1,5 +1,5 @@
 CC=c++
-NAME=easyfind
+NAME=span
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
 RM=rm -f
