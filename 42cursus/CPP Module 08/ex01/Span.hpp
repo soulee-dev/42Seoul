@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:36:13 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/26 22:58:46 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/27 01:35:09 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ class Span
 		Span(const Span& ref);
 		~Span();
 
-		Span&			operator=(const Span& ref);
+		Span&	operator=(const Span& ref);
 		
-		void			addNumber(const int val);
-		int	shortestSpan(void);
-		int	longestSpan(void);
+		void	addNumber(const int val);
+		void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		int		shortestSpan(void);
+		int		longestSpan(void);
 };
 
 #endif

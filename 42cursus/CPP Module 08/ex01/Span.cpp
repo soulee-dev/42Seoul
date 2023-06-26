@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:35:57 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/26 23:19:31 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/27 01:37:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,43 +37,54 @@ Span::~Span()
 
 Span&	Span::operator=(const Span& ref)
 {
-	if (this != &ref) {
-		std::vector<int>	tmp(ref.storage);
-		storage = tmp;
-		N = ref.N;
+	std::cout << "[Span] Overloaded assignmnet operator" << std::endl;
+	if (this != &ref)
+	{
+		this->storage = ref.storage;
+		this->N = ref.N;
 	}
 	return (*this);
 }
 
+void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (std::distance(begin, end) > this->N)
+		throw std::logic_error("Error: Vector is full");
+	this->storage.insert(this->storage.end(), begin, end);
+}
+
 void	Span::addNumber(const int val)
 {
-	storage.push_back(val);
+	if (this->storage.size() < this->storage.capacity())
+		this->storage.push_back(val);
+	else
+		throw std::logic_error("Error: Vector is full");
 }
 
 int	Span::shortestSpan(void)
 {
-	// for문을 돌면서 두 값의 차가 가장 작은 것
-	int min = 2147483647;
-	sort(storage.begin(), storage.end());
-	for (std::size_t i = 0; i < storage.size() - 1; i++)
+	if (this->storage.size() < 2)
+		throw std::logic_error("Error: Less than two elements");
+
+	int 				min = INT_MAX;
+	std::vector<int>	v(this->storage);
+
+	sort(v.begin(), v.end());
+	for (std::size_t i = 0; i < v.size() - 1; i++)
 	{
-		int	diff = storage[i + 1] - storage[i];
+		int	diff = v[i + 1] - v[i];
 		if (min > diff)
 			min = diff;
 	}
-
-	// for (std::vector<int>::iterator it = storage.begin(); it != storage.end() - 1; it++)
-	// {
-	// 	int diff = *(it + 1) - *it;
-	// 	if (min > diff)
-	// 		min = diff;
-	// }
 	return (min);
 }
 
 int	Span::longestSpan(void)
 {
-	// 가장 큰  값값과  작작은  값값의   차
-	sort(storage.begin(), storage.end());
-	return (*(storage.end() - 1) - *storage.begin());
+	if (this->storage.size() < 2)
+		throw std::logic_error("Error: Less than two elements");
+
+	std::vector<int>	v(this->storage);
+	sort(v.begin(), (v.end()));
+	return (*(v.end() - 1) - *(v.begin()));
 }
