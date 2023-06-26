@@ -1,11 +1,13 @@
 CC=c++
 NAME=span
-CXXFLAGS=-Wall -Wextra -Werror -std=c++98
+CXXFLAGS=-Wall -Wextra -Werror -std=c++98 -g3
 
 RM=rm -f
 
 SRCS:=
 SRCS+=main.cpp
+SRCS+=Span.cpp
+
 
 OBJS = $(SRCS:.cpp=.o)
 
