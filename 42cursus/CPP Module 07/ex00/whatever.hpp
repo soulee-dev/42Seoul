@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 21:08:24 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/19 13:02:42 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/26 21:50:37 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ template<typename U>
 
 const U&	min(const U& a, const U& b)
 {
-	return (a <= b ? a : b);
+	return (a < b ? a : b);
 }
 
 
@@ -34,7 +34,7 @@ template<typename V>
 
 const V&	max(const V& a, const V& b)
 {
-	return (a >= b ? a : b);
+	return (a > b ? a : b);
 }
 
 
