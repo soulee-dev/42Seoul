@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 21:19:11 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/19 13:12:21 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/26 21:51:47 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 template<typename T>
 
 void	iter(T *arr, size_t length, void(*fn)(T&))
+{
+	for (size_t i = 0; i < length; i++)
+		fn(arr[i]);
+}
+
+template<typename T>
+
+void	iter(const T *arr, size_t length, void(*fn)(const T&))
 {
 	for (size_t i = 0; i < length; i++)
 		fn(arr[i]);
