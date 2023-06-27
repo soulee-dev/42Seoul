@@ -6,12 +6,10 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 12:41:24 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/27 20:45:52 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/27 20:57:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO: Check leap year
-// TODO: Use map container, and lower_bound
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange() : data_file_path(DATA_PATH)
