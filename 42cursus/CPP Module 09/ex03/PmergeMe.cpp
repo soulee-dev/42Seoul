@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 22:43:27 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/28 11:36:51 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/28 13:25:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ std::vector<int>	PmergeMe::vectorMergeInsertionSort(std::vector<int> X)
 	}
 	
 	if (n % 2 == 1)
-		pairs.push_back(std::make_pair(X[n - 1], X[n -1 ]));
+		pairs.push_back(std::make_pair(X[n - 1], X[n - 1]));
 	
 	std::sort(pairs.begin(), pairs.end(), comparePair);
 
@@ -60,6 +60,8 @@ std::vector<int>	PmergeMe::vectorMergeInsertionSort(std::vector<int> X)
 	
 	for (std::size_t i = 0; i < pairs.size(); i++)
 	{
+		if (pairs[i].first == pairs[i].second)
+			continue;
 		std::vector<int>::iterator	pos;
 		pos = std::lower_bound(S.begin(), S.end(), pairs[i].second);
 		S.insert(pos, pairs[i].second);
@@ -93,6 +95,8 @@ std::list<int>	PmergeMe::listMergeInsertionSort(std::list<int> X)
 	
 	for (std::list<Pair>::iterator it = pairs.begin(); it != pairs.end(); it++)
 	{
+		if (it->first == it->second)
+			continue;
 		std::list<int>::iterator	pos;
 		pos = std::lower_bound(S.begin(), S.end(), it->second);
 		S.insert(pos, it->second);
