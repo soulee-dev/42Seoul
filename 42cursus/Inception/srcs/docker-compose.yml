@@ -1,0 +1,32 @@
+version:  '3'
+
+services:
+  nginx:
+    image: debian:buster
+    volumes:
+      - wp_data:/var/www/html
+    restart: always
+    ports:
+      - 443:443
+  wordpress:
+    image: debian:buster
+    volumes:
+      - wp_data:/var/www/html
+    restart: always
+    expose:
+      - 9000
+  mariadb:
+    image: debian:buster
+    # volumes:
+    #   - db_data:/
+    restart: always
+    expose:
+      - 3306
+
+volumes:
+  db_data:
+  wp_data:
+
+networks:
+  inception:
+    driver: bridge
