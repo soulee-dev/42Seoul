@@ -2,30 +2,45 @@ version:  '3'
 
 services:
   nginx:
-    image: debian:buster
+    env_file: .env
+    build: ./requirements/nginx
     volumes:
       - wp_data:/var/www/html
+    networks:
+      - inception
     restart: always
     ports:
       - 443:443
+
   wordpress:
-    image: debian:buster
+    env_file: .env
+    build: ./requirements/wordpress
     volumes:
       - wp_data:/var/www/html
+    networks:
+      - inception
     restart: always
-    expose:
-      - 9000
+
   mariadb:
-    image: debian:buster
-    # volumes:
-    #   - db_data:/
+    env_file: .env
+    build: ./requirements/wordpress
+    # TODO: should check /var/run/mysqld or /var/lib/mysql which one is correct
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - inception
     restart: always
-    expose:
-      - 3306
 
 volumes:
   db_data:
+    driver: local
+    driver_opts:
+      device: /home/soulee/data/www
+      o: bind
   wp_data:
+    driver: local
+    driver_opts:
+      device: /home/soulee/wp-/mysql
 
 networks:
   inception:
