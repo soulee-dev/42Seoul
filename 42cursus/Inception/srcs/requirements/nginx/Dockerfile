@@ -1,13 +1,11 @@
 FROM		debian:buster
 
-RUN			apt update && \
-			apt upgrade && \
-			apt install -y nginx openssl
+RUN			apt-get update && \
+			apt-get install -y nginx openssl
 
-RUN			sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
-				-subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=eunrlee"
+RUN			openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=soulee"
 
-COPY		./conf/default /etc/nginx/site-avaliable
+COPY		./conf/default /etc/nginx/site-available
 
 EXPOSE		443
 

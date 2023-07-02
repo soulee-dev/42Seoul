@@ -4,8 +4,8 @@ services:
   nginx:
     env_file: .env
     build: ./requirements/nginx
-    volumes:
-      - wp_data:/var/www/html
+    # volumes:
+    #   - wp_data:/var/www/html
     networks:
       - inception
     restart: always
@@ -15,18 +15,18 @@ services:
   wordpress:
     env_file: .env
     build: ./requirements/wordpress
-    volumes:
-      - wp_data:/var/www/html
+    # volumes:
+    #   - wp_data:/var/www/html
     networks:
       - inception
     restart: always
 
   mariadb:
     env_file: .env
-    build: ./requirements/wordpress
+    build: ./requirements/mariadb
     # TODO: should check /var/run/mysqld or /var/lib/mysql which one is correct
-    volumes:
-      - db_data:/var/lib/mysql
+    # volumes:
+    #   - db_data:/var/lib/mysql
     networks:
       - inception
     restart: always
@@ -36,11 +36,14 @@ volumes:
     driver: local
     driver_opts:
       device: /home/soulee/data/www
+      type: none
       o: bind
   wp_data:
     driver: local
     driver_opts:
       device: /home/soulee/wp-/mysql
+      type: none
+      o: bind
 
 networks:
   inception:
