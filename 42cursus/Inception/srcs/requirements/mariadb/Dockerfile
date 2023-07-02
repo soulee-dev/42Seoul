@@ -9,6 +9,8 @@ RUN		chown mysql:mysql /var/run/mysqld
 COPY	./conf/my.cnf /etc/mysql/
 COPY	./tools/entry.sh /
 
-RUN		chmod +x /entry
+RUN		chmod +x /entry.sh
+
+EXPOSE	3306
 
 ENTRYPOINT ["sh", "/entry.sh"]

@@ -1,6 +1,7 @@
 #!/bin/sh
+sleep 10
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-chmod +x wpp-cli.phar
+chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 
 mkdir -p /run/php
@@ -15,12 +16,11 @@ wp core install --allow-root --path=/var/www \
 	--admin_password=$ADMIN_PASSWORD \
 	--skip-email
 
-wp user create -allow-root --path=/var/www \
+wp user create --allow-root --path=/var/www \
 	$USER_LOGIN \
 	$USER_EMAIL \
 	--role=author \
 	--user_pass=$USER_PASS
 
-sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm/pool.d/www.conf
-
+sleep 5
 exec /usr/sbin/php-fpm7.3 -F
