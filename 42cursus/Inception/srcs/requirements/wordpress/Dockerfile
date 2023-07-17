@@ -1,7 +1,8 @@
 FROM	debian:buster
 
 RUN		apt-get update && \
-		apt-get install -y php7.3 php-fpm php7.3-mysql curl
+		apt-get install -y php7.3 php-fpm php7.3-mysql curl && \
+		apt-get install -y dumb-init
 
 RUN		mkdir -p /var/www
 RUN		curl -O https://wordpress.org/latest.tar.gz
@@ -18,4 +19,4 @@ RUN		chmod +x /entry.sh
 
 EXPOSE	9000
 
-ENTRYPOINT	["sh", "/entry.sh"]
+ENTRYPOINT	["/usr/bin/dumb-init", "--", "/entry.sh"]
